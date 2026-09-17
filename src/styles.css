@@ -1,0 +1,60 @@
+:root {
+  --bg: #0b0f14;
+  --panel: #131a22;
+  --text: #d8e1ea;
+  --accent: #3ddbd9;
+  --pass: #6fdc8c;
+  --fail: #ff8389;
+  font-family: "Consolas", "Courier New", monospace;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#app {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.title {
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+.menu {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.menu-item {
+  padding: 0.75rem;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid #2a3542;
+  font: inherit;
+  text-align: left;
+}
+
+.menu-item:disabled {
+  opacity: 0.6;
+}
+
+.system-check {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--panel);
+}
+
+.system-check ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pass { color: var(--pass); }
+.fail { color: var(--fail); }

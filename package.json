@@ -1,0 +1,22 @@
+{
+  "name": "code-breach",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CODE//BREACH - a tactical revision shooter for the T Level Technical Qualification in Digital Software Development",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.10.0",
+    "globals": "^17.12.0",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
+  }
+}

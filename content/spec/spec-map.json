@@ -1,0 +1,224 @@
+{
+  "qualification": {
+    "title": "T Level Technical Qualification in Digital Software Development (Level 3)",
+    "awardingBody": "Pearson",
+    "qualificationNumber": "610/5801/4",
+    "specVersion": "1.0 (May 2025)",
+    "firstTeaching": "2025-09",
+    "replaces": "603/5832/4 Digital Production, Design and Development",
+    "codeLanguage": "Python 3.10 or later"
+  },
+  "components": [
+    {
+      "id": "core-paper-1",
+      "name": "Core Paper 1",
+      "gameMap": "core1",
+      "assessment": { "type": "written exam", "durationMinutes": 135, "marks": 90, "percentOfCore": 30 },
+      "contentAreas": [
+        {
+          "id": "CA1",
+          "title": "Problem solving",
+          "sections": [
+            { "id": "1.1", "title": "Computational thinking" },
+            { "id": "1.2", "title": "Algorithmic design" },
+            { "id": "1.3", "title": "Strategies" }
+          ]
+        },
+        {
+          "id": "CA2",
+          "title": "Introduction to programming",
+          "sections": [
+            { "id": "2.1", "title": "Standard data types" },
+            { "id": "2.2", "title": "Variables and constants" },
+            { "id": "2.3", "title": "Data structures" },
+            { "id": "2.4", "title": "Operators" },
+            { "id": "2.5", "title": "Input and output" },
+            { "id": "2.6", "title": "Actions" },
+            { "id": "2.7", "title": "Functions and procedures" },
+            { "id": "2.8", "title": "Validation" },
+            { "id": "2.9", "title": "Design considerations and programming practices" },
+            { "id": "2.10", "title": "Robust code" },
+            { "id": "2.11", "title": "Common algorithms" },
+            { "id": "2.12", "title": "Testing" }
+          ]
+        },
+        {
+          "id": "CA3",
+          "title": "Emerging issues",
+          "sections": [
+            { "id": "3.1", "title": "Impact of digital technologies" },
+            { "id": "3.2", "title": "Emerging technologies" }
+          ]
+        },
+        {
+          "id": "CA4",
+          "title": "Legislation and regulatory requirements",
+          "sections": [
+            { "id": "4.1", "title": "Legislation" },
+            { "id": "4.2", "title": "Guidelines" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core-paper-2",
+      "name": "Core Paper 2",
+      "gameMap": "core2",
+      "assessment": { "type": "written exam", "durationMinutes": 135, "marks": 90, "percentOfCore": 30 },
+      "contentAreas": [
+        {
+          "id": "CA5",
+          "title": "Business context",
+          "sections": [
+            { "id": "5.1", "title": "Business environment" },
+            { "id": "5.2", "title": "Digital value to organisations" },
+            { "id": "5.3", "title": "Risk to organisations of using digital systems" },
+            { "id": "5.4", "title": "Technical change management" }
+          ]
+        },
+        {
+          "id": "CA6",
+          "title": "Data",
+          "sections": [
+            { "id": "6.1", "title": "Data, information and knowledge" },
+            { "id": "6.2", "title": "Methods of transforming data" },
+            { "id": "6.3", "title": "Data taxonomy" },
+            { "id": "6.4", "title": "Data types" },
+            { "id": "6.5", "title": "Data formats" },
+            { "id": "6.6", "title": "Structures for storing data" },
+            { "id": "6.7", "title": "Data dimensions and maintenance" },
+            { "id": "6.8", "title": "Data systems" },
+            { "id": "6.9", "title": "Data visualisation" },
+            { "id": "6.10", "title": "Data models" },
+            { "id": "6.11", "title": "Data access across platforms" },
+            { "id": "6.12", "title": "Data analysis tools" }
+          ]
+        },
+        {
+          "id": "CA7",
+          "title": "Digital environments",
+          "sections": [
+            { "id": "7.1", "title": "Hardware" },
+            { "id": "7.2", "title": "Software" },
+            { "id": "7.3", "title": "Networks" },
+            { "id": "7.4", "title": "Virtual environments" },
+            { "id": "7.5", "title": "Cloud environments" },
+            { "id": "7.6", "title": "Resilient digital environments" }
+          ]
+        },
+        {
+          "id": "CA8",
+          "title": "Security",
+          "sections": [
+            { "id": "8.1", "title": "Security risks" },
+            { "id": "8.2", "title": "Types of threats and vulnerabilities" },
+            { "id": "8.3", "title": "Threat mitigation" },
+            { "id": "8.4", "title": "Interrelationship of components required for effective security" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "esp",
+      "name": "Employer Set Project",
+      "gameMap": "esp",
+      "assessment": { "type": "externally set project", "durationMinutes": 870, "marks": 100, "percentOfCore": 40 },
+      "contentAreas": [
+        {
+          "id": "ESP",
+          "title": "Employer Set Project tasks",
+          "sections": [
+            { "id": "ESP.0", "title": "Pre-task: familiarisation with the industry context" },
+            { "id": "ESP.1", "title": "Task 1: Planning a project (Gantt chart, resource and cost plan, rationale)" },
+            { "id": "ESP.2", "title": "Task 2: Identifying and fixing defects in existing code" },
+            { "id": "ESP.3", "title": "Task 3: Designing a solution" },
+            { "id": "ESP.4a", "title": "Task 4a: Developing a solution (pandas, Matplotlib)" },
+            { "id": "ESP.4b", "title": "Task 4b: Reflective evaluation" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "occupational-specialism",
+      "name": "Occupational Specialism: Digital Software Development",
+      "gameMap": null,
+      "assessment": { "type": "externally set project", "durationMinutes": 3030, "marks": 144, "percentOfCore": null },
+      "contentAreas": [
+        {
+          "id": "OS1",
+          "title": "Analyse a problem to define requirements and acceptance criteria",
+          "sections": [
+            { "id": "OS1.1", "title": "Software development lifecycle stages" },
+            { "id": "OS1.2", "title": "Roles and responsibilities of the digital team" },
+            { "id": "OS1.3", "title": "Project methodologies" },
+            { "id": "OS1.4", "title": "Functional and non-functional requirements" },
+            { "id": "OS1.5", "title": "Emerging technologies and their impact" },
+            { "id": "OS1.6", "title": "Personal training needs" }
+          ]
+        },
+        {
+          "id": "OS2",
+          "title": "Ethical principles, legal and regulatory requirements, and risk",
+          "sections": [
+            { "id": "OS2.1", "title": "Legal and regulatory requirements" },
+            { "id": "OS2.2", "title": "Identifying and managing risks" }
+          ]
+        },
+        {
+          "id": "OS3",
+          "title": "Discover, evaluate and apply reliable sources of knowledge",
+          "sections": [
+            { "id": "OS3.1", "title": "Reliability of sources" },
+            { "id": "OS3.2", "title": "Qualitative and quantitative data for evaluation" }
+          ]
+        },
+        {
+          "id": "OS4",
+          "title": "Design",
+          "sections": [
+            { "id": "OS4.1", "title": "Common design approaches" },
+            { "id": "OS4.2", "title": "Source code and content management platforms" },
+            { "id": "OS4.3", "title": "Designing a software solution" }
+          ]
+        },
+        {
+          "id": "OS5",
+          "title": "Create solutions in a social and collaborative environment",
+          "sections": [
+            { "id": "OS5.1", "title": "Reasons for collaborative techniques" },
+            { "id": "OS5.2", "title": "Collaborative technologies" }
+          ]
+        },
+        {
+          "id": "OS6",
+          "title": "Implement a solution using at least two languages",
+          "sections": [
+            { "id": "OS6.1", "title": "Selecting and using languages" },
+            { "id": "OS6.2", "title": "User interface and UX principles" },
+            { "id": "OS6.3", "title": "Connecting code to data sources" },
+            { "id": "OS6.4", "title": "Deployment methods" }
+          ]
+        },
+        {
+          "id": "OS7",
+          "title": "Testing a software solution",
+          "sections": [
+            { "id": "OS7.1", "title": "Functional, non-functional and front-end testing" },
+            { "id": "OS7.2", "title": "Testing techniques" },
+            { "id": "OS7.3", "title": "Tests and test data" }
+          ]
+        },
+        {
+          "id": "OS8",
+          "title": "Change, maintain and support software",
+          "sections": [
+            { "id": "OS8.1", "title": "Factors that drive change" },
+            { "id": "OS8.2", "title": "Software change management process" },
+            { "id": "OS8.3", "title": "Maintaining code in a team" },
+            { "id": "OS8.4", "title": "Supporting software users" }
+          ]
+        }
+      ]
+    }
+  ]
+}
