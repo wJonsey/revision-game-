@@ -1,0 +1,594 @@
+[
+  {
+    "id": "grades-portal-crash",
+    "map": "core1",
+    "title": "Grades Portal Crash",
+    "briefing": "A college's grades portal has started showing wrong averages and crashing when tutors enter marks. Results day is tomorrow. Work through the incident from diagnosis to explanation.",
+    "steps": [
+      {
+        "title": "Define the problem",
+        "narrative": "Tutors are sending angry messages. Before touching the code you apply the high-level problem-solving strategy.",
+        "question": {
+          "id": "inc-c1-1",
+          "map": "core1",
+          "specRef": "1.3",
+          "difficulty": "easy",
+          "type": "multiple_choice",
+          "prompt": "What is the FIRST stage of the high-level problem-solving strategy?",
+          "options": [
+            "Define the problem",
+            "Implement a solution",
+            "Review the solution",
+            "Make a plan of action"
+          ],
+          "answer": 0,
+          "explanation": "Spec 1.3.5: define the problem, gather information, analyse, plan, implement, review.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 1.3 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Find the root cause",
+        "narrative": "Averages are wrong. Why? The calculation is wrong. Why? It uses the wrong operator. Why? It was never tested with averages that are not whole numbers…",
+        "question": {
+          "id": "inc-c1-2",
+          "map": "core1",
+          "specRef": "1.3",
+          "difficulty": "easy",
+          "type": "multiple_choice",
+          "prompt": "Which root cause analysis approach are you using?",
+          "options": [
+            "Five whys",
+            "Event tree analysis",
+            "Bottom-up design",
+            "Pattern recognition"
+          ],
+          "answer": 0,
+          "explanation": "Repeatedly asking why to reach the underlying cause is the five whys approach.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 1.3 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Debug the average",
+        "narrative": "You find the average calculation.",
+        "question": {
+          "id": "inc-c1-3",
+          "map": "core1",
+          "specRef": "2.4",
+          "difficulty": "medium",
+          "type": "predict_output",
+          "prompt": "What does this code output?",
+          "code": "marks = [72, 65, 80]\naverage = sum(marks) // len(marks)\nprint(average)",
+          "answer": [
+            "72"
+          ],
+          "explanation": "sum is 217 and // is integer division, so 217 // 3 = 72. The decimal part (.33) is lost – the defect.",
+          "commonMistake": "Expecting 72.33. Use / for normal division, e.g. round(sum(marks) / len(marks), 2).",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 2.4 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Stop the crash",
+        "narrative": "The crash happens when a tutor types a mark of 150 or leaves the box empty.",
+        "question": {
+          "id": "inc-c1-4",
+          "map": "core1",
+          "specRef": "2.8",
+          "difficulty": "medium",
+          "type": "multiple_choice",
+          "prompt": "Which TWO validation checks would prevent these inputs?",
+          "options": [
+            "Presence check and range check",
+            "Length check and format check",
+            "Check digit and type check",
+            "Format check and presence check"
+          ],
+          "answer": 0,
+          "explanation": "An empty box fails a presence check; 150 is outside 0–100 and fails a range check.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 2.8 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Choose test data",
+        "narrative": "You write tests for the fixed mark input (0 to 100 inclusive).",
+        "question": {
+          "id": "inc-c1-5",
+          "map": "core1",
+          "specRef": "2.12",
+          "difficulty": "medium",
+          "type": "match",
+          "prompt": "Match each test value to its type of test data.",
+          "pairs": [
+            [
+              "55",
+              "Valid"
+            ],
+            [
+              "100",
+              "Boundary"
+            ],
+            [
+              "101",
+              "Invalid"
+            ],
+            [
+              "ten",
+              "Erroneous"
+            ]
+          ],
+          "explanation": "Spec 2.12.4.1 test data types: valid, invalid, boundary and erroneous.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 2.12 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Protect working features",
+        "narrative": "The fix is ready. Tutors are worried it will break the attendance page, which worked fine.",
+        "question": {
+          "id": "inc-c1-6",
+          "map": "core1",
+          "specRef": "2.12",
+          "difficulty": "easy",
+          "type": "multiple_choice",
+          "prompt": "Which testing should you run before release?",
+          "options": [
+            "Regression testing",
+            "Concept testing",
+            "Load testing only",
+            "No testing – the fix is small"
+          ],
+          "answer": 0,
+          "explanation": "Regression testing checks existing features still work after a change.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 2.12 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Mind the law",
+        "narrative": "A tutor asks you to email the full grades database to your personal account so you can keep working at home.",
+        "question": {
+          "id": "inc-c1-7",
+          "map": "core1",
+          "specRef": "4.1",
+          "difficulty": "medium",
+          "type": "multiple_choice",
+          "prompt": "What is the main legal concern?",
+          "options": [
+            "Students' grades are personal data protected by data protection legislation",
+            "It breaks the Health and Safety at Work Act",
+            "It infringes a patent",
+            "There is no concern"
+          ],
+          "answer": 0,
+          "explanation": "Grades linked to named students are personal data; sending them to a personal account risks a breach of data protection legislation.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 4.1 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Report to the client",
+        "narrative": "The principal wants to know what happened.",
+        "question": {
+          "id": "inc-c1-8",
+          "map": "core1",
+          "specRef": "1.3",
+          "difficulty": "hard",
+          "type": "open_response",
+          "commandWord": "explain",
+          "marks": 3,
+          "prompt": "Explain to a non-technical principal what caused the problem and how it was fixed.",
+          "markPoints": [
+            "The average used whole-number division so decimals were lost",
+            "Invalid marks (empty or over 100) were not validated, causing crashes",
+            "The calculation was corrected and presence and range checks added",
+            "The fix was tested including boundary data and regression tests",
+            "Uses non-technical language suitable for the audience"
+          ],
+          "explanation": "Communicating to a non-technical audience is a core skill assessed in the ESP.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 1.3 (Weekly Incident scenario)"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "checkout-outage",
+    "map": "core2",
+    "title": "Checkout Outage",
+    "briefing": "An online retailer's checkout went down during a sale. Customers cannot pay and records look odd. Diagnose the outage and recommend a recovery.",
+    "steps": [
+      {
+        "title": "Impact",
+        "narrative": "The database still exists, but no one can reach the checkout.",
+        "question": {
+          "id": "inc-c2-1",
+          "map": "core2",
+          "specRef": "8.4",
+          "difficulty": "easy",
+          "type": "multiple_choice",
+          "prompt": "Which part of the CIA triad is most affected?",
+          "options": [
+            "Confidentiality",
+            "Integrity",
+            "Availability",
+            "Authorisation"
+          ],
+          "answer": 2,
+          "explanation": "Data that exists but cannot be accessed is an availability problem.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 8.4 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Traffic spike",
+        "narrative": "Network monitoring shows millions of requests per second from thousands of different IP addresses.",
+        "question": {
+          "id": "inc-c2-2",
+          "map": "core2",
+          "specRef": "8.2",
+          "difficulty": "easy",
+          "type": "multiple_choice",
+          "prompt": "What is the most likely cause?",
+          "options": [
+            "DDoS attack using a botnet",
+            "Phishing",
+            "Shoulder surfing",
+            "A transposition error"
+          ],
+          "answer": 0,
+          "explanation": "Huge traffic from many sources is typical of a distributed denial of service attack.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 8.2 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Suspicious log",
+        "narrative": "In the login logs you find a username entered as: admin' --",
+        "question": {
+          "id": "inc-c2-3",
+          "map": "core2",
+          "specRef": "8.2",
+          "difficulty": "medium",
+          "type": "multiple_choice",
+          "prompt": "What is this attempt?",
+          "options": [
+            "SQL injection",
+            "Cross-site scripting",
+            "Vishing",
+            "Buffer overflow"
+          ],
+          "answer": 0,
+          "explanation": "Quote marks and SQL comment symbols try to change the database query.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 8.2 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Restore data",
+        "narrative": "Some order records were corrupted. A full backup ran on Sunday and differential backups ran every night since.",
+        "question": {
+          "id": "inc-c2-4",
+          "map": "core2",
+          "specRef": "8.3",
+          "difficulty": "hard",
+          "type": "multiple_choice",
+          "prompt": "It is Thursday morning. Which backups are needed to restore Wednesday night's data?",
+          "options": [
+            "Sunday's full backup and Wednesday's differential",
+            "All differentials from Monday to Wednesday only",
+            "Sunday's full backup only",
+            "Wednesday's differential only"
+          ],
+          "answer": 0,
+          "explanation": "A differential contains all changes since the last full backup, so you need the full backup plus the latest differential.",
+          "commonMistake": "Applying the incremental rule (every backup since the full one).",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 8.3 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Stay online next time",
+        "narrative": "The board wants a site ready to take over within minutes if this happens again.",
+        "question": {
+          "id": "inc-c2-5",
+          "map": "core2",
+          "specRef": "7.6",
+          "difficulty": "medium",
+          "type": "multiple_choice",
+          "prompt": "Which should they invest in?",
+          "options": [
+            "A hot site",
+            "A cold site",
+            "A warm site",
+            "An air gap"
+          ],
+          "answer": 0,
+          "explanation": "A hot site has equipment and current data ready almost immediately.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 7.6 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Roll out the fix",
+        "narrative": "A patched checkout is ready, but the retailer cannot risk another failure across all stores.",
+        "question": {
+          "id": "inc-c2-6",
+          "map": "core2",
+          "specRef": "5.4",
+          "difficulty": "medium",
+          "type": "multiple_choice",
+          "prompt": "Which implementation method trials it with one store's website first?",
+          "options": [
+            "Pilot",
+            "Direct",
+            "Parallel",
+            "Phased"
+          ],
+          "answer": 0,
+          "explanation": "A pilot trials the change in one part of the organisation first.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 5.4 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Protect logins",
+        "narrative": "Several staff admin passwords may have been exposed.",
+        "question": {
+          "id": "inc-c2-7",
+          "map": "core2",
+          "specRef": "8.3",
+          "difficulty": "medium",
+          "type": "multiple_choice",
+          "prompt": "Which measure most reduces the risk from stolen passwords?",
+          "options": [
+            "Multi-factor authentication",
+            "Longer usernames",
+            "Defragmenting the server",
+            "A pie chart of logins"
+          ],
+          "answer": 0,
+          "explanation": "MFA means a stolen password alone is not enough to log in.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 8.3 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Brief the board",
+        "narrative": "The board asks for your recommendation.",
+        "question": {
+          "id": "inc-c2-8",
+          "map": "core2",
+          "specRef": "5.3",
+          "difficulty": "hard",
+          "type": "open_response",
+          "commandWord": "explain",
+          "marks": 3,
+          "prompt": "Explain two impacts of the outage on the retailer and one measure to reduce the risk in future.",
+          "markPoints": [
+            "Loss of business/revenue during the sale",
+            "Reputational damage and loss of customer trust",
+            "Possible fines or legal action if data was breached",
+            "A mitigation such as DDoS protection, input validation, MFA or a hot site",
+            "Linked justification for the mitigation"
+          ],
+          "explanation": "Spec 5.3.2 impacts: legal action, fines, reputational damage, loss of business.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec 5.3 (Weekly Incident scenario)"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "client-demo-disaster",
+    "map": "esp",
+    "title": "Client Demo Disaster",
+    "briefing": "Your team demos a flight passenger dashboard to the client in one hour. Requirements are changing, a bug has appeared, and the client wants answers.",
+    "steps": [
+      {
+        "title": "Changing requirements",
+        "narrative": "The client now wants AM and PM flights compared. The team works in two-week sprints.",
+        "question": {
+          "id": "inc-esp-1",
+          "map": "esp",
+          "specRef": "ESP.1",
+          "difficulty": "easy",
+          "type": "multiple_choice",
+          "prompt": "In an Agile approach, how should this new requirement be handled?",
+          "options": [
+            "Add it to the backlog and prioritise it for an upcoming sprint",
+            "Refuse all changes until the project ends",
+            "Restart the project from the beginning",
+            "Ignore it"
+          ],
+          "answer": 0,
+          "explanation": "Agile allows requirements to change; new work is prioritised into sprints.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec ESP.1 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Grounding bug",
+        "narrative": "The maintenance screen grounds planes whose last job was exactly 30 days ago. The rule is: ground if LESS than 30 days.",
+        "question": {
+          "id": "inc-esp-2",
+          "map": "esp",
+          "specRef": "ESP.2",
+          "difficulty": "medium",
+          "type": "multiple_choice",
+          "prompt": "Which condition is correct?",
+          "options": [
+            "if days < 30:",
+            "if days <= 30:",
+            "if days > 30:",
+            "if days == 30:"
+          ],
+          "answer": 0,
+          "explanation": "<= includes 30, which should not be grounded. Test 29 and 30 to prove it.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec ESP.2 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Prove the fix",
+        "narrative": "You need evidence for the test log.",
+        "question": {
+          "id": "inc-esp-3",
+          "map": "esp",
+          "specRef": "ESP.2",
+          "difficulty": "medium",
+          "type": "multiple_choice",
+          "prompt": "Which test data is valid extreme for 'not grounded'?",
+          "options": [
+            "30",
+            "29",
+            "100",
+            "thirty"
+          ],
+          "answer": 0,
+          "explanation": "30 is the edge value that should be accepted (not grounded). 29 should be grounded.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec ESP.2 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Missing Manchester",
+        "narrative": "The demo shows almost no passengers leaving Manchester. The raw CSV clearly has lots.",
+        "question": {
+          "id": "inc-esp-4",
+          "map": "esp",
+          "specRef": "ESP.4a",
+          "difficulty": "hard",
+          "type": "multiple_choice",
+          "prompt": "What is the most likely fix?",
+          "options": [
+            "Strip spaces from the From column before filtering",
+            "Use a pie chart",
+            "Delete the Manchester rows",
+            "Convert passenger numbers to strings"
+          ],
+          "answer": 0,
+          "explanation": "Values such as 'MAN ' with a trailing space do not match 'MAN'. Cleaning the data fixes the filter.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec ESP.4a (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Show the trend",
+        "narrative": "The client asks to see how PM passengers changed over the month.",
+        "question": {
+          "id": "inc-esp-5",
+          "map": "esp",
+          "specRef": "ESP.4a",
+          "difficulty": "easy",
+          "type": "multiple_choice",
+          "prompt": "Which output is most meaningful?",
+          "options": [
+            "A labelled line graph of daily PM passengers",
+            "A single total number",
+            "The raw CSV file",
+            "A list of airport codes"
+          ],
+          "answer": 0,
+          "explanation": "A line graph with axis labels shows a trend over time clearly.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec ESP.4a (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Design question",
+        "narrative": "The client's developer asks how the route menu will be reused for destinations.",
+        "question": {
+          "id": "inc-esp-6",
+          "map": "esp",
+          "specRef": "ESP.3",
+          "difficulty": "medium",
+          "type": "multiple_choice",
+          "prompt": "Which design approach best shows this?",
+          "options": [
+            "A single 'get airport' function called twice, with its own validation",
+            "Copy and paste the departure menu code",
+            "One long program with no functions",
+            "Hard-code both airports"
+          ],
+          "answer": 0,
+          "explanation": "Reusable components are credited in ESP Task 3 decomposition.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec ESP.3 (Weekly Incident scenario)"
+          }
+        }
+      },
+      {
+        "title": "Client challenge",
+        "narrative": "The client asks: 'Why should we trust this dashboard?'",
+        "question": {
+          "id": "inc-esp-7",
+          "map": "esp",
+          "specRef": "ESP.4b",
+          "difficulty": "hard",
+          "type": "open_response",
+          "commandWord": "evaluate",
+          "marks": 4,
+          "prompt": "Evaluate how well the dashboard meets the requirement to 'display information in a meaningful way', and suggest one justified improvement.",
+          "markPoints": [
+            "Judgement on how well the requirement is met",
+            "Specific example from the solution (e.g. labelled graph, numbered menu)",
+            "Limitation identified (e.g. data needed cleaning, no date presets)",
+            "Justified improvement linked to users' needs",
+            "Balanced evaluation, not just description"
+          ],
+          "explanation": "Evaluation needs judgements supported by examples, as the examiner report stresses.",
+          "source": {
+            "origin": "generated",
+            "reference": "Spec ESP.4b (Weekly Incident scenario)"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,58 +1,57 @@
 import "./styles.css";
-import { detectCapabilities } from "./core/capabilities.js";
+import { createApp } from "./app/context.js";
+import { createRouter } from "./ui/router.js";
+import { menuScreen } from "./ui/screens/menu.js";
+import { playScreen } from "./ui/screens/play.js";
+import { matchScreen } from "./ui/screens/match.js";
+import { matchSummaryScreen } from "./ui/screens/matchSummary.js";
+import { practiceScreen } from "./ui/screens/practice.js";
+import { examScreen } from "./ui/screens/exam.js";
+import { dailyScreen, weeklyScreen } from "./ui/screens/challenges.js";
+import { revisionScreen } from "./ui/screens/revision.js";
+import { statisticsScreen } from "./ui/screens/statistics.js";
+import { arsenalScreen } from "./ui/screens/arsenal.js";
+import { profileScreen } from "./ui/screens/profile.js";
+import { settingsScreen } from "./ui/screens/settings.js";
 
-const MENU_ITEMS = [
-  "Play",
-  "Revision",
-  "Practice Range",
-  "Exam Simulation",
-  "Daily Deployment",
-  "Arsenal",
-  "Profile",
-  "Statistics",
-  "Settings",
-];
+const app = createApp();
 
-const CHECK_LABELS = {
-  webgl: "3D graphics (WebGL)",
-  localStorage: "Local save (localStorage)",
-  indexedDB: "Database save (IndexedDB)",
-  pointerLock: "Mouse look (Pointer Lock)",
+const screens = {
+  menu: menuScreen(app),
+  play: playScreen(app),
+  match: matchScreen(app),
+  matchSummary: matchSummaryScreen(app),
+  practice: practiceScreen(app),
+  exam: examScreen(app),
+  daily: dailyScreen(app),
+  weekly: weeklyScreen(app),
+  revision: revisionScreen(app),
+  statistics: statisticsScreen(app),
+  arsenal: arsenalScreen(app),
+  profile: profileScreen(app),
+  settings: settingsScreen(app),
 };
 
-function createElement(tag, className, text) {
-  const element = document.createElement(tag);
-  if (className) element.className = className;
-  if (text) element.textContent = text;
-  return element;
+const root = document.querySelector("#app");
+const router = createRouter(root, screens);
+
+// Esc returns to the menu from simple screens. Matches and exams handle Esc themselves.
+const ESCAPABLE = new Set(["play", "revision", "statistics", "arsenal", "profile", "settings", "matchSummary"]);
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !ESCAPABLE.has(router.currentScreen)) return;
+  if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) return;
+  router.navigate("menu");
+});
+
+// Scroll to the top and announce the new screen when navigating.
+const navigate = router.navigate;
+router.navigate = (name, params) => {
+  navigate(name, params);
+  window.scrollTo(0, 0);
+};
+for (const key of Object.keys(screens)) {
+  const render = screens[key];
+  screens[key] = (element, context) => render(element, { ...context, navigate: router.navigate });
 }
 
-function renderMenu(root) {
-  root.append(createElement("h1", "title", "CODE//BREACH"));
-  const nav = createElement("nav", "menu");
-  nav.setAttribute("aria-label", "Main menu");
-  for (const label of MENU_ITEMS) {
-    const button = createElement("button", "menu-item", label);
-    button.disabled = true;
-    button.title = "Coming soon";
-    nav.append(button);
-  }
-  root.append(nav);
-}
-
-function renderSystemCheck(root, capabilities) {
-  const panel = createElement("section", "system-check");
-  panel.append(createElement("h2", null, "SYSTEM CHECK"));
-  const list = createElement("ul");
-  for (const [key, passed] of Object.entries(capabilities)) {
-    const item = createElement("li", passed ? "pass" : "fail");
-    item.textContent = `${passed ? "[ OK ]" : "[FAIL]"} ${CHECK_LABELS[key]}`;
-    list.append(item);
-  }
-  panel.append(list);
-  root.append(panel);
-}
-
-const app = document.querySelector("#app");
-renderMenu(app);
-renderSystemCheck(app, detectCapabilities(window));
+router.navigate("menu");

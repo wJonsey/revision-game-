@@ -1,0 +1,890 @@
+{
+  "packId": "esp-generated",
+  "title": "Employer Set Project – generated practice",
+  "version": 1,
+  "questions": [
+    {
+      "id": "esp-001",
+      "map": "esp",
+      "specRef": "ESP.0",
+      "difficulty": "beginner",
+      "type": "true_false",
+      "prompt": "Students may use AI tools to help prepare responses during the assessed ESP tasks.",
+      "answer": false,
+      "explanation": "The specification states that students may not use AI or any other tool designed to prepare a response, and internet access is not permitted during the assessed tasks.",
+      "source": {
+        "origin": "verified",
+        "reference": "Spec p.56 Employer Set Project assessment overview"
+      }
+    },
+    {
+      "id": "esp-002",
+      "map": "esp",
+      "specRef": "ESP.0",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "What is the purpose of the ESP pre-release task?",
+      "options": [
+        "To become familiar with the industry context of the brief before the assessed tasks",
+        "To write the code that will be submitted",
+        "To complete the Gantt chart early",
+        "To receive marks for independent research"
+      ],
+      "answer": 0,
+      "explanation": "The pre-release task is not directly assessed. It lets you research the sector (e.g. how digital technology is used) so you can apply it later.",
+      "source": {
+        "origin": "verified",
+        "reference": "Spec p.49 Pre-task"
+      }
+    },
+    {
+      "id": "esp-003",
+      "map": "esp",
+      "specRef": "ESP.0",
+      "difficulty": "easy",
+      "type": "true_false",
+      "prompt": "In the legacy 2022 ESP, notes made during the pre-release period could be taken into the supervised assessment sessions.",
+      "answer": false,
+      "explanation": "The 2022 pre-release instructions said notes could be made but not taken into the supervised sessions. Always check the instructions for your own series.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Legacy DPDD ESP (Elanp Air, Nov 2022) – paraphrased; check your current brief"
+      }
+    },
+    {
+      "id": "esp-004",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Staff work 7 hours a day, 5 days a week. How many hours can ONE person work in 14 weeks?",
+      "options": [
+        "98",
+        "350",
+        "490",
+        "686"
+      ],
+      "answer": 2,
+      "explanation": "7 × 5 = 35 hours per week; 35 × 14 = 490 hours.",
+      "commonMistake": "Forgetting to multiply by the number of days per week.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.1"
+      }
+    },
+    {
+      "id": "esp-005",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "A 100-hour task is split equally between two developers working in parallel for 7 hours a day. How many working days does it take?",
+      "options": [
+        "7",
+        "8",
+        "14",
+        "15"
+      ],
+      "answer": 1,
+      "explanation": "Each developer does 50 hours. 50 ÷ 7 = 7.14 days, so the task needs 8 working days (a part day still needs to be scheduled).",
+      "commonMistake": "Rounding 7.14 down to 7, which does not leave enough time.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.1"
+      }
+    },
+    {
+      "id": "esp-006",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "A developer paid £45 per hour is assigned 95 hours of work. What is their cost to the project?",
+      "options": [
+        "£4,275",
+        "£4,500",
+        "£140",
+        "£9,500"
+      ],
+      "answer": 0,
+      "explanation": "45 × 95 = £4,275.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.1"
+      }
+    },
+    {
+      "id": "esp-007",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which method correctly calculates the total staff cost for a project plan?",
+      "options": [
+        "Add up each person's assigned hours multiplied by their own hourly rate",
+        "Multiply the total project hours by every person's hourly rate",
+        "Multiply the highest hourly rate by the number of staff",
+        "Use the same average rate for everyone"
+      ],
+      "answer": 0,
+      "explanation": "The examiner report noted many plans multiplied total project hours by each person's rate. Costs must follow the hours each person is actually assigned in the Gantt chart.",
+      "commonMistake": "Charging every person for every hour of the project.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-008",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "A cloud server with support costs £1,250 per month. What is the cost for the first year?",
+      "options": [
+        "£1,250",
+        "£12,500",
+        "£15,000",
+        "£150,000"
+      ],
+      "answer": 2,
+      "explanation": "1,250 × 12 = £15,000.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.1"
+      }
+    },
+    {
+      "id": "esp-009",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Current annual revenue is £1,400,000. A new system is expected to increase revenue by 3% in year 1. What is the forecast year 1 revenue?",
+      "options": [
+        "£1,403,000",
+        "£1,442,000",
+        "£1,820,000",
+        "£42,000"
+      ],
+      "answer": 1,
+      "explanation": "3% of 1,400,000 = 42,000. 1,400,000 + 42,000 = £1,442,000.",
+      "commonMistake": "Giving only the increase (£42,000) instead of the new total.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.1"
+      }
+    },
+    {
+      "id": "esp-010",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "Year 1 revenue is £1,442,000. Annual outgoing costs are £1,175,000 and the one-off project cost is £150,000. What is the year 1 profit?",
+      "options": [
+        "£117,000",
+        "£267,000",
+        "£1,292,000",
+        "-£33,000"
+      ],
+      "answer": 0,
+      "explanation": "1,442,000 − 1,175,000 − 150,000 = £117,000. The examiner report noted students often forgot current outgoings when forecasting impact.",
+      "commonMistake": "Ignoring existing outgoing costs.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-011",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "medium",
+      "type": "ordering",
+      "prompt": "Put these tasks for one module in dependency order.",
+      "items": [
+        "Develop the module",
+        "Unit test the module",
+        "Integration test with other modules",
+        "User acceptance testing"
+      ],
+      "explanation": "Unit testing needs the module; integration testing needs tested units; acceptance testing needs the integrated system.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.1"
+      }
+    },
+    {
+      "id": "esp-012",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "easy",
+      "type": "true_false",
+      "prompt": "In a project plan, creating the test plan can be scheduled after testing has finished.",
+      "answer": false,
+      "explanation": "The examiner report highlighted test plans scheduled after testing as a common error. The test plan must exist before testing starts.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-013",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which task must be complete before software modules can be deployed?",
+      "options": [
+        "The server is installed and configured",
+        "User training",
+        "The reflective evaluation",
+        "User acceptance testing"
+      ],
+      "answer": 0,
+      "explanation": "Deployment depends on the server existing. Identifying predecessor tasks is part of a logical Gantt chart.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.1"
+      }
+    },
+    {
+      "id": "esp-014",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Breaking development into short sprints, with testing inside each sprint, is characteristic of which approach?",
+      "options": [
+        "Waterfall",
+        "Agile",
+        "Direct changeover",
+        "Big bang"
+      ],
+      "answer": 1,
+      "explanation": "The examiner report recommended breaking tasks into shorter sprints rather than putting all testing at the end.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-015",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Why include contingency (slack) time in a project plan?",
+      "options": [
+        "To absorb delays such as extra faults or less experienced staff taking longer",
+        "To make the project cost less",
+        "Because staff need holidays in every week",
+        "To avoid writing a rationale"
+      ],
+      "answer": 0,
+      "explanation": "Contingency protects the deadline when risks happen.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.1"
+      }
+    },
+    {
+      "id": "esp-016",
+      "map": "esp",
+      "specRef": "ESP.1",
+      "difficulty": "hard",
+      "type": "open_response",
+      "prompt": "Justify planning for a senior engineer to review work done by a newly hired technician at the start of a project.",
+      "commandWord": "explain with additional justification",
+      "marks": 3,
+      "markPoints": [
+        "The new technician is unproven or has only worked alongside senior staff before",
+        "Review reduces the risk of errors that would cause rework or delays",
+        "Errors found early are cheaper and quicker to fix, protecting the deadline",
+        "The review also develops the technician's skills for later tasks"
+      ],
+      "explanation": "A rationale must justify decisions, not describe the plan. The examiner report gave this kind of risk-based allocation as an example of good justification.",
+      "commonMistake": "Just saying 'I assigned people based on their job title'.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-017",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each type of ESP test data to its description.",
+      "pairs": [
+        [
+          "Valid",
+          "Normal data inside the accepted range"
+        ],
+        [
+          "Valid extreme",
+          "Data exactly at the edge of the accepted range that should be accepted"
+        ],
+        [
+          "Invalid",
+          "Data of the correct type outside the accepted range"
+        ],
+        [
+          "Invalid extreme",
+          "Data just outside the edge of the accepted range"
+        ],
+        [
+          "Erroneous",
+          "Data of the wrong type, e.g. text where a number is expected"
+        ]
+      ],
+      "explanation": "The ESP asks for valid, valid extreme, invalid, invalid extreme and erroneous test data (spec p.50).",
+      "commonMistake": "Confusing invalid with erroneous – a common problem in the examiner report.",
+      "source": {
+        "origin": "verified",
+        "reference": "Spec p.50 Documenting the testing process"
+      }
+    },
+    {
+      "id": "esp-018",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "A plane must be grounded if its previous maintenance job was LESS than 30 days ago. Which pair of values best tests this boundary?",
+      "options": [
+        "29 and 30 days",
+        "1 and 100 days",
+        "30 and 'thirty'",
+        "10 and 20 days"
+      ],
+      "answer": 0,
+      "explanation": "29 days should ground the plane; 30 should not. Testing both sides of the boundary checks the logic (< vs <=).",
+      "commonMistake": "Only testing values far from the boundary, which would not find a < / <= mistake.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.2"
+      }
+    },
+    {
+      "id": "esp-019",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "What happens when the user enters 1?",
+      "code": "options = (\"annual service\", \"cosmetic repair\", \"engine repair\")\nchoice = int(input(\"Choose 1-3: \")) - 1\nif choice < 1 or choice > 3:\n    print(\"Out of range\")\nelse:\n    print(options[choice])",
+      "options": [
+        "'Out of range' is printed even though 1 is a valid choice",
+        "'annual service' is printed",
+        "An IndexError occurs",
+        "'cosmetic repair' is printed"
+      ],
+      "answer": 0,
+      "explanation": "choice becomes 0, and 0 < 1 is True, so valid input is rejected. After subtracting 1 the valid indexes are 0–2, so the check should be choice < 0 or choice > 2.",
+      "commonMistake": "Checking the range against the menu numbers (1–3) after already converting them to indexes (0–2).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.2"
+      }
+    },
+    {
+      "id": "esp-020",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "from datetime import datetime\n\nprevious = datetime.strptime(\"01/03/2024\", \"%d/%m/%Y\")\ncurrent = datetime.strptime(\"30/03/2024\", \"%d/%m/%Y\")\nprint((current - previous).days)",
+      "answer": [
+        "29"
+      ],
+      "explanation": "Subtracting two datetime objects gives a timedelta; .days is the whole number of days between them.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.2"
+      }
+    },
+    {
+      "id": "esp-021",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "The next service should be one year after the job date. What is wrong with this line?\n\ntemp_year = int(job_month) + 1",
+      "options": [
+        "It adds 1 to the month instead of the year",
+        "int() cannot convert a month",
+        "It should add 12",
+        "Nothing is wrong"
+      ],
+      "answer": 0,
+      "explanation": "This is a logic error: the code runs, but the next service year is calculated from the month.",
+      "commonMistake": "Only fixing errors the IDE highlights – logic errors like this still run.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Legacy DPDD ESP (Elanp Air, Nov 2022) – paraphrased; check your current brief"
+      }
+    },
+    {
+      "id": "esp-022",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "lines = []\nlines.append(\"Engineer: {}\".format(\"Sam\"))\nlines.append(\"Hours: {}\".format(1.5))\nprint(\"\".join(lines))",
+      "answer": [
+        "Engineer: SamHours: 1.5"
+      ],
+      "explanation": "Nothing separates the two strings, so they run together. Adding a newline character (\\n) fixes the formatting – a defect in the legacy Task 2 text file output.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.2"
+      }
+    },
+    {
+      "id": "esp-023",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which of these is a SYNTAX error rather than a logic error?",
+      "options": [
+        "A missing colon at the end of a def line",
+        "Checking == 12 instead of != 12",
+        "Adding 1 to the month instead of the year",
+        "Using < 40 instead of < 30 days"
+      ],
+      "answer": 0,
+      "explanation": "Syntax errors stop the program running and are usually highlighted by the IDE. Logic errors run but give wrong results.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.2"
+      }
+    },
+    {
+      "id": "esp-024",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "medium",
+      "type": "ordering",
+      "prompt": "Put the parts of an ESP test log entry in a logical order.",
+      "items": [
+        "Identify the test to be carried out",
+        "Describe the purpose of the test",
+        "Identify the test data to be used",
+        "Describe the expected result",
+        "Describe the actual result",
+        "Compare actual and expected results and state further action"
+      ],
+      "explanation": "Spec p.50 lists these parts of the annotated testing evidence.",
+      "source": {
+        "origin": "verified",
+        "reference": "Spec p.50 Documenting the testing process"
+      }
+    },
+    {
+      "id": "esp-025",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "medium",
+      "type": "open_response",
+      "prompt": "Explain why fixing only the errors highlighted by the IDE is not enough in ESP Task 2.",
+      "commandWord": "explain",
+      "marks": 2,
+      "markPoints": [
+        "The IDE only finds syntax errors (and some runtime errors)",
+        "Logic errors still run but give incorrect results, e.g. wrong date calculations or wrong range checks",
+        "Tests with normal, extreme and erroneous data against the requirements are needed to find them"
+      ],
+      "explanation": "The mark scheme treats only fixing IDE-highlighted errors as limited understanding.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Mark scheme ESP Autumn 2022 (legacy DPDD)"
+      }
+    },
+    {
+      "id": "esp-026",
+      "map": "esp",
+      "specRef": "ESP.2",
+      "difficulty": "easy",
+      "type": "true_false",
+      "prompt": "Erroneous test data and invalid test data mean the same thing.",
+      "answer": false,
+      "explanation": "Invalid data is the right type but outside the rules (e.g. 13 characters). Erroneous data is the wrong type (e.g. 'abc' for a number).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.2"
+      }
+    },
+    {
+      "id": "esp-027",
+      "map": "esp",
+      "specRef": "ESP.3",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "In a flowchart, which symbol should represent a call to a reusable 'Get departure airport' routine?",
+      "options": [
+        "Sub-process",
+        "Decision",
+        "Terminator",
+        "Input/output"
+      ],
+      "answer": 0,
+      "explanation": "A sub-process (rectangle with double vertical lines) shows a separately defined routine – good evidence of decomposition and reuse.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.3"
+      }
+    },
+    {
+      "id": "esp-028",
+      "map": "esp",
+      "specRef": "ESP.3",
+      "difficulty": "hard",
+      "type": "open_response",
+      "prompt": "Describe how you would decompose a program that lets a user choose a flight route and date range, then see passenger number trends.",
+      "commandWord": "describe",
+      "marks": 4,
+      "markPoints": [
+        "Get and validate the departure airport from a numbered menu",
+        "Reuse the same routine to get and validate the destination airport",
+        "Get and validate the start and end dates, converting them to a date format",
+        "Load the CSV into a data frame inside a function",
+        "Filter the data for the chosen route and date range",
+        "Calculate totals or averages and output a table and a graph with meaningful labels"
+      ],
+      "explanation": "The mark scheme suggests showing decomposition through algorithms for key processes presented as callable functions.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Mark scheme ESP Autumn 2022 (legacy DPDD)"
+      }
+    },
+    {
+      "id": "esp-029",
+      "map": "esp",
+      "specRef": "ESP.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Why should pseudocode avoid language-specific syntax such as curly braces and semicolons?",
+      "options": [
+        "The design should be understandable by any developer, whatever language they use",
+        "Pseudocode must run in Python",
+        "Curly braces are illegal in flowcharts",
+        "It makes the file smaller"
+      ],
+      "answer": 0,
+      "explanation": "The examiner report recommended avoiding conventions specific to particular languages in designs.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-030",
+      "map": "esp",
+      "specRef": "ESP.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "A design says the menu choice must be 1–6. Which step prevents a crash when the user types 'abc'?",
+      "options": [
+        "Check the input is a whole number before converting and comparing it",
+        "Compare the input directly with 6",
+        "Convert the input with int() straight away",
+        "Ignore the input"
+      ],
+      "answer": 0,
+      "explanation": "Validating type before converting avoids a ValueError; then a range check handles numbers outside 1–6.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.3"
+      }
+    },
+    {
+      "id": "esp-031",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "What does this line do?",
+      "code": "import pandas as pd\ndf = pd.read_csv(\"flights.csv\")",
+      "options": [
+        "Loads the CSV file into a pandas data frame",
+        "Prints the CSV file",
+        "Creates a new empty CSV file",
+        "Plots the data as a graph"
+      ],
+      "answer": 0,
+      "explanation": "pd.read_csv reads a CSV file into a data frame for processing (Appendix 2, pandas).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.4a"
+      }
+    },
+    {
+      "id": "esp-032",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which line selects only flights from DUB to LHR?",
+      "options": [
+        "df.loc[(df[\"From\"] == \"DUB\") & (df[\"To\"] == \"LHR\")]",
+        "df.loc[df[\"From\"] == \"DUB\" and df[\"To\"] == \"LHR\"]",
+        "df.loc[(df[\"From\"] == \"DUB\") or (df[\"To\"] == \"LHR\")]",
+        "df.loc[df[\"From\", \"To\"] == (\"DUB\", \"LHR\")]"
+      ],
+      "answer": 0,
+      "explanation": "pandas combines conditions with & (and) or | (or), with each condition in brackets. Python's and/or keywords raise an error on a whole column.",
+      "commonMistake": "Using the and keyword with data frame columns.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.4a"
+      }
+    },
+    {
+      "id": "esp-033",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "In a data frame whose last columns are daily passenger counts, what does extract.iloc[:, -7:] select?",
+      "options": [
+        "All rows and the last 7 columns (the last 7 days)",
+        "The first 7 rows",
+        "Row 7 only",
+        "All rows except the last 7"
+      ],
+      "answer": 0,
+      "explanation": "iloc[rows, columns]. : means all rows; -7: means from the 7th-from-last column to the end.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.4a"
+      }
+    },
+    {
+      "id": "esp-034",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "days_df has one row per flight and one column per day. Which expression gives the total passengers across ALL flights and days?",
+      "options": [
+        "days_df.sum().sum()",
+        "days_df.sum()",
+        "len(days_df)",
+        "days_df.count()"
+      ],
+      "answer": 0,
+      "explanation": "The first sum() totals each column (one total per day); the second adds those totals into one number. count() counts values, not passengers.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.4a"
+      }
+    },
+    {
+      "id": "esp-035",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which Matplotlib line displays the graph window?",
+      "options": [
+        "plt.show()",
+        "plt.plot()",
+        "plt.title()",
+        "plt.draw_window()"
+      ],
+      "answer": 0,
+      "explanation": "plt.plot() creates the plot; plt.show() displays it.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.4a"
+      }
+    },
+    {
+      "id": "esp-036",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which line selects only PM flights?",
+      "options": [
+        "df[df[\"Time\"] == \"PM\"]",
+        "df[\"PM\"]",
+        "df.loc[\"PM\"]",
+        "df[df == \"PM\"]"
+      ],
+      "answer": 0,
+      "explanation": "A Boolean condition on the Time column selects matching rows.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.4a"
+      }
+    },
+    {
+      "id": "esp-037",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "In the legacy flight data, some rows have 'MAN ' (with a trailing space) in the From column. What does df[df['From'] == 'MAN'] do with those rows?",
+      "options": [
+        "It misses them, so Manchester totals are too low",
+        "It includes them automatically",
+        "It raises an error",
+        "It deletes them from the file"
+      ],
+      "answer": 0,
+      "explanation": "'MAN ' and 'MAN' are different strings. Cleaning the data first, e.g. df['From'] = df['From'].str.strip(), fixes it – the 'clean' step of data wrangling.",
+      "commonMistake": "Assuming the data provided is always clean.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Legacy DPDD ESP Task 4a data (Nov 2022)"
+      }
+    },
+    {
+      "id": "esp-038",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "According to the examiner report, which is the best evidence of secure coding in the Task 4a dashboard?",
+      "options": [
+        "Using local variables passed between functions and handling errors without exposing data",
+        "Adding a login screen before the menu",
+        "Putting the whole data frame in a global variable",
+        "Printing full error tracebacks to the user"
+      ],
+      "answer": 0,
+      "explanation": "The examiner report stressed that a login function is NOT what is expected; secure coding and data practices are.",
+      "commonMistake": "Spending assessment time on a login screen.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-039",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Why use pd.to_datetime(\"01/04/22\", dayfirst=True) with UK-format dates?",
+      "options": [
+        "So 01/04/22 is read as 1 April 2022, not 4 January 2022",
+        "To remove the year",
+        "To convert the date to text",
+        "To sort the data frame"
+      ],
+      "answer": 0,
+      "explanation": "Without dayfirst=True, pandas may read the first number as the month.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.4a"
+      }
+    },
+    {
+      "id": "esp-040",
+      "map": "esp",
+      "specRef": "ESP.4a",
+      "difficulty": "expert",
+      "type": "open_response",
+      "prompt": "Write Python (pandas) code that finds the departure airport with the most passengers in total, from a CSV with columns From, To, Time, then one column per day.",
+      "commandWord": "write",
+      "marks": 4,
+      "markPoints": [
+        "Reads the CSV into a data frame inside a function",
+        "Cleans the From column (e.g. str.strip())",
+        "Selects the date columns and sums each row (e.g. iloc[:, 3:].sum(axis=1))",
+        "Groups by From and sums totals (e.g. groupby('From'))",
+        "Finds the largest total (e.g. idxmax() or sort_values) and outputs a meaningful message"
+      ],
+      "explanation": "Self-mark against the steps. Try it for real in Python with pandas installed – the examiner report asks for more practice with pandas and Matplotlib.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-041",
+      "map": "esp",
+      "specRef": "ESP.4b",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which sentence is EVALUATIVE rather than descriptive?",
+      "options": [
+        "The numbered route menu meets the 'easy to use' requirement because users do not type airport codes, reducing input errors; however, users cannot compare two routes on one graph.",
+        "I made a menu with six airports.",
+        "My program uses pandas and Matplotlib.",
+        "First I loaded the CSV, then I made a graph."
+      ],
+      "answer": 0,
+      "explanation": "Evaluation makes a judgement against a requirement, supports it with an example, and considers limitations. The examiner report found most 4b answers were descriptive.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-042",
+      "map": "esp",
+      "specRef": "ESP.4b",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which suggested future development is most relevant and justified?",
+      "options": [
+        "Add preset date ranges (e.g. last 7 days, a chosen month) so users do not have to type dates, improving ease of use",
+        "Add a login screen",
+        "Change the font",
+        "Rewrite the program in another language"
+      ],
+      "answer": 0,
+      "explanation": "Improvements should be meaningful, relevant to the scenario and linked to the requirements. This example comes from the examiner report.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-043",
+      "map": "esp",
+      "specRef": "ESP.4b",
+      "difficulty": "easy",
+      "type": "true_false",
+      "prompt": "A reflective evaluation should only discuss features that did not work.",
+      "answer": false,
+      "explanation": "Also evaluate what worked, how well it met each requirement, and how successful features could be refined.",
+      "source": {
+        "origin": "legacy-past-paper",
+        "reference": "Lead Examiner Report, ESP Autumn 2022 (legacy DPDD qualification)"
+      }
+    },
+    {
+      "id": "esp-044",
+      "map": "esp",
+      "specRef": "ESP.4b",
+      "difficulty": "hard",
+      "type": "open_response",
+      "prompt": "A dashboard prints a table of passenger numbers for a chosen route but has no graph. Evaluate how well it meets the requirement to 'display information in a meaningful way'.",
+      "commandWord": "evaluate",
+      "marks": 4,
+      "markPoints": [
+        "Strength: the table gives exact passenger numbers for the chosen route",
+        "Limitation: trends over time are hard to see in a table of numbers",
+        "Limitation: no graphical output, although the requirement mentions textual, numerical AND graphical output",
+        "Uses a specific example from the solution to support the judgement",
+        "Justified improvement, e.g. add a labelled line graph of passengers over time",
+        "Overall judgement of how well the requirement is met"
+      ],
+      "explanation": "Evaluate = judgement supported by evidence against the requirement, plus justified improvements.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec ESP.4b"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1685 @@
+{
+  "packId": "core2-generated",
+  "title": "Core Paper 2 – generated practice",
+  "version": 1,
+  "questions": [
+    {
+      "id": "c2-001",
+      "map": "core2",
+      "specRef": "5.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "A company sells accounting software to other companies. Which business model is this?",
+      "options": [
+        "B2C",
+        "B2B",
+        "B2M",
+        "Not for profit"
+      ],
+      "answer": 1,
+      "explanation": "Business to Business (B2B): the customers are other businesses (spec 5.1.2).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.1"
+      }
+    },
+    {
+      "id": "c2-002",
+      "map": "core2",
+      "specRef": "5.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "According to the specification, which of these is an INTERNAL stakeholder?",
+      "options": [
+        "Employees",
+        "Suppliers",
+        "Shareholders",
+        "Government"
+      ],
+      "answer": 0,
+      "explanation": "Spec 5.1.3 lists owners, directors and employees as internal stakeholders. Shareholders are listed as external.",
+      "commonMistake": "Assuming shareholders are internal because they own shares.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.1"
+      }
+    },
+    {
+      "id": "c2-003",
+      "map": "core2",
+      "specRef": "5.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "An NHS hospital is part of which sector?",
+      "options": [
+        "Private sector",
+        "Public sector",
+        "Voluntary sector",
+        "NGO"
+      ],
+      "answer": 1,
+      "explanation": "Public sector organisations are run by or on behalf of the government (spec 5.1.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.1"
+      }
+    },
+    {
+      "id": "c2-004",
+      "map": "core2",
+      "specRef": "5.1",
+      "difficulty": "beginner",
+      "type": "true_false",
+      "prompt": "A charity is an example of a not-for-profit organisation.",
+      "answer": true,
+      "explanation": "Spec 5.1.1: voluntary/charity – not for profit.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.1"
+      }
+    },
+    {
+      "id": "c2-005",
+      "map": "core2",
+      "specRef": "5.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Automated stock control mainly supports which organisation area?",
+      "options": [
+        "Human Resources",
+        "Logistics",
+        "Sales and marketing",
+        "Finance"
+      ],
+      "answer": 1,
+      "explanation": "Spec 5.2.1 lists automated stock control under logistics.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.2"
+      }
+    },
+    {
+      "id": "c2-006",
+      "map": "core2",
+      "specRef": "5.2",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each organisation area to a way digital systems support it.",
+      "pairs": [
+        [
+          "Human Resources",
+          "Staff records and training records"
+        ],
+        [
+          "Sales and marketing",
+          "Analytics tools and personalised services"
+        ],
+        [
+          "Management",
+          "Real-time monitoring of key performance indicators"
+        ],
+        [
+          "Finance",
+          "Better financial reporting from up-to-date information"
+        ]
+      ],
+      "explanation": "All examples are taken from spec 5.2.1.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.2"
+      }
+    },
+    {
+      "id": "c2-007",
+      "map": "core2",
+      "specRef": "5.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "A booking website shows 'Your request is being processed – this may take up to 30 seconds'. Which way of meeting user needs does this show?",
+      "options": [
+        "Reduction of pain points through communicating expected response time",
+        "Compatibility with legacy systems",
+        "Ease of installation",
+        "Future proofing for upgrades"
+      ],
+      "answer": 0,
+      "explanation": "Spec 5.2.2: reducing pain points includes communicating the expected response time.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.2"
+      }
+    },
+    {
+      "id": "c2-008",
+      "map": "core2",
+      "specRef": "5.3",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "A ransomware attack stops staff opening customer records. Which part of a security breach does this mainly show?",
+      "options": [
+        "Compromised confidentiality",
+        "Loss of integrity",
+        "Reduced availability",
+        "Audience exclusion"
+      ],
+      "answer": 2,
+      "explanation": "The data still exists but cannot be accessed, so availability is reduced (spec 5.3.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.3"
+      }
+    },
+    {
+      "id": "c2-009",
+      "map": "core2",
+      "specRef": "5.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which is a potential IMPACT on an organisation of a risk such as a data breach?",
+      "options": [
+        "Withdrawal of licence to practise",
+        "Emerging rival technologies",
+        "System not fit for purpose",
+        "Poor user experience"
+      ],
+      "answer": 0,
+      "explanation": "Spec 5.3.2 impacts: legal action, fines, reputational damage, withdrawal of licence to practise, loss of business. The other options are risks, not impacts.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.3"
+      }
+    },
+    {
+      "id": "c2-010",
+      "map": "core2",
+      "specRef": "5.4",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each method of implementing change to its description.",
+      "pairs": [
+        [
+          "Parallel",
+          "Old and new systems run at the same time until the new one is proven"
+        ],
+        [
+          "Phased",
+          "The new system is introduced one part at a time"
+        ],
+        [
+          "Direct",
+          "The old system is switched off and the new one starts immediately"
+        ],
+        [
+          "Pilot",
+          "The new system is trialled in one department or site first"
+        ]
+      ],
+      "explanation": "Spec 5.4.4 lists parallel, phased, direct and pilot.",
+      "commonMistake": "Confusing phased (part of the system at a time) with pilot (part of the organisation first).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.4"
+      }
+    },
+    {
+      "id": "c2-011",
+      "map": "core2",
+      "specRef": "5.4",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "A hospital cannot risk losing patient records if a new system fails, and has enough staff to enter data twice for a short time. Which implementation method is most suitable?",
+      "options": [
+        "Direct",
+        "Parallel",
+        "Phased",
+        "Pilot"
+      ],
+      "answer": 1,
+      "explanation": "Parallel running keeps the old system working as a fallback, which suits high-risk data, at the cost of extra work.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.4"
+      }
+    },
+    {
+      "id": "c2-012",
+      "map": "core2",
+      "specRef": "5.4",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What is a role of a change advisory board (CAB)?",
+      "options": [
+        "To review and prioritise change requests",
+        "To write the code for every change",
+        "To choose staff salaries",
+        "To market the new system"
+      ],
+      "answer": 0,
+      "explanation": "Spec 5.4.4: the CAB prioritises and reviews change requests, manages stages of approval, monitors change and gives feedback.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.4"
+      }
+    },
+    {
+      "id": "c2-013",
+      "map": "core2",
+      "specRef": "5.4",
+      "difficulty": "medium",
+      "type": "fill_blank",
+      "prompt": "SMARTER objectives are specific, measurable, achievable, realistic, time-bound, evaluated and ___.",
+      "answer": [
+        "reviewed"
+      ],
+      "explanation": "Spec 5.4.4 defines SMARTER as specific, measurable, achievable, realistic, time-bound, evaluated, reviewed.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.4"
+      }
+    },
+    {
+      "id": "c2-014",
+      "map": "core2",
+      "specRef": "5.4",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which of these is an EXTERNAL factor that could trigger change in an organisation?",
+      "options": [
+        "A zero-day vulnerability in software the company uses",
+        "Organisational restructuring",
+        "Downsizing",
+        "Rebranding"
+      ],
+      "answer": 0,
+      "explanation": "Zero-day vulnerabilities are a technological external factor (spec 5.4.2). The others are internal factors (5.4.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.4"
+      }
+    },
+    {
+      "id": "c2-015",
+      "map": "core2",
+      "specRef": "5.4",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Why is rollback planning important when changing a system?",
+      "options": [
+        "So the organisation can return to a working state if the change fails",
+        "So the change can be made faster",
+        "So no testing is needed",
+        "So staff do not need training"
+      ],
+      "answer": 0,
+      "explanation": "Spec 5.4.4: rollback planning covers backup methodology, backup location and recovery plan.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.4"
+      }
+    },
+    {
+      "id": "c2-016",
+      "map": "core2",
+      "specRef": "5.4",
+      "difficulty": "expert",
+      "type": "open_response",
+      "prompt": "A small airline plans to replace paper maintenance records with a new digital system. Evaluate the feasibility of this project.",
+      "commandWord": "evaluate",
+      "marks": 4,
+      "markPoints": [
+        "Benefits: productivity gains, faster access to records, improved communication",
+        "Costs of implementing the change, including hardware, software and training",
+        "Risks such as resistance to change from the workforce or inadequate knowledge of the new system",
+        "Disruption caused while the new system is implemented",
+        "Constraints of budget, time, and human and technological resources",
+        "A supported conclusion about whether the project is feasible"
+      ],
+      "explanation": "Spec 5.4.5 feasibility factors: benefits and drawbacks, risks and constraints. 'Evaluate' requires a judgement.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 5.4"
+      }
+    },
+    {
+      "id": "c2-017",
+      "map": "core2",
+      "specRef": "6.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "The value '38.5' with no context is best described as:",
+      "options": [
+        "Data",
+        "Information",
+        "Knowledge",
+        "Metadata"
+      ],
+      "answer": 0,
+      "explanation": "Data is raw values without context. '38.5°C, patient temperature' is information; knowing that this means the patient has a fever is knowledge.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.1"
+      }
+    },
+    {
+      "id": "c2-018",
+      "map": "core2",
+      "specRef": "6.1",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each term to an example.",
+      "pairs": [
+        [
+          "Data",
+          "38.5"
+        ],
+        [
+          "Information",
+          "A patient's temperature is 38.5°C"
+        ],
+        [
+          "Knowledge",
+          "A temperature of 38.5°C means the patient has a fever and needs treatment"
+        ]
+      ],
+      "explanation": "Spec 6.1.1: data gains context to become information; information applied with understanding becomes knowledge.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.1"
+      }
+    },
+    {
+      "id": "c2-019",
+      "map": "core2",
+      "specRef": "6.1",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "Why can AI/machine learning be a risky source for generating data?",
+      "options": [
+        "A feedback loop can reinforce errors or bias when outputs are used as new training data",
+        "AI cannot produce numbers",
+        "AI data is always unstructured",
+        "AI data cannot be stored"
+      ],
+      "answer": 0,
+      "explanation": "Spec 6.1.2 highlights the dangers of the feedback loop in AI/machine learning data.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.1"
+      }
+    },
+    {
+      "id": "c2-020",
+      "map": "core2",
+      "specRef": "6.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which is a metric used to determine the value of data?",
+      "options": [
+        "Veracity",
+        "Colour",
+        "File name",
+        "Font"
+      ],
+      "answer": 0,
+      "explanation": "Spec 6.1.3: quantity, timeframe, source and veracity.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.1"
+      }
+    },
+    {
+      "id": "c2-021",
+      "map": "core2",
+      "specRef": "6.3",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Written comments in a customer feedback form are:",
+      "options": [
+        "Quantitative and structured",
+        "Qualitative and unstructured",
+        "Quantitative and unstructured",
+        "Discrete values"
+      ],
+      "answer": 1,
+      "explanation": "Free text is qualitative and unstructured (spec 6.3.3).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.3"
+      }
+    },
+    {
+      "id": "c2-022",
+      "map": "core2",
+      "specRef": "6.3",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each piece of data to how quantitative data is represented.",
+      "pairs": [
+        [
+          "Number of passengers on a flight",
+          "Discrete"
+        ],
+        [
+          "Height of a passenger",
+          "Continuous"
+        ],
+        [
+          "Seat class: economy, business or first",
+          "Categorical"
+        ]
+      ],
+      "explanation": "Discrete values are counted; continuous values are measured; categorical values fall into groups (spec 6.3.4).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.3"
+      }
+    },
+    {
+      "id": "c2-023",
+      "map": "core2",
+      "specRef": "6.4",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which data type is most suitable for storing a scanned image in a database?",
+      "options": [
+        "String",
+        "Blob",
+        "Real",
+        "Boolean"
+      ],
+      "answer": 1,
+      "explanation": "A Blob (binary large object) stores binary data such as images or audio (spec 6.4.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.4"
+      }
+    },
+    {
+      "id": "c2-024",
+      "map": "core2",
+      "specRef": "6.4",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which data type holds a single letter such as 'Y'?",
+      "options": [
+        "Character",
+        "Integer",
+        "Date",
+        "Real"
+      ],
+      "answer": 0,
+      "explanation": "A character stores a single symbol.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.4"
+      }
+    },
+    {
+      "id": "c2-025",
+      "map": "core2",
+      "specRef": "6.5",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each data format to its description.",
+      "pairs": [
+        [
+          "CSV",
+          "Plain text with values separated by commas, one record per line"
+        ],
+        [
+          "JSON",
+          "Key–value pairs and arrays, often used by web APIs"
+        ],
+        [
+          "XML",
+          "Data wrapped in custom opening and closing tags"
+        ],
+        [
+          "ASCII",
+          "A 7-bit character set with 128 characters"
+        ],
+        [
+          "UTF-8",
+          "A variable-length Unicode encoding for characters from all languages"
+        ]
+      ],
+      "explanation": "Spec 6.5.1 data formats.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.5"
+      }
+    },
+    {
+      "id": "c2-026",
+      "map": "core2",
+      "specRef": "6.5",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "A web app must store user names containing characters such as é and 中. Which encoding should it use?",
+      "options": [
+        "ASCII",
+        "UTF-8",
+        "CSV",
+        "Blob"
+      ],
+      "answer": 1,
+      "explanation": "ASCII only has 128 characters. UTF-8 can represent characters from every language.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.5"
+      }
+    },
+    {
+      "id": "c2-027",
+      "map": "core2",
+      "specRef": "6.6",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which is an example of metadata for a photo?",
+      "options": [
+        "The date and time the photo was taken",
+        "The people in the photo",
+        "The colour of the sky",
+        "The photo's pixels"
+      ],
+      "answer": 0,
+      "explanation": "Metadata is data that describes other data, giving context (spec 6.6.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.6"
+      }
+    },
+    {
+      "id": "c2-028",
+      "map": "core2",
+      "specRef": "6.7",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each V of Big Data to its meaning.",
+      "pairs": [
+        [
+          "Volume",
+          "The amount of data"
+        ],
+        [
+          "Velocity",
+          "The speed at which data is generated and processed"
+        ],
+        [
+          "Variety",
+          "The different types and formats of data"
+        ],
+        [
+          "Veracity",
+          "How accurate and trustworthy the data is"
+        ],
+        [
+          "Variability",
+          "How the meaning or structure of data changes over time"
+        ],
+        [
+          "Value",
+          "How useful the data is to the organisation"
+        ]
+      ],
+      "explanation": "Spec 6.7.1 lists the six Vs.",
+      "commonMistake": "Confusing variety (different types) with variability (changes over time).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.7"
+      }
+    },
+    {
+      "id": "c2-029",
+      "map": "core2",
+      "specRef": "6.7",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Asking a user to type their new email address twice is an example of:",
+      "options": [
+        "Validation",
+        "Verification",
+        "Redundancy",
+        "Integrity"
+      ],
+      "answer": 1,
+      "explanation": "Double entry is verification: it checks the data was entered accurately (spec 6.8.5).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.7"
+      }
+    },
+    {
+      "id": "c2-030",
+      "map": "core2",
+      "specRef": "6.8",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Typing the year 1945 as 1954 is an example of:",
+      "options": [
+        "A transcription error",
+        "A transposition error",
+        "A validation error",
+        "A logic error"
+      ],
+      "answer": 1,
+      "explanation": "A transposition error swaps characters around. A transcription error is copying something incorrectly, e.g. mishearing or misreading.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.8"
+      }
+    },
+    {
+      "id": "c2-031",
+      "map": "core2",
+      "specRef": "6.8",
+      "difficulty": "medium",
+      "type": "ordering",
+      "prompt": "Put the steps of data wrangling in order.",
+      "items": [
+        "Structure",
+        "Clean",
+        "Validate",
+        "Enrich",
+        "Output"
+      ],
+      "explanation": "Spec 6.8.2 lists the data wrangling steps: structure, clean, validate, enrich, output.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.8"
+      }
+    },
+    {
+      "id": "c2-032",
+      "map": "core2",
+      "specRef": "6.8",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which method reduces data entry errors by only allowing the user to pick from fixed choices?",
+      "options": [
+        "Drop-down menus",
+        "Double entry",
+        "Pre-filled boxes",
+        "Free text boxes"
+      ],
+      "answer": 0,
+      "explanation": "Drop-down menus prevent spelling and transcription errors (spec 6.8.5).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.8"
+      }
+    },
+    {
+      "id": "c2-033",
+      "map": "core2",
+      "specRef": "6.9",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which visualisation is best for showing how daily passenger numbers changed over 30 days?",
+      "options": [
+        "Line graph",
+        "Pie chart",
+        "Infographic",
+        "Table of airport codes"
+      ],
+      "answer": 0,
+      "explanation": "A line graph shows trends over time. A pie chart shows parts of a whole at one moment.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.9"
+      }
+    },
+    {
+      "id": "c2-034",
+      "map": "core2",
+      "specRef": "6.10",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which data model organises data as a tree in which each child record has only one parent?",
+      "options": [
+        "Hierarchical",
+        "Network",
+        "Relational",
+        "Flat file"
+      ],
+      "answer": 0,
+      "explanation": "In a hierarchical model each child has one parent. A network model allows records to have many parents (spec 6.10.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.10"
+      }
+    },
+    {
+      "id": "c2-035",
+      "map": "core2",
+      "specRef": "6.10",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "Which data model stores data in tables of rows and columns linked by keys?",
+      "options": [
+        "Hierarchical",
+        "Network",
+        "Relational",
+        "Directory-based"
+      ],
+      "answer": 2,
+      "explanation": "Spec 6.10.4: relational models are drawn with tables, rows, columns and labels.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.10"
+      }
+    },
+    {
+      "id": "c2-036",
+      "map": "core2",
+      "specRef": "6.11",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "In role-based access control (RBAC), permissions are given based on:",
+      "options": [
+        "The user's job role",
+        "The time of day only",
+        "The user's IP address only",
+        "The size of the file"
+      ],
+      "answer": 0,
+      "explanation": "RBAC grants access rights by role, e.g. all engineers can edit maintenance records.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.11"
+      }
+    },
+    {
+      "id": "c2-037",
+      "map": "core2",
+      "specRef": "6.11",
+      "difficulty": "medium",
+      "type": "open_response",
+      "prompt": "Explain one benefit of an airline giving a partner travel company access to flight data through an API rather than direct database access.",
+      "commandWord": "explain",
+      "marks": 2,
+      "markPoints": [
+        "Only the data the partner needs is exposed",
+        "The partner never connects directly to the database, reducing security risk",
+        "Access can be controlled, monitored or revoked using API keys",
+        "Data is returned in a standard format (e.g. JSON), making integration easier"
+      ],
+      "explanation": "Spec 6.11.1–6.11.2 benefits and drawbacks of access mechanisms.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.11"
+      }
+    },
+    {
+      "id": "c2-038",
+      "map": "core2",
+      "specRef": "6.12",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which stores very large amounts of raw data in its original format until it is needed?",
+      "options": [
+        "Data lake",
+        "Data mart",
+        "Data warehouse",
+        "Spreadsheet"
+      ],
+      "answer": 0,
+      "explanation": "A data lake holds raw data. A data warehouse holds processed, structured data; a data mart is a subset for one department.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 6.12"
+      }
+    },
+    {
+      "id": "c2-039",
+      "map": "core2",
+      "specRef": "7.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which processor feature allows more tasks to be processed at the same time?",
+      "options": [
+        "Number of cores",
+        "Cache size",
+        "Cooling method",
+        "Motherboard colour"
+      ],
+      "answer": 0,
+      "explanation": "Each core can process instructions, so more cores allow more tasks to run simultaneously (spec 7.1.2).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.1"
+      }
+    },
+    {
+      "id": "c2-040",
+      "map": "core2",
+      "specRef": "7.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which type of memory loses its contents when power is turned off?",
+      "options": [
+        "RAM",
+        "ROM",
+        "Solid state storage",
+        "Optical storage"
+      ],
+      "answer": 0,
+      "explanation": "RAM is volatile; ROM is not.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.1"
+      }
+    },
+    {
+      "id": "c2-041",
+      "map": "core2",
+      "specRef": "7.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which type of secondary storage has no moving parts?",
+      "options": [
+        "Magnetic",
+        "Solid state",
+        "Optical",
+        "Tape"
+      ],
+      "answer": 1,
+      "explanation": "Solid state storage uses flash memory with no moving parts.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.1"
+      }
+    },
+    {
+      "id": "c2-042",
+      "map": "core2",
+      "specRef": "7.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "A cash machine must respond to each transaction immediately. Which type of operating system is most suitable?",
+      "options": [
+        "Batch",
+        "Real-time",
+        "Mobile",
+        "Network"
+      ],
+      "answer": 1,
+      "explanation": "Spec 7.2.1 lists transaction processing and monitoring/control as uses of real-time operating systems.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.2"
+      }
+    },
+    {
+      "id": "c2-043",
+      "map": "core2",
+      "specRef": "7.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which operating system feature gives each running task a short turn on the processor?",
+      "options": [
+        "Time-slicing",
+        "Batch scheduling",
+        "Defragmentation",
+        "Compression"
+      ],
+      "answer": 0,
+      "explanation": "Multitasking operating systems use time-slicing and interrupts (spec 7.2.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.2"
+      }
+    },
+    {
+      "id": "c2-044",
+      "map": "core2",
+      "specRef": "7.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which translator converts and runs source code one line at a time?",
+      "options": [
+        "Compiler",
+        "Interpreter",
+        "Defragmenter",
+        "Package manager"
+      ],
+      "answer": 1,
+      "explanation": "An interpreter translates and executes line by line; a compiler translates the whole program first (spec 7.2.3).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.2"
+      }
+    },
+    {
+      "id": "c2-045",
+      "map": "core2",
+      "specRef": "7.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which utility rearranges the parts of files on a magnetic hard disk so they are stored together?",
+      "options": [
+        "File compression",
+        "Defragmenter",
+        "Backup software",
+        "Protection software"
+      ],
+      "answer": 1,
+      "explanation": "Spec 7.2.2 common utilities.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.2"
+      }
+    },
+    {
+      "id": "c2-046",
+      "map": "core2",
+      "specRef": "7.3",
+      "difficulty": "beginner",
+      "type": "multiple_choice",
+      "prompt": "Bluetooth headphones connected to a phone form a:",
+      "options": [
+        "PAN",
+        "LAN",
+        "MAN",
+        "WAN"
+      ],
+      "answer": 0,
+      "explanation": "A personal area network covers a few metres around one person.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.3"
+      }
+    },
+    {
+      "id": "c2-047",
+      "map": "core2",
+      "specRef": "7.3",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "In which topology is every device connected to one central switch?",
+      "options": [
+        "Star",
+        "Mesh",
+        "Tree",
+        "Ring"
+      ],
+      "answer": 0,
+      "explanation": "Spec 7.3.4 topologies: star, mesh, tree.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.3"
+      }
+    },
+    {
+      "id": "c2-048",
+      "map": "core2",
+      "specRef": "7.3",
+      "difficulty": "hard",
+      "type": "ordering",
+      "prompt": "Put the seven layers of the OSI model in order from layer 7 (top) to layer 1 (bottom).",
+      "items": [
+        "Application",
+        "Presentation",
+        "Session",
+        "Transport",
+        "Network",
+        "Data link",
+        "Physical"
+      ],
+      "explanation": "Spec 7.3.7. One way to remember from the top: All People Seem To Need Data Processing.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.3"
+      }
+    },
+    {
+      "id": "c2-049",
+      "map": "core2",
+      "specRef": "7.3",
+      "difficulty": "medium",
+      "type": "ordering",
+      "prompt": "Put the four layers of the TCP/IP model in order from top to bottom, using the specification's names.",
+      "items": [
+        "Application",
+        "Transport",
+        "Internet",
+        "Network"
+      ],
+      "explanation": "Spec 7.3.8 names the layers application, transport, internet and network. Other sources call the bottom layer network access or link.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.3"
+      }
+    },
+    {
+      "id": "c2-050",
+      "map": "core2",
+      "specRef": "7.3",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each protocol to its role.",
+      "pairs": [
+        [
+          "HTTPS",
+          "Secure transfer of web pages"
+        ],
+        [
+          "SMTP",
+          "Sending email"
+        ],
+        [
+          "IMAP",
+          "Accessing email that stays stored on the server"
+        ],
+        [
+          "DHCP",
+          "Automatically assigning IP addresses to devices"
+        ],
+        [
+          "DNS",
+          "Translating domain names into IP addresses"
+        ]
+      ],
+      "explanation": "Spec 7.3.10 common network protocols.",
+      "commonMistake": "Confusing SMTP (sending) with IMAP/POP (receiving).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.3"
+      }
+    },
+    {
+      "id": "c2-051",
+      "map": "core2",
+      "specRef": "7.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which of these is a routing protocol?",
+      "options": [
+        "OSPF",
+        "POP",
+        "SFTP",
+        "HTTPS"
+      ],
+      "answer": 0,
+      "explanation": "RIP and OSPF are routing protocols (spec 7.3.10).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.3"
+      }
+    },
+    {
+      "id": "c2-052",
+      "map": "core2",
+      "specRef": "7.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What is a cyclic redundancy check (CRC) used for in data packets?",
+      "options": [
+        "Detecting errors in transmitted data",
+        "Encrypting the packet",
+        "Choosing the route",
+        "Compressing the data"
+      ],
+      "answer": 0,
+      "explanation": "The sender calculates a CRC value; the receiver recalculates it and a mismatch shows the data was corrupted (spec 7.3.9).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.3"
+      }
+    },
+    {
+      "id": "c2-053",
+      "map": "core2",
+      "specRef": "7.3",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "What is latency?",
+      "options": [
+        "The delay before data arrives",
+        "The maximum amount of data that can be sent per second",
+        "The number of devices on a network",
+        "The length of a cable"
+      ],
+      "answer": 0,
+      "explanation": "Bandwidth is capacity; latency is delay (spec 7.3.11).",
+      "commonMistake": "Mixing up latency and bandwidth.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.3"
+      }
+    },
+    {
+      "id": "c2-054",
+      "map": "core2",
+      "specRef": "7.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "In which network model do all computers have equal status and share resources directly with each other?",
+      "options": [
+        "Client-server",
+        "Thin client",
+        "Peer-to-peer",
+        "Star"
+      ],
+      "answer": 2,
+      "explanation": "Spec 7.3.5 network models.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.3"
+      }
+    },
+    {
+      "id": "c2-055",
+      "map": "core2",
+      "specRef": "7.4",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What is a type 1 hypervisor?",
+      "options": [
+        "One that runs directly on the physical hardware",
+        "One that runs as an application on a host operating system",
+        "A virtual switch",
+        "A backup tool"
+      ],
+      "answer": 0,
+      "explanation": "Type 1 (bare-metal) runs directly on hardware; type 2 runs on top of a host operating system (spec 7.4.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.4"
+      }
+    },
+    {
+      "id": "c2-056",
+      "map": "core2",
+      "specRef": "7.4",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which is a drawback of virtual environments listed in the specification?",
+      "options": [
+        "Slower execution time",
+        "Better testing environments",
+        "Improved disaster recovery",
+        "Easy management"
+      ],
+      "answer": 0,
+      "explanation": "Spec 7.4.4 drawbacks: extra hardware load, slower execution, potential false representation of performance.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.4"
+      }
+    },
+    {
+      "id": "c2-057",
+      "map": "core2",
+      "specRef": "7.5",
+      "difficulty": "hard",
+      "type": "match",
+      "prompt": "Match each cloud delivery model to what the CLIENT manages.",
+      "pairs": [
+        [
+          "SaaS",
+          "User accounts and data only"
+        ],
+        [
+          "PaaS",
+          "Application software, data and user accounts"
+        ],
+        [
+          "IaaS",
+          "Application software, operating system, runtime, data and user accounts"
+        ]
+      ],
+      "explanation": "Spec 7.5.3 sets out responsibility for each model.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.5"
+      }
+    },
+    {
+      "id": "c2-058",
+      "map": "core2",
+      "specRef": "7.5",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which cloud benefit means resources can be increased or decreased quickly to match demand?",
+      "options": [
+        "Elasticity",
+        "Portability",
+        "Latency",
+        "Redundancy"
+      ],
+      "answer": 0,
+      "explanation": "Spec 7.5.2 benefits of cloud.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.5"
+      }
+    },
+    {
+      "id": "c2-059",
+      "map": "core2",
+      "specRef": "7.5",
+      "difficulty": "expert",
+      "type": "open_response",
+      "prompt": "An airline must choose between buying a physical server or renting a cloud server with support for a new maintenance system. Evaluate the two options.",
+      "commandWord": "evaluate",
+      "marks": 4,
+      "markPoints": [
+        "Cloud: no large upfront hardware cost and elasticity to match demand",
+        "Cloud with support: provider manages hardware, so no in-house technician is needed",
+        "Cloud: depends on internet connectivity and has ongoing monthly costs that add up over years",
+        "Physical: organisation controls the hardware and data location but must maintain it and replace it",
+        "Considers security or legal compliance of where data is stored",
+        "Supported conclusion for this airline"
+      ],
+      "explanation": "'Evaluate' needs both sides and a justified judgement in context.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.5"
+      }
+    },
+    {
+      "id": "c2-060",
+      "map": "core2",
+      "specRef": "7.6",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which backup site has equipment and up-to-date data ready to take over almost immediately?",
+      "options": [
+        "Hot site",
+        "Warm site",
+        "Cold site",
+        "Air gap"
+      ],
+      "answer": 0,
+      "explanation": "A hot site is ready at once; a warm site needs some setup; a cold site is only space and power (spec 7.6.2).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.6"
+      }
+    },
+    {
+      "id": "c2-061",
+      "map": "core2",
+      "specRef": "7.6",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "What is device hardening?",
+      "options": [
+        "Removing unneeded ports, applications, permissions and access",
+        "Using rugged, drop-proof laptops",
+        "Encrypting all files",
+        "Buying newer hardware"
+      ],
+      "answer": 0,
+      "explanation": "Spec 7.6.2 device hardening.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 7.6"
+      }
+    },
+    {
+      "id": "c2-062",
+      "map": "core2",
+      "specRef": "8.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which is classed as access information?",
+      "options": [
+        "Biometric data",
+        "Sales numbers",
+        "Contracts",
+        "Staff salaries"
+      ],
+      "answer": 0,
+      "explanation": "Spec 8.1.1 access information: usernames, passwords, MFA details, PINs, access codes, passphrases, biometric data.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.1"
+      }
+    },
+    {
+      "id": "c2-063",
+      "map": "core2",
+      "specRef": "8.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Why should an organisation keep its client details confidential?",
+      "options": [
+        "To prevent competitors contacting its clients and to protect client privacy",
+        "To make the database smaller",
+        "To speed up the network",
+        "Because clients are internal stakeholders"
+      ],
+      "answer": 0,
+      "explanation": "Spec 8.1.2.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.1"
+      }
+    },
+    {
+      "id": "c2-064",
+      "map": "core2",
+      "specRef": "8.2",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each social engineering attack to its description.",
+      "pairs": [
+        [
+          "Phishing",
+          "Fraudulent emails sent to large numbers of people"
+        ],
+        [
+          "Spear phishing",
+          "A fraudulent message targeted at a specific person or organisation"
+        ],
+        [
+          "Smishing",
+          "Fraudulent SMS text messages"
+        ],
+        [
+          "Vishing",
+          "Fraudulent phone or voice calls"
+        ],
+        [
+          "Pharming",
+          "Redirecting users from a genuine website to a fake one"
+        ]
+      ],
+      "explanation": "Spec 8.2.1 social engineering.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.2"
+      }
+    },
+    {
+      "id": "c2-065",
+      "map": "core2",
+      "specRef": "8.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Typing ' OR '1'='1 into a website login box is an attempt at:",
+      "options": [
+        "Cross-site scripting",
+        "SQL injection",
+        "A buffer overflow",
+        "A DDoS attack"
+      ],
+      "answer": 1,
+      "explanation": "The input tries to change the database query so the condition is always true.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.2"
+      }
+    },
+    {
+      "id": "c2-066",
+      "map": "core2",
+      "specRef": "8.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "A website is flooded with requests from thousands of infected computers so real users cannot access it. What is this?",
+      "options": [
+        "DDoS attack",
+        "Pharming",
+        "Spyware",
+        "Shoulder surfing"
+      ],
+      "answer": 0,
+      "explanation": "A distributed denial of service attack often uses a botnet (spec 8.2.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.2"
+      }
+    },
+    {
+      "id": "c2-067",
+      "map": "core2",
+      "specRef": "8.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which malware encrypts files and demands payment to unlock them?",
+      "options": [
+        "Worm",
+        "Key logger",
+        "Ransomware",
+        "Spyware"
+      ],
+      "answer": 2,
+      "explanation": "Spec 8.2.1 malware types.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.2"
+      }
+    },
+    {
+      "id": "c2-068",
+      "map": "core2",
+      "specRef": "8.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "How should an organisation respond to a malicious employee, according to the specification?",
+      "options": [
+        "Suspend their user accounts immediately",
+        "Send them on training",
+        "Give them a warning and continue as normal",
+        "Change the office Wi-Fi name"
+      ],
+      "answer": 0,
+      "explanation": "Spec 8.2.3: immediate removal from premises and suspending user accounts immediately.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.2"
+      }
+    },
+    {
+      "id": "c2-069",
+      "map": "core2",
+      "specRef": "8.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Someone follows an employee through a secure door without using their own pass. What is this?",
+      "options": [
+        "Tailgating",
+        "Shoulder surfing",
+        "Vishing",
+        "Air gapping"
+      ],
+      "answer": 0,
+      "explanation": "Spec 8.2.4: do not allow tailgating.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.2"
+      }
+    },
+    {
+      "id": "c2-070",
+      "map": "core2",
+      "specRef": "8.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What is the main purpose of hashing a password before storing it?",
+      "options": [
+        "So the original password is not stored and cannot simply be read if the database is stolen",
+        "So the password can be decrypted later when the user forgets it",
+        "To make the password shorter",
+        "To compress the database"
+      ],
+      "answer": 0,
+      "explanation": "Hashing is one-way. The system hashes the login attempt and compares hashes, so the plain password never needs to be stored.",
+      "commonMistake": "Thinking hashing is the same as encryption and can be reversed.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.3"
+      }
+    },
+    {
+      "id": "c2-071",
+      "map": "core2",
+      "specRef": "8.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which type of encryption uses a public key to encrypt and a private key to decrypt?",
+      "options": [
+        "Symmetric",
+        "Asymmetric",
+        "Hashing",
+        "Compression"
+      ],
+      "answer": 1,
+      "explanation": "Spec 8.3.1: hashing, symmetric and asymmetric encryption.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.3"
+      }
+    },
+    {
+      "id": "c2-072",
+      "map": "core2",
+      "specRef": "8.3",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "Which backup type copies only the data changed since the last FULL backup?",
+      "options": [
+        "Full",
+        "Incremental",
+        "Differential",
+        "Mirror"
+      ],
+      "answer": 2,
+      "explanation": "Differential backups copy changes since the last full backup. Incremental backups copy changes since the last backup of any type.",
+      "commonMistake": "Swapping incremental and differential.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.3"
+      }
+    },
+    {
+      "id": "c2-073",
+      "map": "core2",
+      "specRef": "8.3",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "Which of these is multi-factor authentication?",
+      "options": [
+        "A password plus a code sent to a registered phone",
+        "A password plus a PIN",
+        "Two different passwords",
+        "A username plus a password"
+      ],
+      "answer": 0,
+      "explanation": "MFA combines different kinds of factor, e.g. something you know and something you have. A password and a PIN are both things you know.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.3"
+      }
+    },
+    {
+      "id": "c2-074",
+      "map": "core2",
+      "specRef": "8.3",
+      "difficulty": "medium",
+      "type": "true_false",
+      "prompt": "An air gap physically isolates a computer or network from unsecured networks such as the internet.",
+      "answer": true,
+      "explanation": "Spec 8.3.1 threat mitigation techniques include air gaps.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.3"
+      }
+    },
+    {
+      "id": "c2-075",
+      "map": "core2",
+      "specRef": "8.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What is penetration testing?",
+      "options": [
+        "Authorised simulated attacks to find vulnerabilities before criminals do",
+        "Testing how many users a website can handle",
+        "Checking cables are connected",
+        "Installing antivirus"
+      ],
+      "answer": 0,
+      "explanation": "Spec 8.3.1 penetration testing includes ethical hacking.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.3"
+      }
+    },
+    {
+      "id": "c2-076",
+      "map": "core2",
+      "specRef": "8.3",
+      "difficulty": "medium",
+      "type": "open_response",
+      "prompt": "Explain why staff training helps reduce the risk of social engineering attacks.",
+      "commandWord": "explain",
+      "marks": 2,
+      "markPoints": [
+        "Staff learn to recognise signs of attacks such as phishing emails or suspicious calls",
+        "Staff are less likely to reveal passwords or click malicious links",
+        "Staff know how to report suspected attacks quickly"
+      ],
+      "explanation": "Social engineering targets people, not technology, so training reduces human error.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.3"
+      }
+    },
+    {
+      "id": "c2-077",
+      "map": "core2",
+      "specRef": "8.4",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which part of the CIA triad ensures data has not been tampered with?",
+      "options": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Accountability"
+      ],
+      "answer": 1,
+      "explanation": "Spec 8.4.1.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.4"
+      }
+    },
+    {
+      "id": "c2-078",
+      "map": "core2",
+      "specRef": "8.4",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each stage of the IAAA model to an example.",
+      "pairs": [
+        [
+          "Identification",
+          "Entering a username"
+        ],
+        [
+          "Authentication",
+          "Verifying a password or fingerprint"
+        ],
+        [
+          "Authorisation",
+          "Only allowing access to permitted resources"
+        ],
+        [
+          "Accountability",
+          "Audit logs tracing actions back to a user"
+        ]
+      ],
+      "explanation": "Spec 8.4.2 IAAA model.",
+      "commonMistake": "Confusing authentication (proving who you are) with authorisation (what you may do).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 8.4"
+      }
+    }
+  ]
+}

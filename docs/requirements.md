@@ -1,6 +1,6 @@
-# Requirements Specification — v0.0
+# Requirements Specification
 
-Status: draft, 2026-09-17.
+Status: implemented in full build, 2026-09-17. FR1–FR14 are implemented; NFR1–NFR2 still need measuring on a school PC (see test-report.md).
 
 ## 1. Purpose
 CODE//BREACH is a single-player, browser-based tactical shooter in which revision questions aligned to the

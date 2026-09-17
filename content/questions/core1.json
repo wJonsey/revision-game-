@@ -1,0 +1,2200 @@
+{
+  "packId": "core1-generated",
+  "title": "Core Paper 1 – generated practice",
+  "version": 1,
+  "questions": [
+    {
+      "id": "c1-001",
+      "map": "core1",
+      "specRef": "1.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which component of computational thinking involves filtering out unnecessary details and hiding the internal workings of a solution?",
+      "options": [
+        "Decomposition",
+        "Pattern recognition",
+        "Abstraction",
+        "Algorithmic design"
+      ],
+      "answer": 2,
+      "explanation": "Abstraction means identifying the information that is needed, filtering out unnecessary detail and hiding details of internal workings (spec 1.1.14).",
+      "commonMistake": "Confusing abstraction with decomposition. Decomposition breaks a problem into parts; abstraction removes detail that is not needed.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.1"
+      }
+    },
+    {
+      "id": "c1-002",
+      "map": "core1",
+      "specRef": "1.1",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each component of computational thinking to its description.",
+      "pairs": [
+        [
+          "Decomposition",
+          "Breaking a problem or solution into smaller, more manageable parts"
+        ],
+        [
+          "Pattern recognition",
+          "Finding trends and similarities within and between problems"
+        ],
+        [
+          "Abstraction",
+          "Identifying the information needed and filtering out unnecessary detail"
+        ],
+        [
+          "Algorithmic design",
+          "Creating a step-by-step set of instructions to solve the problem"
+        ]
+      ],
+      "explanation": "The four components listed in spec 1.1.4 are decomposition, pattern recognition, abstraction and algorithmic design.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.1"
+      }
+    },
+    {
+      "id": "c1-003",
+      "map": "core1",
+      "specRef": "1.1",
+      "difficulty": "beginner",
+      "type": "true_false",
+      "prompt": "Decomposition can be used to break down solutions, not only problems, into smaller parts.",
+      "answer": true,
+      "explanation": "Spec 1.1.7 lists both: break problems down and break solutions down into smaller, more manageable parts.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.1"
+      }
+    },
+    {
+      "id": "c1-004",
+      "map": "core1",
+      "specRef": "1.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "A car park payment machine is being designed using abstraction. Which of these is a 'thing that will remain constant'?",
+      "options": [
+        "The maximum stay allowed, fixed at 4 hours",
+        "The registration number each driver enters",
+        "The time each car arrives",
+        "The payment method each driver chooses"
+      ],
+      "answer": 0,
+      "explanation": "When using abstraction you identify things that vary and things that remain constant (spec 1.1.15). The maximum stay is fixed; the other values change for every driver.",
+      "commonMistake": "Thinking any value the program stores is a constant. Values entered by users vary every time.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.1"
+      }
+    },
+    {
+      "id": "c1-005",
+      "map": "core1",
+      "specRef": "1.1",
+      "difficulty": "medium",
+      "type": "open_response",
+      "prompt": "A cinema wants a new online booking app. Explain one benefit of using decomposition when developing the app.",
+      "commandWord": "explain",
+      "marks": 2,
+      "markPoints": [
+        "Identifies a benefit: each smaller part (e.g. seat selection, payment) is easier to understand and solve",
+        "Different parts can be developed by different developers at the same time",
+        "Each part can be tested separately so faults are easier to find",
+        "Linked justification applied to the booking app (e.g. payment can be tested before being joined to seat selection)"
+      ],
+      "explanation": "An 'explain' answer needs a point plus a linked justification. For 2 marks: state a benefit, then say why it helps in this context.",
+      "commonMistake": "Only stating 'it breaks the problem down' – that describes decomposition but is not a benefit.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.1"
+      }
+    },
+    {
+      "id": "c1-006",
+      "map": "core1",
+      "specRef": "1.1",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "A developer notices that a new parcel-tracking problem is very similar to a delivery-tracking system the company already built, so they reuse its approach. Which component of computational thinking is this?",
+      "options": [
+        "Pattern recognition",
+        "Abstraction",
+        "Decomposition",
+        "Iteration"
+      ],
+      "answer": 0,
+      "explanation": "Finding common features between a given problem and existing solutions is pattern recognition (spec 1.1.12).",
+      "commonMistake": "Choosing iteration: iteration is a programming action, not a component of computational thinking.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.1"
+      }
+    },
+    {
+      "id": "c1-007",
+      "map": "core1",
+      "specRef": "1.2",
+      "difficulty": "beginner",
+      "type": "multiple_choice",
+      "prompt": "Which flowchart symbol shows a decision?",
+      "options": [
+        "Rectangle",
+        "Diamond",
+        "Parallelogram",
+        "Rounded rectangle"
+      ],
+      "answer": 1,
+      "explanation": "A diamond denotes a decision (Appendix 2 flowchart symbols). It has one arrow in and a Yes and a No arrow out.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.2"
+      }
+    },
+    {
+      "id": "c1-008",
+      "map": "core1",
+      "specRef": "1.2",
+      "difficulty": "easy",
+      "type": "match",
+      "prompt": "Match each flowchart symbol to what it denotes.",
+      "pairs": [
+        [
+          "Rounded rectangle (terminator)",
+          "The start or end of an algorithm"
+        ],
+        [
+          "Rectangle",
+          "A process to be carried out"
+        ],
+        [
+          "Rectangle with double vertical side lines",
+          "A sub-process"
+        ],
+        [
+          "Parallelogram",
+          "Input or output"
+        ],
+        [
+          "Circle",
+          "A connection to another part of the flowchart"
+        ]
+      ],
+      "explanation": "These symbols come from Appendix 2 of the specification.",
+      "commonMistake": "Mixing up process (plain rectangle) and sub-process (rectangle with extra vertical lines).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.2"
+      }
+    },
+    {
+      "id": "c1-009",
+      "map": "core1",
+      "specRef": "1.2",
+      "difficulty": "easy",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "total = 0\nfor count in range(1, 5):\n    total = total + count\nprint(total)",
+      "answer": [
+        "10"
+      ],
+      "explanation": "range(1, 5) gives 1, 2, 3 and 4 (the stop value 5 is not included). 1 + 2 + 3 + 4 = 10.",
+      "commonMistake": "Including 5 in the range, which would give 15.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.2"
+      }
+    },
+    {
+      "id": "c1-010",
+      "map": "core1",
+      "specRef": "1.2",
+      "difficulty": "beginner",
+      "type": "multiple_choice",
+      "prompt": "Which action repeats a set of steps in an algorithm?",
+      "options": [
+        "Sequence",
+        "Selection",
+        "Iteration",
+        "Abstraction"
+      ],
+      "answer": 2,
+      "explanation": "Spec 1.2.6 lists sequence, selection and iteration as the actions that control the ordering of steps. Iteration repeats steps.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.2"
+      }
+    },
+    {
+      "id": "c1-011",
+      "map": "core1",
+      "specRef": "1.2",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "number = 17\nsteps = 0\nwhile number != 1:\n    if number % 2 == 0:\n        number = number // 2\n    else:\n        number = number - 1\n    steps = steps + 1\nprint(steps)",
+      "answer": [
+        "5"
+      ],
+      "explanation": "Trace it: 17 → 16 (odd, subtract 1) → 8 → 4 → 2 → 1. That is 5 steps.",
+      "commonMistake": "Forgetting to count the first step from 17 to 16.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.2"
+      }
+    },
+    {
+      "id": "c1-012",
+      "map": "core1",
+      "specRef": "1.2",
+      "difficulty": "hard",
+      "type": "open_response",
+      "prompt": "Explain one drawback of expressing an algorithm as a flowchart rather than as code.",
+      "commandWord": "explain",
+      "marks": 2,
+      "markPoints": [
+        "Large or complex algorithms make flowcharts very big and hard to follow",
+        "Flowcharts are time-consuming to draw and update when the algorithm changes",
+        "A flowchart cannot be run or tested directly; it still has to be translated into code",
+        "Linked justification of why the drawback matters (e.g. more chance of errors when translating)"
+      ],
+      "explanation": "Spec 1.2.3 asks for benefits and drawbacks of each way of expressing algorithms. Give a drawback and a reason it matters.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.2"
+      }
+    },
+    {
+      "id": "c1-013",
+      "map": "core1",
+      "specRef": "1.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "An algorithm is meant to print 'Adult' for ages 18 and over. Which condition has an error?",
+      "options": [
+        "if age > 18:",
+        "if age >= 18:",
+        "if not age < 18:",
+        "if 18 <= age:"
+      ],
+      "answer": 0,
+      "explanation": "age > 18 is False when age is exactly 18, so an 18-year-old would not be treated as an adult. The other three are all correct ways to include 18.",
+      "commonMistake": "Not testing the boundary value 18 itself.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.2"
+      }
+    },
+    {
+      "id": "c1-014",
+      "map": "core1",
+      "specRef": "1.3",
+      "difficulty": "medium",
+      "type": "ordering",
+      "prompt": "Put the stages of the high-level problem-solving strategy in order.",
+      "items": [
+        "Define the problem",
+        "Gather information",
+        "Analyse the information",
+        "Make a plan of action",
+        "Implement a solution",
+        "Review the solution"
+      ],
+      "explanation": "This is the order given in spec 1.3.5.",
+      "commonMistake": "Implementing before making a plan of action.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.3"
+      }
+    },
+    {
+      "id": "c1-015",
+      "map": "core1",
+      "specRef": "1.3",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which root cause analysis approach repeatedly asks why a problem happened until the underlying cause is found?",
+      "options": [
+        "Five whys",
+        "Failure mode and effects analysis",
+        "Event tree analysis",
+        "Modularisation"
+      ],
+      "answer": 0,
+      "explanation": "The five whys approach asks 'why?' repeatedly (typically about five times) to move from the symptom to the root cause (spec 1.3.4).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.3"
+      }
+    },
+    {
+      "id": "c1-016",
+      "map": "core1",
+      "specRef": "1.3",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "Root cause analysis shows a crash is caused by a fault inside a third-party payment service that the development team cannot change. What is the most appropriate action?",
+      "options": [
+        "Close the issue",
+        "Escalate to the third party or an appropriate specialist",
+        "Log the issue and take no further action",
+        "Rewrite the payment service yourself"
+      ],
+      "answer": 1,
+      "explanation": "Spec 1.3.4 lists actions after root cause analysis: log, close, or escalate to an appropriate manager, specialist or external third party. A fault the team cannot fix must be escalated.",
+      "commonMistake": "Closing an issue that has not been resolved.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.3"
+      }
+    },
+    {
+      "id": "c1-017",
+      "map": "core1",
+      "specRef": "1.3",
+      "difficulty": "easy",
+      "type": "true_false",
+      "prompt": "A bottom-up approach starts by building small, detailed components and then combines them into a complete system.",
+      "answer": true,
+      "explanation": "Bottom-up works from the detail upwards; top-down starts with the overall problem and breaks it down (spec 1.3.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.3"
+      }
+    },
+    {
+      "id": "c1-018",
+      "map": "core1",
+      "specRef": "1.3",
+      "difficulty": "medium",
+      "type": "fill_blank",
+      "prompt": "FMEA stands for failure mode and ___ analysis.",
+      "answer": [
+        "effects",
+        "effect"
+      ],
+      "explanation": "Failure mode and effects analysis is one of the root cause analysis approaches in spec 1.3.4.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.3"
+      }
+    },
+    {
+      "id": "c1-019",
+      "map": "core1",
+      "specRef": "1.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What is a benefit of modularisation?",
+      "options": [
+        "Modules can be reused and tested independently",
+        "The program always runs faster",
+        "No testing is needed once modules are joined",
+        "It removes the need for documentation"
+      ],
+      "answer": 0,
+      "explanation": "Modularisation splits a program into self-contained modules that can be developed, tested and reused separately (spec 1.3.1–1.3.2).",
+      "commonMistake": "Assuming modules do not need integration testing once they are joined.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 1.3"
+      }
+    },
+    {
+      "id": "c1-020",
+      "map": "core1",
+      "specRef": "2.1",
+      "difficulty": "beginner",
+      "type": "multiple_choice",
+      "prompt": "Which data type is most suitable for storing whether a user has accepted the terms and conditions?",
+      "options": [
+        "Integer",
+        "Float",
+        "String",
+        "Boolean"
+      ],
+      "answer": 3,
+      "explanation": "A Boolean stores one of two values: True or False (spec 2.1.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.1"
+      }
+    },
+    {
+      "id": "c1-021",
+      "map": "core1",
+      "specRef": "2.1",
+      "difficulty": "beginner",
+      "type": "multiple_choice",
+      "prompt": "Which data type should store a price such as 4.99?",
+      "options": [
+        "Integer",
+        "Float",
+        "Boolean",
+        "String"
+      ],
+      "answer": 1,
+      "explanation": "A float stores numbers with a decimal part.",
+      "commonMistake": "Using an integer, which cannot hold the pence.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.1"
+      }
+    },
+    {
+      "id": "c1-022",
+      "map": "core1",
+      "specRef": "2.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which data type is most suitable for storing a UK mobile number such as 07700900123?",
+      "options": [
+        "Integer",
+        "Float",
+        "String",
+        "Boolean"
+      ],
+      "answer": 2,
+      "optionFeedback": [
+        "An integer would drop the leading 0 and you never do arithmetic on phone numbers.",
+        "A float is for decimal numbers.",
+        "Correct.",
+        "A Boolean only holds True or False."
+      ],
+      "explanation": "A phone number is not used in calculations and starts with 0. Stored as an integer the leading zero would be lost, so a string is the correct choice.",
+      "commonMistake": "Choosing integer because it 'looks like a number'.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.1"
+      }
+    },
+    {
+      "id": "c1-023",
+      "map": "core1",
+      "specRef": "2.2",
+      "difficulty": "easy",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "age = \"16\"\nprint(age + \"1\")",
+      "answer": [
+        "161"
+      ],
+      "explanation": "Both values are strings, so + joins (concatenates) them: \"16\" + \"1\" = \"161\".",
+      "commonMistake": "Expecting 17. Arithmetic only happens after converting with int().",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.2"
+      }
+    },
+    {
+      "id": "c1-024",
+      "map": "core1",
+      "specRef": "2.2",
+      "difficulty": "easy",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "age = \"16\"\nprint(int(age) + 1)",
+      "answer": [
+        "17"
+      ],
+      "explanation": "int() converts the string \"16\" to the integer 16, so + adds: 16 + 1 = 17 (spec 2.2.3).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.2"
+      }
+    },
+    {
+      "id": "c1-025",
+      "map": "core1",
+      "specRef": "2.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What happens when this code runs?",
+      "code": "score = 10\nprint(\"Score: \" + score)",
+      "options": [
+        "It prints Score: 10",
+        "A TypeError occurs",
+        "A SyntaxError occurs",
+        "It prints Score: 10.0"
+      ],
+      "answer": 1,
+      "explanation": "Python cannot join a string and an integer with +. The fix is str(score) or print(\"Score:\", score).",
+      "commonMistake": "Assuming Python converts the integer to text automatically.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.2"
+      }
+    },
+    {
+      "id": "c1-026",
+      "map": "core1",
+      "specRef": "2.2",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "count = 5\n\ndef reset():\n    count = 0\n    return count\n\nreset()\nprint(count)",
+      "answer": [
+        "5"
+      ],
+      "explanation": "The count inside reset() is a local variable. Assigning to it does not change the global count, which is still 5 (spec 2.2.5).",
+      "commonMistake": "Thinking the function changes the global variable.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.2"
+      }
+    },
+    {
+      "id": "c1-027",
+      "map": "core1",
+      "specRef": "2.2",
+      "difficulty": "hard",
+      "type": "true_false",
+      "prompt": "In Python, writing VAT_RATE = 0.2 in capital letters stops the program from changing the value later.",
+      "answer": false,
+      "explanation": "Python does not enforce constants. Upper-case names are a naming convention that tells other developers the value should not change.",
+      "commonMistake": "Believing capital letters lock the value.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.2"
+      }
+    },
+    {
+      "id": "c1-028",
+      "map": "core1",
+      "specRef": "2.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Why use a constant such as VAT_RATE instead of typing 0.2 throughout a program?",
+      "options": [
+        "If the rate changes it only needs updating in one place",
+        "Constants make the program use less memory",
+        "Constants can be changed by the user",
+        "Python requires all numbers to be constants"
+      ],
+      "answer": 0,
+      "explanation": "A constant gives the value a meaningful name and means a change is made once, improving maintainability (spec 2.2.2).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.2"
+      }
+    },
+    {
+      "id": "c1-029",
+      "map": "core1",
+      "specRef": "2.2",
+      "difficulty": "easy",
+      "type": "fill_blank",
+      "prompt": "The function ___() converts the string \"3.5\" into the number 3.5.",
+      "answer": [
+        "float"
+      ],
+      "explanation": "float() converts to a floating-point number. int(\"3.5\") would cause a ValueError.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.2"
+      }
+    },
+    {
+      "id": "c1-030",
+      "map": "core1",
+      "specRef": "2.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What is the scope of a variable?",
+      "options": [
+        "The part of the program where the variable can be accessed",
+        "The largest value the variable can hold",
+        "The data type of the variable",
+        "How long the variable name is"
+      ],
+      "answer": 0,
+      "explanation": "Scope defines where a variable is visible: a local variable only inside its function, a global variable throughout the program (spec 2.2.4).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.2"
+      }
+    },
+    {
+      "id": "c1-031",
+      "map": "core1",
+      "specRef": "2.3",
+      "difficulty": "beginner",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "colours = [\"red\", \"green\", \"blue\"]\nprint(colours[1])",
+      "answer": [
+        "green"
+      ],
+      "explanation": "List indexes start at 0, so index 1 is the second item.",
+      "commonMistake": "Starting to count at 1 and answering red.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.3"
+      }
+    },
+    {
+      "id": "c1-032",
+      "map": "core1",
+      "specRef": "2.3",
+      "difficulty": "easy",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "stock = {\"pens\": 12, \"pads\": 4}\nstock[\"pads\"] = stock[\"pads\"] + 6\nprint(stock[\"pads\"])",
+      "answer": [
+        "10"
+      ],
+      "explanation": "The value stored under the key \"pads\" is 4; adding 6 and storing it back gives 10.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.3"
+      }
+    },
+    {
+      "id": "c1-033",
+      "map": "core1",
+      "specRef": "2.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "A program needs to look up a student's grade using their student ID. Which data structure is most suitable?",
+      "options": [
+        "List",
+        "Dictionary",
+        "String",
+        "Boolean"
+      ],
+      "answer": 1,
+      "explanation": "A dictionary stores key–value pairs, so the grade can be found directly using the ID as the key (spec 2.3.1).",
+      "commonMistake": "Using a list and searching through every item.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.3"
+      }
+    },
+    {
+      "id": "c1-034",
+      "map": "core1",
+      "specRef": "2.3",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "queue = [\"Ali\", \"Bea\", \"Cai\"]\nqueue.append(\"Dan\")\nqueue.pop(0)\nprint(queue)",
+      "answer": [
+        "['Bea', 'Cai', 'Dan']"
+      ],
+      "explanation": "append adds \"Dan\" to the end; pop(0) removes the item at index 0 (\"Ali\").",
+      "commonMistake": "Thinking pop() with an argument removes the last item. pop() with no argument removes the last item; pop(0) removes the first.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.3"
+      }
+    },
+    {
+      "id": "c1-035",
+      "map": "core1",
+      "specRef": "2.3",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "This code should print every number in the list. Which error does it cause?",
+      "code": "numbers = [1, 2, 3, 4]\n\nfor i in range(len(numbers)):\n    print(numbers[i + 1])",
+      "options": [
+        "IndexError",
+        "SyntaxError",
+        "TypeError",
+        "No error"
+      ],
+      "answer": 0,
+      "explanation": "The loop uses i + 1. When i is 3 (the last index), numbers[4] does not exist, so an IndexError occurs after printing 2, 3 and 4. The fix is print(numbers[i]).",
+      "commonMistake": "Choosing 'No error' because the first three lines print correctly.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.3"
+      }
+    },
+    {
+      "id": "c1-036",
+      "map": "core1",
+      "specRef": "2.3",
+      "difficulty": "hard",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "scores = {\"Ana\": 7, \"Ben\": 9}\nscores[\"Cal\"] = 5\nprint(len(scores), \"Ben\" in scores, 9 in scores)",
+      "answer": [
+        "3 True False"
+      ],
+      "explanation": "Adding \"Cal\" gives 3 pairs. The in operator checks dictionary keys, not values, so \"Ben\" in scores is True but 9 in scores is False.",
+      "commonMistake": "Thinking in searches the values of a dictionary.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.3"
+      }
+    },
+    {
+      "id": "c1-037",
+      "map": "core1",
+      "specRef": "2.4",
+      "difficulty": "easy",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "print(17 // 5, 17 % 5)",
+      "answer": [
+        "3 2"
+      ],
+      "explanation": "// is integer division (how many whole times 5 goes into 17 = 3). % is modulus (the remainder = 2).",
+      "commonMistake": "Mixing up // and %.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.4"
+      }
+    },
+    {
+      "id": "c1-038",
+      "map": "core1",
+      "specRef": "2.4",
+      "difficulty": "easy",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "print(2 ** 3 + 1)",
+      "answer": [
+        "9"
+      ],
+      "explanation": "** is exponentiation: 2³ = 8, then + 1 = 9.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.4"
+      }
+    },
+    {
+      "id": "c1-039",
+      "map": "core1",
+      "specRef": "2.4",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "print(3 + 4 * 2)",
+      "answer": [
+        "11"
+      ],
+      "explanation": "Multiplication happens before addition: 4 × 2 = 8, then 3 + 8 = 11.",
+      "commonMistake": "Working left to right to get 14.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.4"
+      }
+    },
+    {
+      "id": "c1-040",
+      "map": "core1",
+      "specRef": "2.4",
+      "difficulty": "hard",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "age = 17\nhas_permission = True\nprint(age >= 18 or has_permission and age > 15)",
+      "answer": [
+        "True"
+      ],
+      "explanation": "and is evaluated before or. has_permission and age > 15 is True, so False or True = True.",
+      "commonMistake": "Evaluating strictly left to right.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.4"
+      }
+    },
+    {
+      "id": "c1-041",
+      "map": "core1",
+      "specRef": "2.4",
+      "difficulty": "easy",
+      "type": "match",
+      "prompt": "Match each Python operator to its purpose.",
+      "pairs": [
+        [
+          "==",
+          "Equivalence"
+        ],
+        [
+          "!=",
+          "Not equal"
+        ],
+        [
+          "<=",
+          "Less than or equal to"
+        ],
+        [
+          ">=",
+          "Greater than or equal to"
+        ],
+        [
+          "%",
+          "Modulus (remainder)"
+        ]
+      ],
+      "explanation": "These are the relational and arithmetic operators from spec 2.4 and Appendix 2.",
+      "commonMistake": "Using = (assignment) instead of == (equivalence) in conditions.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.4"
+      }
+    },
+    {
+      "id": "c1-042",
+      "map": "core1",
+      "specRef": "2.4",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which condition is True only when number is even?",
+      "options": [
+        "number % 2 == 0",
+        "number / 2 == 0",
+        "number // 2 == 1",
+        "number ** 2 == 0"
+      ],
+      "answer": 0,
+      "explanation": "An even number has a remainder of 0 when divided by 2, and % gives the remainder.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.4"
+      }
+    },
+    {
+      "id": "c1-043",
+      "map": "core1",
+      "specRef": "2.5",
+      "difficulty": "easy",
+      "type": "ordering",
+      "prompt": "Put these steps in order to save a player's score to a text file.",
+      "items": [
+        "Get the score from the user",
+        "Open the file for writing",
+        "Write the line to the file",
+        "Close the file"
+      ],
+      "explanation": "Spec 2.5.2: open a file, write lines, close the file. The data must exist before it can be written.",
+      "commonMistake": "Forgetting to close the file, which can leave data unsaved.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.5"
+      }
+    },
+    {
+      "id": "c1-044",
+      "map": "core1",
+      "specRef": "2.5",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "file = open(\"log.txt\", \"w\")\nfile.write(\"first\\n\")\nfile.write(\"second\\n\")\nfile.close()\n\nfile = open(\"log.txt\", \"r\")\nlines = file.readlines()\nfile.close()\nprint(len(lines))",
+      "answer": [
+        "2"
+      ],
+      "explanation": "Two lines ending in a newline are written, so readlines() returns a list of 2 strings.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.5"
+      }
+    },
+    {
+      "id": "c1-045",
+      "map": "core1",
+      "specRef": "2.5",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "A program must add a new record to the end of an existing text file without deleting what is already there. Which mode should open() use?",
+      "options": [
+        "\"r\"",
+        "\"w\"",
+        "\"a\"",
+        "\"x\""
+      ],
+      "answer": 2,
+      "explanation": "\"a\" (append) adds to the end of the file. \"w\" would overwrite the existing contents.",
+      "commonMistake": "Using \"w\", which empties the file first.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.5"
+      }
+    },
+    {
+      "id": "c1-046",
+      "map": "core1",
+      "specRef": "2.5",
+      "difficulty": "beginner",
+      "type": "fill_blank",
+      "prompt": "Complete the line: name = ___(\"Enter your name: \")",
+      "answer": [
+        "input"
+      ],
+      "explanation": "input() displays a prompt and returns what the user types from the keyboard.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.5"
+      }
+    },
+    {
+      "id": "c1-047",
+      "map": "core1",
+      "specRef": "2.5",
+      "difficulty": "easy",
+      "type": "true_false",
+      "prompt": "input() always returns a string, even if the user types a number.",
+      "answer": true,
+      "explanation": "You must convert with int() or float() before doing arithmetic.",
+      "commonMistake": "Comparing input() directly with a number, e.g. if choice == 1.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.5"
+      }
+    },
+    {
+      "id": "c1-048",
+      "map": "core1",
+      "specRef": "2.6",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "day = \"Sat\"\nmatch day:\n    case \"Sat\" | \"Sun\":\n        print(\"Weekend\")\n    case _:\n        print(\"Weekday\")",
+      "answer": [
+        "Weekend"
+      ],
+      "explanation": "match/case (Python 3.10+) compares day with each case. | means 'or', and _ matches anything else.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.6"
+      }
+    },
+    {
+      "id": "c1-049",
+      "map": "core1",
+      "specRef": "2.6",
+      "difficulty": "easy",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "mark = 70\nif mark >= 80:\n    print(\"Distinction\")\nelif mark >= 60:\n    print(\"Merit\")\nelif mark >= 40:\n    print(\"Pass\")\nelse:\n    print(\"Fail\")",
+      "answer": [
+        "Merit"
+      ],
+      "explanation": "The first condition that is True runs and the rest are skipped. 70 >= 60 is the first True condition.",
+      "commonMistake": "Thinking Pass also prints because 70 >= 40.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.6"
+      }
+    },
+    {
+      "id": "c1-050",
+      "map": "core1",
+      "specRef": "2.6",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "A program keeps asking for a password until the correct one is entered. Which kind of loop is most suitable?",
+      "options": [
+        "Count-controlled for loop",
+        "Condition-controlled while loop",
+        "A selection statement",
+        "No loop is needed"
+      ],
+      "answer": 1,
+      "explanation": "The number of attempts is not known in advance, so a condition-controlled loop is used (spec 2.6.3).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.6"
+      }
+    },
+    {
+      "id": "c1-051",
+      "map": "core1",
+      "specRef": "2.6",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "for n in range(2, 10, 3):\n    print(n)",
+      "answer": [
+        "2\n5\n8"
+      ],
+      "explanation": "range(2, 10, 3) starts at 2 and goes up in steps of 3 while below 10: 2, 5, 8.",
+      "commonMistake": "Including 11 or stopping at 10.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.6"
+      }
+    },
+    {
+      "id": "c1-052",
+      "map": "core1",
+      "specRef": "2.6",
+      "difficulty": "medium",
+      "type": "true_false",
+      "prompt": "The body of a while loop might run zero times.",
+      "answer": true,
+      "explanation": "The condition is checked before each iteration. If it is False at the start, the body never runs.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.6"
+      }
+    },
+    {
+      "id": "c1-053",
+      "map": "core1",
+      "specRef": "2.6",
+      "difficulty": "medium",
+      "type": "open_response",
+      "prompt": "Explain one drawback of using a condition-controlled loop.",
+      "commandWord": "explain",
+      "marks": 2,
+      "markPoints": [
+        "If the condition never becomes False the loop runs forever (infinite loop)",
+        "The program becomes unresponsive or crashes",
+        "The number of iterations is unknown in advance, which makes testing harder",
+        "Linked justification of the effect on the program or user"
+      ],
+      "explanation": "Spec 2.6.5: benefits and drawbacks of loops. State the drawback and why it matters.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.6"
+      }
+    },
+    {
+      "id": "c1-054",
+      "map": "core1",
+      "specRef": "2.7",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "According to the specification, which describes a procedure?",
+      "options": [
+        "May take parameters and must return a result",
+        "May take parameters and must not return a result",
+        "Must take parameters and must return a result",
+        "Cannot take parameters"
+      ],
+      "answer": 1,
+      "explanation": "Spec 2.7.2: a procedure may or may not take parameters and must not return a result. A function must return a result (2.7.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.7"
+      }
+    },
+    {
+      "id": "c1-055",
+      "map": "core1",
+      "specRef": "2.7",
+      "difficulty": "easy",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "def area(width, height):\n    return width * height\n\nresult = area(3, 4) + area(1, 2)\nprint(result)",
+      "answer": [
+        "14"
+      ],
+      "explanation": "area(3, 4) returns 12 and area(1, 2) returns 2; 12 + 2 = 14.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.7"
+      }
+    },
+    {
+      "id": "c1-056",
+      "map": "core1",
+      "specRef": "2.7",
+      "difficulty": "hard",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "def greet(name):\n    print(\"Hello \" + name)\n\nvalue = greet(\"Sam\")\nprint(value)",
+      "answer": [
+        "Hello Sam\nNone"
+      ],
+      "explanation": "greet prints inside the function but has no return statement, so it returns None, which is then printed.",
+      "commonMistake": "Forgetting that calling greet still prints \"Hello Sam\", or expecting value to hold the greeting.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.7"
+      }
+    },
+    {
+      "id": "c1-057",
+      "map": "core1",
+      "specRef": "2.7",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What is a benefit of using pre-written code from a library?",
+      "options": [
+        "It has usually been tested already and saves development time",
+        "It never contains security vulnerabilities",
+        "It can always be changed to fit your exact needs",
+        "It never needs updating"
+      ],
+      "answer": 0,
+      "explanation": "Spec 2.7.4: pre-written code saves time and is usually well tested, but it may have vulnerabilities, need updates and not fit exactly.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.7"
+      }
+    },
+    {
+      "id": "c1-058",
+      "map": "core1",
+      "specRef": "2.7",
+      "difficulty": "beginner",
+      "type": "fill_blank",
+      "prompt": "In Python, a function is defined using the keyword ___.",
+      "answer": [
+        "def"
+      ],
+      "explanation": "def starts a function definition, e.g. def total(a, b):",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.7"
+      }
+    },
+    {
+      "id": "c1-059",
+      "map": "core1",
+      "specRef": "2.8",
+      "difficulty": "easy",
+      "type": "match",
+      "prompt": "Match each validation check to what it does.",
+      "pairs": [
+        [
+          "Presence check",
+          "Checks that data has been entered"
+        ],
+        [
+          "Length check",
+          "Checks the number of characters"
+        ],
+        [
+          "Range check",
+          "Checks a value is between a lower and upper limit"
+        ],
+        [
+          "Type check",
+          "Checks the data is the correct data type"
+        ],
+        [
+          "Format check",
+          "Checks data matches a pattern, such as a postcode"
+        ],
+        [
+          "Check digit",
+          "Uses a calculated digit to detect errors in a number such as a barcode"
+        ]
+      ],
+      "explanation": "These are the six validation checks in spec 2.8.1.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.8"
+      }
+    },
+    {
+      "id": "c1-060",
+      "map": "core1",
+      "specRef": "2.8",
+      "difficulty": "beginner",
+      "type": "multiple_choice",
+      "prompt": "An aircraft serial number must be exactly 12 characters. Which validation check is this?",
+      "options": [
+        "Presence check",
+        "Length check",
+        "Range check",
+        "Format check"
+      ],
+      "answer": 1,
+      "explanation": "Counting characters is a length check.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.8"
+      }
+    },
+    {
+      "id": "c1-061",
+      "map": "core1",
+      "specRef": "2.8",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "This validation always rejects correct serial numbers. What is the fix?",
+      "code": "serial = input(\"Serial number: \")\nif len(serial) == 12:\n    print(\"Error: must be 12 characters\")\nelse:\n    print(\"Accepted\")",
+      "options": [
+        "Change == 12 to != 12",
+        "len() cannot be used on strings",
+        "Use int(input()) instead of input()",
+        "Add a colon after else"
+      ],
+      "answer": 0,
+      "explanation": "The error message runs when the length IS 12. The condition should test for the invalid case: len(serial) != 12.",
+      "commonMistake": "Looking only for syntax errors. This is a logic error: the code runs but gives the wrong result.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.8"
+      }
+    },
+    {
+      "id": "c1-062",
+      "map": "core1",
+      "specRef": "2.8",
+      "difficulty": "easy",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "age = -3\nif age < 0 or age > 120:\n    print(\"Out of range\")\nelse:\n    print(\"OK\")",
+      "answer": [
+        "Out of range"
+      ],
+      "explanation": "-3 < 0 is True, so the whole or-condition is True.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.8"
+      }
+    },
+    {
+      "id": "c1-063",
+      "map": "core1",
+      "specRef": "2.8",
+      "difficulty": "medium",
+      "type": "true_false",
+      "prompt": "Validation guarantees that the data entered is correct.",
+      "answer": false,
+      "explanation": "Validation only checks data is reasonable and follows rules. A valid but wrong date of birth still passes. Verification (e.g. double entry) helps check accuracy.",
+      "commonMistake": "Confusing validation with verification.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.8"
+      }
+    },
+    {
+      "id": "c1-064",
+      "map": "core1",
+      "specRef": "2.9",
+      "difficulty": "beginner",
+      "type": "multiple_choice",
+      "prompt": "Which variable name uses snake_case?",
+      "options": [
+        "totalSales",
+        "total_sales",
+        "TotalSales",
+        "TOTALSALES"
+      ],
+      "answer": 1,
+      "explanation": "snake_case uses lower-case words joined by underscores. totalSales is camelCase (spec 2.9.5).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.9"
+      }
+    },
+    {
+      "id": "c1-065",
+      "map": "core1",
+      "specRef": "2.9",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "Why is a dictionary usually more efficient than a list for finding one customer by ID among thousands of customers?",
+      "options": [
+        "A dictionary finds a value directly by its key instead of checking items one by one",
+        "Dictionaries use no memory",
+        "Lists cannot store numbers",
+        "Dictionaries are always sorted"
+      ],
+      "answer": 0,
+      "explanation": "Selecting the right data structure affects execution time (spec 2.9.3). A list lookup may need to check every item.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.9"
+      }
+    },
+    {
+      "id": "c1-066",
+      "map": "core1",
+      "specRef": "2.9",
+      "difficulty": "medium",
+      "type": "open_response",
+      "prompt": "Explain how following consistent naming conventions makes code easier to maintain.",
+      "commandWord": "explain",
+      "marks": 2,
+      "markPoints": [
+        "Meaningful, consistent names make the purpose of variables and functions clear",
+        "Other developers can understand and change the code more quickly",
+        "Fewer mistakes are made when updating code, e.g. using the wrong variable"
+      ],
+      "explanation": "Spec 2.9.6: naming conventions affect readability. Link readability to maintenance by a third party.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.9"
+      }
+    },
+    {
+      "id": "c1-067",
+      "map": "core1",
+      "specRef": "2.10",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which error message best meets the specification's description of robust code?",
+      "options": [
+        "Error",
+        "Invalid input: please enter a whole number from 1 to 5",
+        "Traceback (most recent call last)",
+        "Something went wrong"
+      ],
+      "answer": 1,
+      "explanation": "Robust code produces specific and meaningful error messages (spec 2.10.1) that tell the user what went wrong and what to do.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.10"
+      }
+    },
+    {
+      "id": "c1-068",
+      "map": "core1",
+      "specRef": "2.10",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "text = \"twelve\"\ntry:\n    number = int(text)\n    print(\"Number:\", number)\nexcept ValueError:\n    print(\"Please enter digits only\")",
+      "answer": [
+        "Please enter digits only"
+      ],
+      "explanation": "int(\"twelve\") raises a ValueError, so the except block runs instead of crashing.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.10"
+      }
+    },
+    {
+      "id": "c1-069",
+      "map": "core1",
+      "specRef": "2.10",
+      "difficulty": "beginner",
+      "type": "true_false",
+      "prompt": "Debugging involves both locating and correcting errors in code.",
+      "answer": true,
+      "explanation": "Spec 2.10.2 defines debugging as locating errors and correcting errors.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.10"
+      }
+    },
+    {
+      "id": "c1-070",
+      "map": "core1",
+      "specRef": "2.11",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "What must be true of the data before a binary search can be used?",
+      "options": [
+        "It must be sorted",
+        "It must contain fewer than 100 items",
+        "It must be stored in a dictionary",
+        "It must contain only strings"
+      ],
+      "answer": 0,
+      "explanation": "Binary search compares with the middle item and discards half, which only works on sorted data.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.11"
+      }
+    },
+    {
+      "id": "c1-071",
+      "map": "core1",
+      "specRef": "2.11",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "In the worst case, how many items does a linear search check in a list of 50 items?",
+      "options": [
+        "1",
+        "6",
+        "25",
+        "50"
+      ],
+      "answer": 3,
+      "explanation": "In the worst case the item is last or not present, so every item is checked.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.11"
+      }
+    },
+    {
+      "id": "c1-072",
+      "map": "core1",
+      "specRef": "2.11",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "What is the maximum number of comparisons a binary search needs to find an item in a sorted list of 15 items?",
+      "options": [
+        "4",
+        "7",
+        "8",
+        "15"
+      ],
+      "answer": 0,
+      "explanation": "Each comparison halves what is left: 15 → 7 → 3 → 1. At most 4 comparisons. (Big O notation is not required, just this reasoning.)",
+      "commonMistake": "Dividing 15 by 2 once and answering 7 or 8.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.11"
+      }
+    },
+    {
+      "id": "c1-073",
+      "map": "core1",
+      "specRef": "2.11",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "What is the list after the FIRST pass of a bubble sort (ascending) on [5, 1, 4, 2]?",
+      "options": [
+        "[1, 4, 2, 5]",
+        "[1, 2, 4, 5]",
+        "[1, 5, 4, 2]",
+        "[4, 1, 2, 5]"
+      ],
+      "answer": 0,
+      "explanation": "Compare neighbours and swap if out of order: 5,1 swap → [1,5,4,2]; 5,4 swap → [1,4,5,2]; 5,2 swap → [1,4,2,5]. The largest value has 'bubbled' to the end.",
+      "commonMistake": "Assuming the list is fully sorted after one pass.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.11"
+      }
+    },
+    {
+      "id": "c1-074",
+      "map": "core1",
+      "specRef": "2.11",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which sorting algorithm repeatedly splits a list in half and then merges the parts back together in order?",
+      "options": [
+        "Bubble sort",
+        "Insertion sort",
+        "Merge sort",
+        "Linear search"
+      ],
+      "answer": 2,
+      "explanation": "Merge sort divides then merges (spec 2.11.2).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.11"
+      }
+    },
+    {
+      "id": "c1-075",
+      "map": "core1",
+      "specRef": "2.11",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which describes an insertion sort?",
+      "options": [
+        "Takes each item in turn and inserts it into the correct place in the already-sorted part",
+        "Swaps neighbouring items until no swaps are needed",
+        "Splits the list into halves and merges them",
+        "Checks the middle item and discards half"
+      ],
+      "answer": 0,
+      "explanation": "Insertion sort builds a sorted section one item at a time.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.11"
+      }
+    },
+    {
+      "id": "c1-076",
+      "map": "core1",
+      "specRef": "2.11",
+      "difficulty": "hard",
+      "type": "match",
+      "prompt": "Match each situation to the case it describes.",
+      "pairs": [
+        [
+          "Best case for linear search",
+          "The target is the first item checked"
+        ],
+        [
+          "Worst case for linear search",
+          "The target is last or not in the list"
+        ],
+        [
+          "Best case for binary search",
+          "The target is the first middle item checked"
+        ],
+        [
+          "Best case for bubble sort that stops when no swaps happen",
+          "The list is already sorted, so one pass is enough"
+        ]
+      ],
+      "explanation": "Spec 2.11.5 asks for best, worst and average cases using logical reasoning.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.11"
+      }
+    },
+    {
+      "id": "c1-077",
+      "map": "core1",
+      "specRef": "2.11",
+      "difficulty": "medium",
+      "type": "predict_output",
+      "prompt": "What does this program output?",
+      "code": "def find(items, target):\n    for index in range(len(items)):\n        if items[index] == target:\n            return index\n    return -1\n\nprint(find([4, 8, 15, 16], 15), find([4, 8], 99))",
+      "answer": [
+        "2 -1"
+      ],
+      "explanation": "This is a linear search. 15 is at index 2. 99 is not found, so the loop ends and -1 is returned.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.11"
+      }
+    },
+    {
+      "id": "c1-078",
+      "map": "core1",
+      "specRef": "2.11",
+      "difficulty": "expert",
+      "type": "open_response",
+      "prompt": "A library system stores 200,000 book records sorted by ISBN. Evaluate whether linear search or binary search is more suitable for finding a book by ISBN.",
+      "commandWord": "evaluate",
+      "marks": 4,
+      "markPoints": [
+        "Binary search needs far fewer comparisons on large data (at most about 18 for 200,000 records)",
+        "The records are already sorted by ISBN, so the requirement for binary search is met",
+        "Linear search could check all 200,000 records in the worst case, increasing execution time",
+        "Linear search is simpler to implement and works on unsorted data",
+        "If many books are added, keeping the data sorted has a cost",
+        "Conclusion: binary search is more suitable for this system, with justification"
+      ],
+      "explanation": "'Evaluate' needs points for both sides and a supported judgement (command word taxonomy).",
+      "commonMistake": "Describing both algorithms without reaching a conclusion about this library.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.11"
+      }
+    },
+    {
+      "id": "c1-079",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each type of test data (Core Paper 1 terms) to its description.",
+      "pairs": [
+        [
+          "Valid",
+          "Data the program should accept and process normally"
+        ],
+        [
+          "Invalid",
+          "Data of the correct type that the program should reject, e.g. out of range"
+        ],
+        [
+          "Boundary",
+          "Data at the edge of an accepted range"
+        ],
+        [
+          "Erroneous",
+          "Data of the wrong type that the program should reject"
+        ]
+      ],
+      "explanation": "Spec 2.12.4.1 lists valid, invalid, boundary and erroneous test data. (The ESP and Occupational Specialism use valid, valid extreme, invalid, invalid extreme and erroneous.)",
+      "commonMistake": "Treating invalid and erroneous as the same. Invalid is the right type but unacceptable; erroneous is the wrong type.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-080",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "A form accepts ages from 13 to 19 inclusive. Which value is boundary test data?",
+      "options": [
+        "16",
+        "19",
+        "25",
+        "sixteen"
+      ],
+      "answer": 1,
+      "explanation": "19 is at the upper edge of the accepted range. 16 is valid, 25 is invalid and 'sixteen' is erroneous.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-081",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which testing method tests software using only inputs and expected outputs, without looking at the code?",
+      "options": [
+        "Open box testing",
+        "Closed box testing",
+        "Unit testing",
+        "Integration testing"
+      ],
+      "answer": 1,
+      "explanation": "Closed box testing (also called black-box) treats the program as a box you cannot see inside. Open box (white-box) testing uses knowledge of the code.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-082",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "medium",
+      "type": "ordering",
+      "prompt": "Put the steps of a test plan in order.",
+      "items": [
+        "Identify the tests to be carried out",
+        "Describe the purpose of each test",
+        "Identify the test data to be used",
+        "Describe the expected results",
+        "Record the actual results"
+      ],
+      "explanation": "This follows the structure in spec 2.12.4.3.",
+      "commonMistake": "Recording actual results before deciding what you expect.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-083",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which type of testing checks that a change has not broken features that previously worked?",
+      "options": [
+        "Regression testing",
+        "Usability testing",
+        "Concept testing",
+        "Load testing"
+      ],
+      "answer": 0,
+      "explanation": "Regression testing re-runs earlier tests after changes.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-084",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which testing is carried out by the client or end users to confirm the system meets their requirements?",
+      "options": [
+        "Unit testing",
+        "Acceptance testing",
+        "Integration testing",
+        "Performance testing"
+      ],
+      "answer": 1,
+      "explanation": "Acceptance testing checks the solution against the client's requirements.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-085",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "An online ticket site is tested with 50,000 simulated users at once to see when it fails. What type of test is this?",
+      "options": [
+        "Load/stress testing",
+        "Unit testing",
+        "Boundary testing",
+        "Usability testing"
+      ],
+      "answer": 0,
+      "explanation": "Load/stress testing checks behaviour under heavy demand and finds the breaking point.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-086",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Why are individual components tested before being put together in the final solution?",
+      "options": [
+        "Faults are easier to locate because each component is tested on its own",
+        "Integration testing is then not needed",
+        "It makes the final product run faster",
+        "Components cannot be tested once combined"
+      ],
+      "answer": 0,
+      "explanation": "Spec 2.12.1.1: testing components separately isolates faults before they interact.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-087",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "prompt": "Which automation method records a sequence of user actions so they can be replayed?",
+      "options": [
+        "Macro",
+        "Script",
+        "Functional testing tool",
+        "Compiler"
+      ],
+      "answer": 0,
+      "explanation": "A macro records and replays actions. Scripts are written code; functional testing tools run automated tests against requirements (spec 2.12.3.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-088",
+      "map": "core1",
+      "specRef": "2.12",
+      "difficulty": "hard",
+      "type": "open_response",
+      "prompt": "Explain why a test plan should be written before testing starts.",
+      "commandWord": "explain",
+      "marks": 2,
+      "markPoints": [
+        "Expected results are decided in advance, so actual results can be compared objectively",
+        "Ensures all requirements and data types (valid, invalid, boundary, erroneous) are covered",
+        "Tests can be repeated consistently, e.g. for regression testing"
+      ],
+      "explanation": "Writing tests after testing risks testing only what you already know works.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 2.12"
+      }
+    },
+    {
+      "id": "c1-089",
+      "map": "core1",
+      "specRef": "3.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which is an impact of increased reliance on digital systems on ORGANISATIONAL CULTURE (rather than on society)?",
+      "options": [
+        "An increase in staff monitoring",
+        "Potential isolation of people without connectivity",
+        "Access to global media sources",
+        "Loss of social skills"
+      ],
+      "answer": 0,
+      "explanation": "Spec 3.1.1 lists increased staff monitoring under organisational culture. The others are listed under society.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 3.1"
+      }
+    },
+    {
+      "id": "c1-090",
+      "map": "core1",
+      "specRef": "3.1",
+      "difficulty": "easy",
+      "type": "true_false",
+      "prompt": "Checking datasets for bias is part of ensuring digital inclusion.",
+      "answer": true,
+      "explanation": "Spec 3.1.2 includes checking for bias within datasets as part of ensuring fair access to digital services.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 3.1"
+      }
+    },
+    {
+      "id": "c1-091",
+      "map": "core1",
+      "specRef": "3.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Which is a benefit of professional development listed in the specification?",
+      "options": [
+        "Increased employability potential and employment security",
+        "Guaranteed promotion",
+        "No need to follow industry standards",
+        "Shorter working hours"
+      ],
+      "answer": 0,
+      "explanation": "Spec 3.1.4: increased competence, employability and access to/adherence to industry standards.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 3.1"
+      }
+    },
+    {
+      "id": "c1-092",
+      "map": "core1",
+      "specRef": "3.1",
+      "difficulty": "hard",
+      "type": "open_response",
+      "prompt": "Discuss the impact on society of the increased use of generative AI.",
+      "commandWord": "discuss",
+      "marks": 4,
+      "markPoints": [
+        "Improved access to information and productivity for individuals",
+        "Loss of jobs and a shift in the skills employers require",
+        "Reduction in human decision making and possible loss of empathy",
+        "Risk of bias or misleading content, e.g. fake images, audio or video",
+        "Balanced consideration of both positive and negative impacts"
+      ],
+      "explanation": "'Discuss' needs opposing aspects considered; a conclusion is not required (command word taxonomy).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 3.1"
+      }
+    },
+    {
+      "id": "c1-093",
+      "map": "core1",
+      "specRef": "3.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which end user characteristic is listed as affecting the inclusivity of digital systems?",
+      "options": [
+        "Digital and literacy skills",
+        "Favourite colour",
+        "Internet browser brand",
+        "Screen resolution"
+      ],
+      "answer": 0,
+      "explanation": "Spec 3.1.3: age, digital and literacy skills, internal/external audience, cultural issues and additional needs.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 3.1"
+      }
+    },
+    {
+      "id": "c1-094",
+      "map": "core1",
+      "specRef": "3.2",
+      "difficulty": "easy",
+      "type": "match",
+      "prompt": "Match each emerging technology to its description.",
+      "pairs": [
+        [
+          "Augmented reality",
+          "Overlays digital content onto a view of the real world"
+        ],
+        [
+          "Virtual reality",
+          "Places the user in a fully computer-generated environment"
+        ],
+        [
+          "Generative AI",
+          "Creates new text, images, audio or video from prompts"
+        ],
+        [
+          "Blockchain",
+          "A distributed, tamper-resistant record of transactions"
+        ]
+      ],
+      "explanation": "All four appear in spec 3.2.1.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 3.2"
+      }
+    },
+    {
+      "id": "c1-095",
+      "map": "core1",
+      "specRef": "3.2",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "In the Internet of Things, what is edge computing?",
+      "options": [
+        "Processing data close to where it is generated instead of in a distant data centre",
+        "Storing all data on optical discs",
+        "Using only wired connections",
+        "Running software on the edge of the screen"
+      ],
+      "answer": 0,
+      "explanation": "Edge computing processes data near the device, reducing latency and bandwidth use (spec 3.2.1).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 3.2"
+      }
+    },
+    {
+      "id": "c1-096",
+      "map": "core1",
+      "specRef": "3.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which is an environmental impact of digital technology listed in the specification?",
+      "options": [
+        "Consumption of rare metals",
+        "Increased staff monitoring",
+        "Changes in communication methods",
+        "Loss of social skills"
+      ],
+      "answer": 0,
+      "explanation": "Spec 3.2.1 environmental impacts: consumption of rare metals, energy to produce systems and the impact of disposal.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 3.2"
+      }
+    },
+    {
+      "id": "c1-097",
+      "map": "core1",
+      "specRef": "4.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "A student guesses a teacher's password and logs in to read files, without changing anything. Which law has most likely been broken?",
+      "options": [
+        "Computer Misuse Act 1990",
+        "Equality Act",
+        "Health and Safety at Work Act",
+        "Registered designs legislation"
+      ],
+      "answer": 0,
+      "explanation": "Unauthorised access to computer material is an offence under the Computer Misuse Act, even if nothing is changed (spec 4.1.4).",
+      "commonMistake": "Thinking it is only illegal if data is changed or damaged.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.1"
+      }
+    },
+    {
+      "id": "c1-098",
+      "map": "core1",
+      "specRef": "4.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "Under display screen equipment requirements, what must an employer provide if an employee who uses DSE asks for it?",
+      "options": [
+        "An eye test",
+        "A second monitor",
+        "A standing desk",
+        "Unlimited breaks"
+      ],
+      "answer": 0,
+      "explanation": "Spec 4.1.1 lists providing an eye test if an employee asks for one.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.1"
+      }
+    },
+    {
+      "id": "c1-099",
+      "map": "core1",
+      "specRef": "4.1",
+      "difficulty": "beginner",
+      "type": "true_false",
+      "prompt": "The Health and Safety at Work Act includes ensuring staff are properly trained.",
+      "answer": true,
+      "explanation": "Spec 4.1.1 key points include ensuring staff are properly trained.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.1"
+      }
+    },
+    {
+      "id": "c1-100",
+      "map": "core1",
+      "specRef": "4.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "How many protected characteristics does equality legislation list?",
+      "options": [
+        "5",
+        "7",
+        "9",
+        "12"
+      ],
+      "answer": 2,
+      "explanation": "Spec 4.1.5 refers to the nine protected characteristics.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.1"
+      }
+    },
+    {
+      "id": "c1-101",
+      "map": "core1",
+      "specRef": "4.1",
+      "difficulty": "hard",
+      "type": "match",
+      "prompt": "Match each type of discrimination to its description.",
+      "pairs": [
+        [
+          "Direct discrimination",
+          "Treating someone worse because of a protected characteristic"
+        ],
+        [
+          "Indirect discrimination",
+          "A rule applied to everyone that puts people with a protected characteristic at a disadvantage"
+        ],
+        [
+          "Harassment",
+          "Unwanted behaviour linked to a protected characteristic that violates dignity"
+        ],
+        [
+          "Victimisation",
+          "Treating someone badly because they made or supported a discrimination complaint"
+        ]
+      ],
+      "explanation": "Spec 4.1.5 lists direct, indirect, harassment and victimisation.",
+      "commonMistake": "Confusing indirect discrimination with direct discrimination.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.1"
+      }
+    },
+    {
+      "id": "c1-102",
+      "map": "core1",
+      "specRef": "4.1",
+      "difficulty": "medium",
+      "type": "multiple_choice",
+      "prompt": "A company invents a new method for compressing video and wants legal protection that stops others using the invention. What should it apply for?",
+      "options": [
+        "A patent",
+        "A registered design",
+        "An unregistered design",
+        "An acceptable use policy"
+      ],
+      "answer": 0,
+      "explanation": "Patents protect inventions (how something works). Registered and unregistered designs protect appearance (spec 4.1.6).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.1"
+      }
+    },
+    {
+      "id": "c1-103",
+      "map": "core1",
+      "specRef": "4.1",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "What is the main purpose of data protection legislation?",
+      "options": [
+        "To control how personal data about individuals is collected, stored and used",
+        "To stop employees using social media",
+        "To protect inventions",
+        "To set website accessibility rules"
+      ],
+      "answer": 0,
+      "explanation": "Data protection legislation protects individuals' personal data (spec 4.1.3). Check with your teacher which list of principles your exam uses.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.1"
+      }
+    },
+    {
+      "id": "c1-104",
+      "map": "core1",
+      "specRef": "4.1",
+      "difficulty": "medium",
+      "type": "true_false",
+      "prompt": "International law can apply to some offences, including those in cyberspace.",
+      "answer": true,
+      "explanation": "Spec 4.1.8: international law in cyberspace and international law and surveillance.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.1"
+      }
+    },
+    {
+      "id": "c1-105",
+      "map": "core1",
+      "specRef": "4.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which of these is a professional body listed as a source of codes of conduct?",
+      "options": [
+        "British Computer Society (BCS)",
+        "World Wide Web Consortium (W3C)",
+        "Internet Engineering Task Force (IETF)",
+        "PCI Security Standards Council"
+      ],
+      "answer": 0,
+      "explanation": "Spec 4.2.1 lists BCS, IAP and CIISec as professional sources of codes of conduct. The others are sources of industry standards (4.2.3).",
+      "commonMistake": "Mixing up codes of conduct (behaviour) with industry standards (technical).",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.2"
+      }
+    },
+    {
+      "id": "c1-106",
+      "map": "core1",
+      "specRef": "4.2",
+      "difficulty": "medium",
+      "type": "match",
+      "prompt": "Match each organisation or guideline to what it provides.",
+      "pairs": [
+        [
+          "WCAG",
+          "Guidelines for making web content accessible"
+        ],
+        [
+          "W3C",
+          "Web standards such as HTML and CSS"
+        ],
+        [
+          "IETF",
+          "Internet standards such as network protocols"
+        ],
+        [
+          "PCI SSC",
+          "Security standards for handling payment card data"
+        ]
+      ],
+      "explanation": "Spec 4.2.3 sources of digital industry standards.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.2"
+      }
+    },
+    {
+      "id": "c1-107",
+      "map": "core1",
+      "specRef": "4.2",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "prompt": "Which is typical content of an acceptable use policy (AUP)?",
+      "options": [
+        "Sanctions and penalties for breaking the policy",
+        "The company's sales figures",
+        "The source code of company software",
+        "Staff salaries"
+      ],
+      "answer": 0,
+      "explanation": "Spec 4.2.4: permitted and prohibited activities, working practices, communication etiquette, sanctions/penalties.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.2"
+      }
+    },
+    {
+      "id": "c1-108",
+      "map": "core1",
+      "specRef": "4.2",
+      "difficulty": "medium",
+      "type": "open_response",
+      "prompt": "Explain why an organisation should have whistleblowing procedures.",
+      "commandWord": "explain",
+      "marks": 2,
+      "markPoints": [
+        "Employees can report wrongdoing (e.g. illegal or unsafe practices) safely",
+        "Problems are raised and dealt with early, before they cause harm or legal action",
+        "Protects the whistleblower from being treated unfairly"
+      ],
+      "explanation": "Spec 4.2.5. Give a reason and link it to the benefit for the organisation or employees.",
+      "source": {
+        "origin": "generated",
+        "reference": "Spec 4.2"
+      }
+    }
+  ]
+}
