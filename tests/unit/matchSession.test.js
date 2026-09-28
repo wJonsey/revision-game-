@@ -102,6 +102,23 @@ describe("MatchSession", () => {
     expect(session).toMatchObject({ shield: 60, crashes: 1 });
   });
 
+  it("counts drone kills in the match report without awarding XP", () => {
+    const { session, save } = setup();
+    const xpBefore = save.player.xp;
+    session.recordKill();
+    session.recordKill();
+    expect(save.player.xp).toBe(xpBefore);
+    expect(session.finish("quit").kills).toBe(2);
+  });
+
+  it("reports the best run of correct answers", () => {
+    const { session } = setup();
+    for (const result of [right, right, wrong, right]) {
+      session.submitAnswer({ objective: "terminal", question: session.nextQuestion(), result, responseMs: 1 });
+    }
+    expect(session.finish("quit").bestStreak).toBe(2);
+  });
+
   it("charges the ultimate with correct answers and hands out its aids once", () => {
     const { session } = setup({ classId: "analyst" });
     expect(session.activateUltimate()).toBeNull();

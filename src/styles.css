@@ -81,13 +81,25 @@ th { color: var(--muted); font-weight: 600; }
 .screen-subtitle { color: var(--muted); margin: 0.2rem 0 0; }
 
 .menu-screen { max-width: 44rem; margin: 0 auto; }
-.title { color: var(--accent); letter-spacing: 0.2em; text-align: center; font-family: var(--mono); font-size: 2.4rem; margin-top: 1rem; }
+.title { color: var(--accent); letter-spacing: 0.2em; text-align: center; font-family: var(--mono); font-size: clamp(2rem, 7vw, 3.4rem); margin: 1.5rem 0 0.2rem; text-shadow: 0 0 18px rgba(61, 219, 217, 0.55), 0 0 2px var(--accent); animation: title-flicker 6s infinite; }
+@keyframes title-flicker { 0%, 92%, 100% { opacity: 1; transform: none; } 93% { opacity: 0.6; transform: translateX(2px); } 94% { opacity: 1; transform: translateX(-2px); } 95% { opacity: 0.8; transform: none; } }
+.menu-screen { position: relative; }
+.menu-screen::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse at 50% -10%, rgba(61, 219, 217, 0.16), transparent 60%),
+    linear-gradient(rgba(61, 219, 217, 0.05) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(61, 219, 217, 0.05) 1px, transparent 1px) 0 0 / 40px 40px;
+  animation: grid-drift 30s linear infinite; }
+@keyframes grid-drift { to { background-position: 0 0, 0 40px, 40px 0; } }
+.high-contrast .menu-screen::before { display: none; }
+.high-contrast .title { text-shadow: none; }
 .tagline { text-align: center; color: var(--muted); }
 .player-strip { display: grid; gap: 0.4rem; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 0.8rem 1rem; margin: 1rem 0; border-radius: 4px; }
 .player-xp { display: grid; grid-template-columns: 1fr auto; gap: 0.8rem; align-items: center; font-size: 0.875rem; color: var(--muted); }
 .menu { display: grid; gap: 0.45rem; }
 .menu-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--panel); color: var(--text); border: 1px solid var(--line); border-left: 4px solid transparent; font: inherit; text-align: left; cursor: pointer; }
-.menu-item:hover, .menu-item:focus-visible { border-color: var(--accent); border-left-color: var(--accent); color: var(--accent); outline: none; }
+.menu-item:hover, .menu-item:focus-visible { border-color: var(--accent); border-left-color: var(--accent); color: var(--accent); outline: none; background: var(--panel-2); box-shadow: 0 0 16px rgba(61, 219, 217, 0.15); }
+.menu-item { transition: background 0.12s, box-shadow 0.12s, transform 0.12s; }
+.menu-item:hover { transform: translateX(3px); }
 .menu-label { font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
 .menu-detail { color: var(--muted); font-size: 0.85rem; }
 .footnote { color: var(--muted); font-size: 0.8rem; text-align: center; margin-top: 1.5rem; }
@@ -223,6 +235,32 @@ th { color: var(--muted); font-weight: 600; }
 .damage-flash { inset: 0; pointer-events: none; opacity: 0; box-shadow: inset 0 0 120px rgba(255, 60, 80, 0.8); }
 .damage-flash.flash { animation: flash 0.35s ease-out; }
 @keyframes flash { from { opacity: 1; } to { opacity: 0; } }
+.hud-kills { color: #ffc857; }
+.crosshair.hit { animation: hitmark 0.18s ease-out; }
+.crosshair.kill { animation: killmark 0.35s ease-out; }
+.crosshair.hit::before, .crosshair.hit::after { background: #ffc857; }
+.crosshair.kill::before, .crosshair.kill::after { background: #ff5470; }
+@keyframes hitmark { from { transform: rotate(45deg) scale(1.5); } to { transform: rotate(45deg) scale(1); } }
+@keyframes killmark { 0% { transform: rotate(45deg) scale(2.2); } 100% { transform: rotate(45deg) scale(1); } }
+.waypoint { position: absolute; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 0.15rem; color: var(--wp, var(--accent)); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; transition: left 0.1s linear, top 0.1s linear; }
+.waypoint[hidden] { display: none; }
+.waypoint-arrow { width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 14px solid var(--wp, var(--accent)); filter: drop-shadow(0 0 4px var(--wp, var(--accent))); }
+.waypoint.offscreen .waypoint-arrow { border-top: none; border-bottom: 14px solid var(--wp, var(--accent)); }
+.waypoint-label { background: rgba(0,0,0,0.55); padding: 0.05rem 0.4rem; border-radius: 3px; white-space: nowrap; }
+.kill-feed { top: 38%; right: 1.2rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; }
+.feed-item { background: rgba(0,0,0,0.55); padding: 0.2rem 0.6rem; border-radius: 3px; font-weight: 700; font-size: 0.85rem; border-right: 3px solid currentColor; animation: feed-in 0.2s ease-out; }
+.feed-kill { color: #ffc857; }
+.feed-good { color: var(--good); }
+.feed-bad { color: var(--bad); }
+@keyframes feed-in { from { transform: translateX(1.5rem); opacity: 0; } to { transform: none; opacity: 1; } }
+.damage-dir { top: 50%; left: 50%; width: 220px; height: 220px; margin: -110px 0 0 -110px; opacity: 0; }
+.damage-dir::before { content: ""; position: absolute; top: 0; left: 50%; width: 80px; height: 18px; margin-left: -40px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: rgba(255, 60, 80, 0.85); filter: blur(2px); }
+.damage-dir.show { animation: flash 0.9s ease-out; }
+.low-shield { inset: 0; opacity: 0; box-shadow: inset 0 0 160px rgba(255, 40, 60, 0.55); transition: opacity 0.4s; }
+.low-shield.active { opacity: 1; animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.45; } }
+/* Without animation, still show where damage came from (the class is removed after a moment). */
+.reduced-motion .damage-dir.show { opacity: 0.8; }
 .game-overlay { position: absolute; inset: 0; background: rgba(4, 8, 12, 0.88); overflow-y: auto; padding: 2rem 1rem; z-index: 2; }
 .game-overlay > .question-card { max-width: 52rem; margin: 0 auto; }
 .briefing { text-align: center; }

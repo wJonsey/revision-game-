@@ -11,7 +11,7 @@ terminals and objectives; an adaptive engine brings weak topics back more often.
 ```bash
 npm install
 npm run dev      # open the forwarded port 5173
-npm test         # 141 unit tests (content tests run every Python output question through python3)
+npm test         # 143 unit tests (content tests run every Python output question through python3)
 npm run lint
 npm run build    # static site in dist/ – can be hosted on GitHub Pages
 ```
@@ -50,7 +50,7 @@ src/progression/   XP rules, ranks/levels, streaks
 src/persistence/   save store (localStorage + export/import, validation, migration)
 src/game/          classes, arsenal, match modes, MatchSession (all match rules, UI-independent)
 src/maps/          ASCII maps, zones, pathfinding
-src/game3d/        Three.js first-person layer (loaded only when a 3D match starts)
+src/game3d/        Three.js first-person layer (loaded only when a 3D match starts), procedural textures, particles
 src/ui/            router, DOM helpers, components (questions, quiz runner, charts), screens
 src/audio/         synthesised original sound effects with captions
 src/settings/      accessibility settings

@@ -4,6 +4,8 @@ import { getWeapon, SKINS } from "../game/arsenal.js";
 import { MAX_SHIELD } from "../game/matchSession.js";
 import { h, clear, bar } from "../ui/dom.js";
 import { toast } from "../ui/notify.js";
+import { wallTexture, wallGlowTexture, floorTexture, ceilingTexture, glowTexture, beamTexture, screenTexture, doorTexture } from "./textures.js";
+import { Particles } from "./particles.js";
 
 const CELL = 2;
 const WALL_HEIGHT = 3.2;
@@ -16,6 +18,11 @@ const DRONE_SIGHT = 14;
 const DRONE_ATTACK_RANGE = 10;
 const PROJECTILE_SPEED = 9;
 const RESPAWN_INVULNERABLE = 2;
+const SPRINT_MULTIPLIER = 1.35;
+const ORB_DROP_CHANCE = 0.4;
+const ORB_SHIELD = 15;
+const ORB_LIFETIME = 25;
+const OBJECTIVE_LABELS = { door: "DOOR", terminal: "TERMINAL", defuse: "DEFUSE", core: "CORE" };
 
 const DIFFICULTY = {
   relaxed: { damage: 4, fireInterval: 2.6, droneHp: 2 },
@@ -54,6 +61,11 @@ export class FpsGame {
     this.drones = [];
     this.projectiles = [];
     this.tracers = [];
+    this.orbs = [];
+    this.pendingFeed = [];
+    this.shake = 0;
+    this.gunKick = 0;
+    this.switchAnim = 0;
     this.disposables = [];
     this.listeners = [];
     this.gamepadPrevious = [];
@@ -91,7 +103,11 @@ export class FpsGame {
     this.hudBottomLeft = h("div", { class: "hud-bottom-left" });
     this.hudBottomCentre = h("div", { class: "hud-bottom-centre" });
     this.hudBottomRight = h("div", { class: "hud-bottom-right" });
-    this.hud.append(this.damageFlash, this.hudTopLeft, h("div", { class: "hud-top-right-wrap" }, this.hudTopRight, this.minimap), this.crosshair, this.prompt, this.hudBottomLeft, this.hudBottomCentre, this.hudBottomRight);
+    this.lowShield = h("div", { class: "low-shield" });
+    this.damageDir = h("div", { class: "damage-dir" });
+    this.waypoint = h("div", { class: "waypoint" }, h("span", { class: "waypoint-arrow" }), h("span", { class: "waypoint-label" }));
+    this.killFeed = h("div", { class: "kill-feed" });
+    this.hud.append(this.lowShield, this.damageDir, this.waypoint, this.killFeed, this.damageFlash, this.hudTopLeft, h("div", { class: "hud-top-right-wrap" }, this.hudTopRight, this.minimap), this.crosshair, this.prompt, this.hudBottomLeft, this.hudBottomCentre, this.hudBottomRight);
     this.root = h("div", { class: "game-root" }, this.canvasHost, this.hud, this.overlay);
     this.container.append(this.root);
   }
@@ -117,29 +133,36 @@ export class FpsGame {
     this.camera.rotation.order = "YXZ";
     this.scene.add(this.camera);
 
-    this.scene.add(new THREE.HemisphereLight(theme.light, theme.floor, 2.2));
-    const sun = new THREE.DirectionalLight(0xffffff, 0.6);
+    this.scene.add(new THREE.HemisphereLight(theme.light, theme.floor, 1.6));
+    this.scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+    const sun = new THREE.DirectionalLight(0xffffff, 0.5);
     sun.position.set(10, 20, 5);
     this.scene.add(sun);
+    // One light that follows the camera: muzzle flash and a faint torch so corridors read in depth.
+    this.playerLight = new THREE.PointLight(theme.light, 0.6, 9, 1.6);
+    this.scene.add(this.playerLight);
 
+    this.glowTexture = this.#track(glowTexture());
     const { width, height } = this.parsed;
-    const floor = new THREE.Mesh(this.#track(new THREE.PlaneGeometry(width * CELL, height * CELL)), this.#track(new THREE.MeshLambertMaterial({ color: new THREE.Color(theme.floor).multiplyScalar(2.2) })));
+    const floor = new THREE.Mesh(this.#track(new THREE.PlaneGeometry(width * CELL, height * CELL)),
+      this.#track(new THREE.MeshLambertMaterial({ map: this.#track(floorTexture(theme, [width, height])) })));
     floor.rotation.x = -Math.PI / 2;
     floor.position.set((width * CELL) / 2, 0, (height * CELL) / 2);
     this.scene.add(floor);
 
-    const grid = new THREE.GridHelper(Math.max(width, height) * CELL, Math.max(width, height), theme.accent, theme.accent);
-    grid.material.transparent = true;
-    grid.material.opacity = 0.35;
-    grid.position.set((Math.max(width, height) * CELL) / 2, 0.01, (Math.max(width, height) * CELL) / 2);
-    this.scene.add(grid);
-    this.disposables.push(grid.geometry, grid.material);
+    const ceiling = new THREE.Mesh(this.#track(new THREE.PlaneGeometry(width * CELL, height * CELL)),
+      this.#track(new THREE.MeshBasicMaterial({ map: this.#track(ceilingTexture(theme, [width, height])), color: 0x9aa3ad })));
+    ceiling.rotation.x = Math.PI / 2;
+    ceiling.position.set((width * CELL) / 2, WALL_HEIGHT, (height * CELL) / 2);
+    this.scene.add(ceiling);
 
     // Walls as one instanced mesh (fast on low-end GPUs).
     const wallCells = [];
     this.map.layout.forEach((row, y) => [...row].forEach((cell, x) => cell === "#" && wallCells.push([x, y])));
     const wallGeometry = this.#track(new THREE.BoxGeometry(CELL, WALL_HEIGHT, CELL));
-    const wallMaterial = this.#track(new THREE.MeshLambertMaterial({ color: theme.wall }));
+    const wallMaterial = this.#track(new THREE.MeshLambertMaterial({
+      map: this.#track(wallTexture(theme)), emissive: 0xffffff, emissiveMap: this.#track(wallGlowTexture(theme)), emissiveIntensity: 0.9,
+    }));
     this.walls = new THREE.InstancedMesh(wallGeometry, wallMaterial, wallCells.length);
     const matrix = new THREE.Matrix4();
     wallCells.forEach(([x, y], index) => {
@@ -148,15 +171,15 @@ export class FpsGame {
     });
     this.scene.add(this.walls);
 
-    // Glowing strip along the top of the walls.
-    const trimGeometry = this.#track(new THREE.BoxGeometry(CELL, 0.08, CELL));
-    const trimMaterial = this.#track(new THREE.MeshBasicMaterial({ color: theme.accent }));
-    const trims = new THREE.InstancedMesh(trimGeometry, trimMaterial, wallCells.length);
+    // Glowing skirting strip along the foot of the walls.
+    const skirtGeometry = this.#track(new THREE.BoxGeometry(CELL + 0.04, 0.06, CELL + 0.04));
+    const skirtMaterial = this.#track(new THREE.MeshBasicMaterial({ color: theme.accent }));
+    const skirts = new THREE.InstancedMesh(skirtGeometry, skirtMaterial, wallCells.length);
     wallCells.forEach(([x, y], index) => {
-      matrix.makeTranslation(toWorld(x), WALL_HEIGHT + 0.04, toWorld(y));
-      trims.setMatrixAt(index, matrix);
+      matrix.makeTranslation(toWorld(x), 0.12, toWorld(y));
+      skirts.setMatrixAt(index, matrix);
     });
-    this.scene.add(trims);
+    this.scene.add(skirts);
 
     // Objectives.
     const accent = new THREE.Color(theme.accent);
@@ -171,19 +194,42 @@ export class FpsGame {
 
     // Weapon model attached to the camera.
     this.gun = new THREE.Group();
-    const gunBody = new THREE.Mesh(this.#track(new THREE.BoxGeometry(0.03, 0.035, 0.22)), this.gunMaterial = this.#track(new THREE.MeshLambertMaterial({ color: this.weapons[0].colour, emissive: this.weapons[0].colour, emissiveIntensity: 0.25 })));
-    const gunTip = new THREE.Mesh(this.#track(new THREE.BoxGeometry(0.015, 0.015, 0.06)), this.#track(new THREE.MeshBasicMaterial({ color: 0xffffff })));
-    gunTip.position.z = -0.14;
-    this.gun.add(gunBody, gunTip);
-    this.gun.position.set(0.12, -0.1, -0.45);
+    this.gunMaterial = this.#track(new THREE.MeshLambertMaterial({ color: this.weapons[0].colour, emissive: this.weapons[0].colour, emissiveIntensity: 0.35 }));
+    const darkMaterial = this.#track(new THREE.MeshLambertMaterial({ color: 0x1b2028 }));
+    const part = (geometry, material, x, y, z, rx = 0) => {
+      const mesh = new THREE.Mesh(this.#track(geometry), material);
+      mesh.position.set(x, y, z);
+      mesh.rotation.x = rx;
+      this.gun.add(mesh);
+      return mesh;
+    };
+    part(new THREE.BoxGeometry(0.05, 0.06, 0.26), darkMaterial, 0, 0, 0);
+    part(new THREE.BoxGeometry(0.056, 0.02, 0.2), this.gunMaterial, 0, 0.036, -0.01);
+    part(new THREE.CylinderGeometry(0.014, 0.018, 0.16, 8), darkMaterial, 0, 0.008, -0.2, Math.PI / 2);
+    part(new THREE.BoxGeometry(0.034, 0.09, 0.045), darkMaterial, 0, -0.07, 0.07, -0.25);
+    part(new THREE.BoxGeometry(0.02, 0.025, 0.05), darkMaterial, 0, 0.058, 0.03);
+    this.gunCell = part(new THREE.BoxGeometry(0.058, 0.03, 0.06), this.gunMaterial, 0, -0.03, -0.06);
+    this.muzzleFlash = new THREE.Sprite(this.#track(new THREE.SpriteMaterial({
+      map: this.glowTexture, color: this.weapons[0].colour, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, fog: false,
+    })));
+    this.muzzleFlash.position.set(0, 0.008, -0.3);
+    this.muzzleFlash.scale.setScalar(0.001);
+    this.gun.add(this.muzzleFlash);
+    this.gun.scale.setScalar(0.7);
+    this.gunRest = new THREE.Vector3(0.13, -0.12, -0.36);
+    this.gun.position.copy(this.gunRest);
     this.camera.add(this.gun);
 
     this.droneGeometry = this.#track(new THREE.OctahedronGeometry(0.42));
     this.ringGeometry = this.#track(new THREE.TorusGeometry(0.55, 0.04, 6, 20));
-    this.projectileGeometry = this.#track(new THREE.SphereGeometry(0.12, 8, 6));
-    this.projectileMaterial = this.#track(new THREE.MeshBasicMaterial({ color: 0xff5470 }));
-    this.tracerMaterial = this.#track(new THREE.LineBasicMaterial({ color: this.weapons[0].colour }));
+    this.eyeGeometry = this.#track(new THREE.SphereGeometry(0.12, 10, 8));
+    this.orbGeometry = this.#track(new THREE.IcosahedronGeometry(0.16, 0));
+    this.orbMaterial = this.#track(new THREE.MeshBasicMaterial({ color: 0x6fdc8c, wireframe: true }));
+    this.projectileMaterial = this.#track(new THREE.SpriteMaterial({ map: this.glowTexture, color: 0xff5470, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true }));
+    this.tracerMaterial = this.#track(new THREE.LineBasicMaterial({ color: this.weapons[0].colour, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending }));
+    this.particles = new Particles(this.scene, this.glowTexture, { max: high ? 260 : 140 });
     this.raycaster = new THREE.Raycaster();
+    this.raycaster.camera = this.camera;
 
     this.#buildMinimapBase();
     this.resizeObserver = new ResizeObserver(() => this.#resize());
@@ -191,34 +237,63 @@ export class FpsGame {
     this.#resize();
   }
 
+  #halo(colour, size, y) {
+    const halo = new THREE.Sprite(this.#track(new THREE.SpriteMaterial({ map: this.glowTexture, color: colour, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: 0.8 })));
+    halo.scale.setScalar(size);
+    halo.position.y = y;
+    return halo;
+  }
+
+  /** A soft column of light that marks an active objective. */
+  #beam(colour) {
+    this.beamTexture ??= this.#track(beamTexture());
+    const beam = new THREE.Mesh(this.#track(new THREE.CylinderGeometry(0.55, 0.7, WALL_HEIGHT, 16, 1, true)),
+      this.#track(new THREE.MeshBasicMaterial({ map: this.beamTexture, color: colour, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, side: THREE.DoubleSide, opacity: 0.45 })));
+    beam.position.y = WALL_HEIGHT / 2;
+    return beam;
+  }
+
   #objectiveMesh(objective, accent) {
     const group = new THREE.Group();
     if (objective.kind === "door") {
       const horizontal = this.map.layout[objective.y][objective.x - 1] === "#";
+      this.doorTexture ??= this.#track(doorTexture());
       const door = new THREE.Mesh(this.#track(new THREE.BoxGeometry(horizontal ? CELL : 0.35, WALL_HEIGHT, horizontal ? 0.35 : CELL)),
-        this.#track(new THREE.MeshLambertMaterial({ color: 0x3a2a14, emissive: 0xff9d3d, emissiveIntensity: 0.45 })));
+        this.#track(new THREE.MeshLambertMaterial({ map: this.doorTexture, emissive: 0xff9d3d, emissiveMap: this.doorTexture, emissiveIntensity: 0.6 })));
       door.position.y = WALL_HEIGHT / 2;
       group.add(door);
       group.userData.part = door;
     } else if (objective.kind === "terminal") {
-      const pillar = new THREE.Mesh(this.#track(new THREE.BoxGeometry(0.6, 1.2, 0.6)), this.#track(new THREE.MeshLambertMaterial({ color: 0x1b2530 })));
-      pillar.position.y = 0.6;
-      const screen = new THREE.Mesh(this.#track(new THREE.BoxGeometry(0.7, 0.45, 0.7)), this.#track(new THREE.MeshBasicMaterial({ color: accent })));
-      screen.position.y = 1.35;
-      group.add(pillar, screen);
+      this.screenTexture ??= this.#track(screenTexture(this.map.theme));
+      const pillar = new THREE.Mesh(this.#track(new THREE.BoxGeometry(0.6, 1.1, 0.6)), this.#track(new THREE.MeshLambertMaterial({ color: 0x1b2530 })));
+      pillar.position.y = 0.55;
+      const screen = new THREE.Mesh(this.#track(new THREE.BoxGeometry(0.66, 0.5, 0.66)), this.#track(new THREE.MeshBasicMaterial({ color: accent, map: this.screenTexture })));
+      screen.position.y = 1.4;
+      const beam = this.#beam(accent);
+      const halo = this.#halo(accent, 1.6, 1.4);
+      group.add(pillar, screen, beam, halo);
       group.userData.part = screen;
+      group.userData.fx = [beam, halo];
     } else if (objective.kind === "defuse") {
       const bomb = new THREE.Mesh(this.#track(new THREE.OctahedronGeometry(0.45)), this.#track(new THREE.MeshBasicMaterial({ color: 0xff6b6b, wireframe: true })));
       bomb.position.y = 1.1;
       const base = new THREE.Mesh(this.#track(new THREE.CylinderGeometry(0.5, 0.6, 0.3, 12)), this.#track(new THREE.MeshLambertMaterial({ color: 0x2a1a1a })));
       base.position.y = 0.15;
-      group.add(bomb, base);
+      const beam = this.#beam(0xff6b6b);
+      const halo = this.#halo(0xff6b6b, 1.2, 1.1);
+      group.add(bomb, base, beam, halo);
       group.userData.part = bomb;
+      group.userData.fx = [beam, halo];
     } else {
       const core = new THREE.Mesh(this.#track(new THREE.IcosahedronGeometry(0.9, 1)), this.#track(new THREE.MeshBasicMaterial({ color: accent, wireframe: true })));
       core.position.y = 1.6;
-      group.add(core);
+      const inner = new THREE.Mesh(this.#track(new THREE.IcosahedronGeometry(0.45, 0)), this.#track(new THREE.MeshBasicMaterial({ color: accent })));
+      core.add(inner);
+      const beam = this.#beam(accent);
+      const halo = this.#halo(accent, 3.2, 1.6);
+      group.add(core, beam, halo);
       group.userData.part = core;
+      group.userData.fx = [beam, halo, inner];
     }
     return group;
   }
@@ -390,13 +465,18 @@ export class FpsGame {
     const body = new THREE.Mesh(this.droneGeometry, new THREE.MeshLambertMaterial({ color: 0x331018, emissive: accent, emissiveIntensity: 0.6 }));
     const ring = new THREE.Mesh(this.ringGeometry, new THREE.MeshBasicMaterial({ color: accent }));
     ring.rotation.x = Math.PI / 2;
+    const eye = new THREE.Mesh(this.eyeGeometry, new THREE.MeshBasicMaterial({ color: 0xffc857 }));
+    eye.position.z = 0.34;
+    const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: this.glowTexture, color: accent, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: 0.55 }));
+    halo.scale.setScalar(1.6);
     const group = new THREE.Group();
-    group.add(body, ring);
+    group.add(body, ring, eye, halo);
     group.position.set(toWorld(cell.x), EYE_HEIGHT, toWorld(cell.y));
     this.scene.add(group);
-    const drone = { group, body, ring, hp: this.difficulty.droneHp, cooldown: 1 + Math.random() * 2, stunnedUntil: 0, wanderTarget: null, wanderUntil: 0, dying: 0, phase: Math.random() * 6 };
+    const drone = { group, body, ring, eye, halo, hp: this.difficulty.droneHp, cooldown: 1 + Math.random() * 2, stunnedUntil: 0, wanderTarget: null, wanderUntil: 0, dying: 0, phase: Math.random() * 6 };
     body.userData.drone = drone;
     ring.userData.drone = drone;
+    eye.userData.drone = drone;
     this.drones.push(drone);
   }
 
@@ -404,6 +484,8 @@ export class FpsGame {
     this.scene.remove(drone.group);
     drone.body.material.dispose();
     drone.ring.material.dispose();
+    drone.eye.material.dispose();
+    drone.halo.material.dispose();
   }
 
   #updateObjectiveVisuals() {
@@ -413,9 +495,11 @@ export class FpsGame {
         mesh.visible = !this.openDoors.has(objective.id) || mesh.userData.opening;
       } else if (objective.kind === "core") {
         mesh.userData.part.material.color.set(this.session.round.boss ? this.map.theme.accent : "#444");
+        for (const fx of mesh.userData.fx) fx.visible = this.session.round.boss;
       } else {
         const used = this.usedObjectives.has(objective.id);
         mesh.userData.part.material.color.set(used ? "#3a3a3a" : objective.kind === "defuse" ? "#ff6b6b" : this.map.theme.accent);
+        for (const fx of mesh.userData.fx) fx.visible = !used;
       }
     }
   }
@@ -429,8 +513,9 @@ export class FpsGame {
         ? "Boss round: reach the glowing core and restore it by answering a mixed set of timed questions."
         : `Answer ${this.session.round.questions} questions at terminals (glowing pillars), defuse points (red) and locked doors (orange). Bug drones will try to stop you.`),
       h("ul", { class: "controls-list" },
-        h("li", {}, "WASD move · Mouse look · Left click fire · E interact · R reload · 1/2 weapons"),
+        h("li", {}, "WASD move · Shift sprint · Mouse look · Left click fire · E interact · R reload · 1/2 weapons"),
         h("li", {}, `Q ${this.session.playerClass.basic.name} · F ${this.session.playerClass.tactical.name} · X ${this.session.playerClass.ultimate.name} · Hold Tab for the map · Esc pause`)),
+      h("p", { class: "muted" }, "Follow the waypoint marker to the nearest objective. Destroyed drones can drop green shield orbs."),
       h("p", { class: "muted" }, "The game pauses whenever a question is on screen."),
       h("div", { class: "actions" }, start)));
     start.focus();
@@ -450,6 +535,7 @@ export class FpsGame {
   resume() {
     this.hideOverlay();
     this.state = "playing";
+    for (const [text, kind] of this.pendingFeed.splice(0)) this.#feedItem(text, kind);
     this.ignoreMouseUntil = performance.now() + 150;
     this.keys.clear();
     this.firing = false;
@@ -504,6 +590,14 @@ export class FpsGame {
       this.app.sound.play("door");
     }
     if (objective.kind === "terminal" || objective.kind === "defuse") this.usedObjectives.add(objective.id);
+    if (objective.kind !== "door") {
+      const colour = effects.alarm ? 0xff5470 : objective.kind === "defuse" ? 0xff6b6b : this.map.theme.accent;
+      this.particles.burst(new THREE.Vector3(toWorld(objective.x), 1.3, toWorld(objective.y)), { count: 24, colour, speed: 5, size: 0.22, life: 0.9, gravity: 3 });
+    }
+    if (effects.shieldChange > 0) this.#feedItem(`+${effects.shieldChange} SHIELD`, "good");
+    if (effects.refillAmmo) this.#feedItem("AMMO REFILLED", "good");
+    if (effects.alarm) this.#feedItem("ALARM – DRONE DEPLOYED", "bad");
+    if (this.session.correctStreak >= 2) this.#feedItem(`ANSWER STREAK ×${this.session.correctStreak}`, "kill");
     if (effects.refillAmmo) for (const weapon of this.weapons) weapon.ammo = weapon.magazine;
     if (effects.revealEnemies) this.effects.revealEnemiesUntil = this.time + effects.revealEnemies;
     if (effects.alarm) {
@@ -546,6 +640,7 @@ export class FpsGame {
     const weapon = this.weapons[this.weaponIndex];
     if (weapon.magazine === Infinity || weapon.ammo === weapon.magazine || weapon.reloadUntil > this.time) return;
     weapon.reloadUntil = this.time + weapon.reloadTime;
+    this.app.sound.play("reload");
   }
 
   #switchWeapon(index) {
@@ -555,6 +650,8 @@ export class FpsGame {
     this.gunMaterial.color.set(colour);
     this.gunMaterial.emissive.set(colour);
     this.tracerMaterial.color.set(colour);
+    this.muzzleFlash.material.color.set(colour);
+    this.switchAnim = this.settings.reducedMotion ? 0 : 1;
   }
 
   #useAbility(slot) {
@@ -587,7 +684,10 @@ export class FpsGame {
   #fire() {
     const weapon = this.weapons[this.weaponIndex];
     if (weapon.reloadUntil > this.time || weapon.nextFireAt > this.time) return;
-    if (weapon.ammo <= 0) return this.#reload();
+    if (weapon.ammo <= 0) {
+      this.app.sound.play("empty");
+      return this.#reload();
+    }
     weapon.nextFireAt = this.time + weapon.fireInterval;
     if (weapon.magazine !== Infinity) weapon.ammo -= 1;
 
@@ -598,39 +698,125 @@ export class FpsGame {
     this.raycaster.set(this.camera.position, direction);
     this.raycaster.far = 60;
     const targets = [this.walls, ...this.drones.filter((d) => !d.dying).map((d) => d.group), ...[...this.objectiveMeshes.values()].filter((m) => m.visible)];
-    const [hit] = this.raycaster.intersectObjects(targets, true);
+    const hits = this.raycaster.intersectObjects(targets, true).filter((candidate) => !candidate.object.isSprite && candidate.object.material?.blending !== THREE.AdditiveBlending);
+    const [hit] = hits;
     const end = hit ? hit.point : this.camera.position.clone().addScaledVector(direction, 60);
 
     const drone = hit?.object.userData.drone;
     if (drone) {
       drone.hp -= weapon.damage;
-      drone.body.material.emissiveIntensity = 2;
+      drone.body.material.emissiveIntensity = 3;
       this.app.sound.play("hit");
-      if (drone.hp <= 0) {
-        drone.dying = 0.3;
-        setTimeout(() => {
-          if (!this.disposed && this.drones.length < this.droneTarget + this.session.alarms) this.#spawnDrone();
-        }, 20000);
-      }
+      this.particles.burst(end, { count: 6, colour: 0xffc857, speed: 4, size: 0.12, life: 0.3 });
+      this.#hitMarker(drone.hp <= 0);
+      if (drone.hp <= 0) this.#killDrone(drone);
+    } else if (hit) {
+      this.particles.burst(end.clone().addScaledVector(direction, -0.05), { count: 4, colour: weapon.colour, speed: 2.5, size: 0.08, life: 0.25, gravity: 4 });
     }
     this.app.sound.play("shoot");
 
-    const start = new THREE.Vector3(0.12, -0.09, -0.6).applyMatrix4(this.camera.matrixWorld);
+    const start = new THREE.Vector3(0, 0.008, -0.3).applyMatrix4(this.gun.matrixWorld);
     const geometry = new THREE.BufferGeometry().setFromPoints([start, end]);
     const line = new THREE.Line(geometry, this.tracerMaterial);
     this.scene.add(line);
     this.tracers.push({ line, until: this.time + 0.05 });
-    if (!this.settings.reducedMotion) this.gun.position.z = -0.41;
+    this.muzzleFlash.scale.setScalar(0.14 + Math.random() * 0.06);
+    this.muzzleFlash.material.rotation = Math.random() * Math.PI;
+    this.flashUntil = this.time + 0.05;
+    if (!this.settings.reducedMotion) {
+      this.gunKick = Math.min(1, this.gunKick + 0.5 + weapon.damage * 0.2);
+      this.pitch = Math.min(1.45, this.pitch + 0.0025 * weapon.damage);
+    }
   }
 
-  #hurt(amount) {
+  #killDrone(drone) {
+    drone.dying = 0.3;
+    const position = drone.group.position.clone();
+    const kills = this.session.recordKill();
+    this.app.sound.play("explode");
+    this.particles.burst(position, { count: 28, colour: 0xff5470, speed: 6, size: 0.26, life: 0.7 });
+    this.particles.burst(position, { count: 10, colour: 0xffc857, speed: 3, size: 0.35, life: 0.45, gravity: 1 });
+    this.#feedItem(`BUG SQUASHED · ${kills}`, "kill");
+    if (this.session.shield < MAX_SHIELD && Math.random() < ORB_DROP_CHANCE) this.#dropOrb(position);
+    setTimeout(() => {
+      if (!this.disposed && this.drones.length < this.droneTarget + this.session.alarms) this.#spawnDrone();
+    }, 20000);
+  }
+
+  /** Shield orbs make combat worth something without ever giving XP: questions remain the only way to score. */
+  #dropOrb(position) {
+    const mesh = new THREE.Mesh(this.orbGeometry, this.orbMaterial);
+    const halo = new THREE.Sprite(this.particles.material(0x6fdc8c));
+    halo.scale.setScalar(0.8);
+    mesh.add(halo);
+    mesh.position.set(position.x, 0.6, position.z);
+    this.scene.add(mesh);
+    this.orbs.push({ mesh, until: this.time + ORB_LIFETIME, phase: Math.random() * 6 });
+  }
+
+  #updateOrbs(dt) {
+    for (const orb of [...this.orbs]) {
+      orb.mesh.rotation.y += dt * 2;
+      orb.mesh.position.y = 0.6 + (this.settings.reducedMotion ? 0 : Math.sin(this.time * 3 + orb.phase) * 0.12);
+      const expiring = orb.until - this.time < 4;
+      orb.mesh.visible = !expiring || Math.floor(this.time * 6) % 2 === 0;
+      const collected = Math.hypot(orb.mesh.position.x - this.position.x, orb.mesh.position.z - this.position.z) < 1 && this.session.shield < MAX_SHIELD;
+      if (collected) {
+        const before = this.session.shield;
+        this.session.heal(ORB_SHIELD);
+        this.app.sound.play("pickup");
+        this.particles.burst(orb.mesh.position, { count: 14, colour: 0x6fdc8c, speed: 3, size: 0.18, life: 0.5, gravity: -2 });
+        this.#feedItem(`+${this.session.shield - before} SHIELD`, "good");
+      }
+      if (collected || orb.until <= this.time) {
+        this.scene.remove(orb.mesh);
+        this.orbs = this.orbs.filter((o) => o !== orb);
+      }
+    }
+  }
+
+  #hitMarker(kill) {
+    this.crosshair.classList.remove("hit", "kill");
+    void this.crosshair.offsetWidth;
+    this.crosshair.classList.add(kill ? "kill" : "hit");
+  }
+
+  #feedItem(text, kind) {
+    // Rewards earned at a question are shown once the player is back in the game, not behind the overlay.
+    if (this.state !== "playing") {
+      this.pendingFeed.push([text, kind]);
+      return;
+    }
+    const item = h("div", { class: `feed-item feed-${kind}` }, text);
+    this.killFeed.prepend(item);
+    while (this.killFeed.children.length > 4) this.killFeed.lastChild.remove();
+    setTimeout(() => item.remove(), 2600);
+  }
+
+  #hurt(amount, from = null) {
     if (this.time < this.effects.invulnerableUntil) return;
     const factor = this.time < this.effects.shieldUntil ? this.effects.shieldFactor : 1;
     const damage = Math.round(amount * factor);
     if (damage <= 0) return;
     const crashed = this.session.takeDamage(damage);
     this.app.sound.play("damage");
+    if (from) {
+      // Angle of the attacker relative to where the player is looking (0 = straight ahead).
+      const dx = from.x - this.position.x;
+      const dz = from.z - this.position.z;
+      const sin = Math.sin(this.yaw);
+      const cos = Math.cos(this.yaw);
+      const ahead = -sin * dx - cos * dz;
+      const right = cos * dx - sin * dz;
+      this.damageDir.style.transform = `rotate(${Math.atan2(right, ahead)}rad)`;
+      this.damageDir.classList.remove("show");
+      void this.damageDir.offsetWidth;
+      this.damageDir.classList.add("show");
+      clearTimeout(this.damageDirTimer);
+      this.damageDirTimer = setTimeout(() => this.damageDir.classList.remove("show"), 900);
+    }
     if (!this.settings.reducedMotion) {
+      this.shake = Math.min(1, this.shake + 0.5);
       this.damageFlash.classList.remove("flash");
       void this.damageFlash.offsetWidth;
       this.damageFlash.classList.add("flash");
@@ -674,7 +860,8 @@ export class FpsGame {
       forward /= length;
       strafe /= length;
     }
-    const speed = PLAYER_SPEED * (this.time < this.effects.speedUntil ? this.effects.speedMultiplier : 1);
+    this.sprinting = this.keys.has("shift") && forward > 0;
+    const speed = PLAYER_SPEED * (this.time < this.effects.speedUntil ? this.effects.speedMultiplier : 1) * (this.sprinting ? SPRINT_MULTIPLIER : 1);
     const sin = Math.sin(this.yaw);
     const cos = Math.cos(this.yaw);
     const dx = (-sin * forward + cos * strafe) * speed * dt;
@@ -682,12 +869,33 @@ export class FpsGame {
     if (!this.#blocked(this.position.x + dx, this.position.z)) this.position.x += dx;
     if (!this.#blocked(this.position.x, this.position.z + dz)) this.position.z += dz;
 
-    const bob = this.settings.reducedMotion || length === 0 ? 0 : Math.sin(this.time * 9) * 0.03;
+    const still = this.settings.reducedMotion;
+    const moving = length > 0 ? 1 : 0;
+    this.walkCycle = (this.walkCycle ?? 0) + dt * moving * (this.sprinting ? 12 : 9);
+    const bob = still ? 0 : Math.sin(this.walkCycle) * 0.03 * moving;
+    this.shake = Math.max(0, this.shake - dt * 3);
+    const shakeX = still ? 0 : (Math.random() - 0.5) * this.shake * 0.04;
+    const shakeY = still ? 0 : (Math.random() - 0.5) * this.shake * 0.04;
     this.camera.position.set(this.position.x, EYE_HEIGHT + bob, this.position.z);
-    this.camera.rotation.set(this.pitch, this.yaw, 0);
-    this.gun.position.z += (-0.45 - this.gun.position.z) * Math.min(1, dt * 12);
+    this.camera.rotation.set(this.pitch + shakeY, this.yaw + shakeX, 0);
 
-    if (this.firing || this.padFiring) this.#fire();
+    // Weapon sway, recoil, reload dip and weapon-switch raise.
+    this.gunKick = Math.max(0, this.gunKick - dt * 8);
+    this.switchAnim = Math.max(0, this.switchAnim - dt * 4);
+    const reloading = this.weapons[this.weaponIndex].reloadUntil > this.time;
+    this.reloadTilt = (this.reloadTilt ?? 0) + ((reloading && !still ? 1 : 0) - (this.reloadTilt ?? 0)) * Math.min(1, dt * 10);
+    const sway = still ? 0 : moving;
+    this.gun.position.set(
+      this.gunRest.x + Math.cos(this.walkCycle * 0.5) * 0.012 * sway,
+      this.gunRest.y + Math.abs(Math.sin(this.walkCycle * 0.5)) * 0.01 * sway - this.switchAnim * 0.2 - this.reloadTilt * 0.08 - (this.sprinting && !still ? 0.03 : 0),
+      this.gunRest.z + this.gunKick * 0.06,
+    );
+    this.gun.rotation.set(this.gunKick * 0.12 - this.reloadTilt * 0.5, this.sprinting && !still ? 0.35 : 0, this.reloadTilt * 0.4);
+    this.muzzleFlash.visible = this.time < (this.flashUntil ?? 0);
+    this.playerLight.position.copy(this.camera.position);
+    this.playerLight.intensity = this.muzzleFlash.visible ? 3 : 0.6;
+
+    if ((this.firing || this.padFiring) && !this.sprinting) this.#fire();
     const weapon = this.weapons[this.weaponIndex];
     if (weapon.reloadUntil && weapon.reloadUntil <= this.time && weapon.ammo < weapon.magazine) {
       weapon.ammo = weapon.magazine;
@@ -702,7 +910,7 @@ export class FpsGame {
     }
     for (const drone of [...this.drones]) {
       const position = drone.group.position;
-      drone.group.rotation.y += dt * 1.5;
+      drone.ring.rotation.z += dt * 2.5;
       drone.body.material.emissiveIntensity += (0.6 - drone.body.material.emissiveIntensity) * Math.min(1, dt * 8);
       if (drone.dying) {
         drone.dying -= dt;
@@ -719,6 +927,8 @@ export class FpsGame {
       const distance = Math.hypot(position.x - this.position.x, position.z - this.position.z);
       const sees = distance < DRONE_SIGHT && this.#lineOfSight(position, this.position);
       const hunting = sees || this.session.alarms > 0;
+      drone.eye.material.color.set(hunting ? 0xff3355 : 0xffc857);
+      if (hunting) drone.group.lookAt(this.position.x, position.y, this.position.z);
       let target = null;
       if (hunting && distance > 2.5) {
         const cx = toCell(position.x);
@@ -756,11 +966,12 @@ export class FpsGame {
       drone.cooldown -= dt;
       if (sees && distance < DRONE_ATTACK_RANGE && drone.cooldown <= 0 && this.time > this.effects.invulnerableUntil) {
         drone.cooldown = this.difficulty.fireInterval * (0.8 + Math.random() * 0.4);
-        const mesh = new THREE.Mesh(this.projectileGeometry, this.projectileMaterial);
+        const mesh = new THREE.Sprite(this.projectileMaterial);
+        mesh.scale.setScalar(0.45);
         mesh.position.copy(position);
         const velocity = new THREE.Vector3(this.position.x - position.x, EYE_HEIGHT - 0.2 - position.y, this.position.z - position.z).normalize().multiplyScalar(PROJECTILE_SPEED);
         this.scene.add(mesh);
-        this.projectiles.push({ mesh, velocity, life: 3 });
+        this.projectiles.push({ mesh, velocity, life: 3, from: position.clone() });
       }
     }
   }
@@ -771,8 +982,9 @@ export class FpsGame {
       projectile.life -= dt;
       const { x, y, z } = projectile.mesh.position;
       let remove = projectile.life <= 0 || isSolid(this.map, toCell(x), toCell(z), this.openDoors);
+      if (remove && projectile.life > 0) this.particles.burst(projectile.mesh.position, { count: 5, colour: 0xff5470, speed: 2, size: 0.12, life: 0.3 });
       if (!remove && Math.hypot(x - this.position.x, z - this.position.z) < 0.5 && Math.abs(y - EYE_HEIGHT) < 0.9) {
-        this.#hurt(this.difficulty.damage);
+        this.#hurt(this.difficulty.damage, projectile.from);
         remove = true;
       }
       if (remove) {
@@ -794,6 +1006,11 @@ export class FpsGame {
       const mesh = this.objectiveMeshes.get(objective.id);
       const part = mesh.userData.part;
       if (objective.kind === "defuse" || objective.kind === "core") part.rotation.y += dt * (objective.kind === "core" && this.session.round.boss ? 1.5 : 0.6);
+      if (objective.kind === "core" && this.session.round.boss && !this.settings.reducedMotion) {
+        const progress = this.session.roundState.answered / this.session.round.questions;
+        part.scale.setScalar(1 + Math.sin(this.time * 4) * 0.06 * (1 - progress));
+      }
+      if (mesh.userData.fx && !this.settings.reducedMotion) mesh.userData.fx[0].material.opacity = 0.35 + Math.sin(this.time * 3 + objective.x) * 0.12;
       if (objective.kind === "door" && mesh.userData.opening) {
         part.position.y -= dt * 5;
         if (part.position.y < -WALL_HEIGHT / 2) {
@@ -817,6 +1034,7 @@ export class FpsGame {
       h("div", { class: "hud-round" }, `ROUND ${session.roundIndex + 1}/${session.mode.rounds.length} · ${session.round.name.toUpperCase()}`),
       h("div", {}, session.round.boss ? `Restore the core: ${session.roundState.answered}/${session.round.questions}` : `Questions answered: ${session.roundState.answered}/${session.round.questions}`),
       h("div", { class: "hud-zone" }, zone ? zone.name : ""),
+      h("div", { class: "hud-kills" }, `Bugs squashed: ${session.kills}`),
       session.alarms ? h("div", { class: "hud-alarm" }, `ALARM x${session.alarms} – find a defuse point`) : null);
     clear(this.hudTopRight, time === null ? null : h("div", { class: "hud-time" }, `${Math.floor(time / 60)}:${String(Math.floor(time % 60)).padStart(2, "0")}`));
     clear(this.hudBottomLeft,
@@ -834,7 +1052,64 @@ export class FpsGame {
       h("div", { class: "hud-ammo" }, weapon.reloadUntil > this.time ? "RELOADING" : weapon.magazine === Infinity ? "∞" : `${weapon.ammo}/${weapon.magazine}`));
     const objective = this.state === "playing" ? this.#nearestObjective() : null;
     const labels = { door: "Unlock door", terminal: "Access terminal", defuse: "Defuse", core: "Restore the core" };
+    this.lowShield.classList.toggle("active", session.shield <= 30 && this.state === "playing");
+    this.#updateWaypoint();
     this.prompt.textContent = objective ? `[E] ${labels[objective.kind]}${objective.zone ? ` · ${objective.zone.name}` : ""}` : "";
+  }
+
+  /** The closest objective that still needs doing, by walking distance so it never points through walls. */
+  #waypointTarget() {
+    const field = this.flowField;
+    let best = null;
+    for (const objective of this.parsed.objectives) {
+      if (this.session.round.boss ? objective.kind !== "core" : objective.kind === "core") continue;
+      if (objective.kind === "door") continue;
+      if (this.usedObjectives.has(objective.id)) continue;
+      const steps = field ? field.at(objective.x, objective.y) : Math.hypot(objective.x - this.position.x / CELL, objective.y - this.position.z / CELL);
+      if (!Number.isFinite(steps)) continue;
+      if (!best || steps < best.steps) best = { objective, steps };
+    }
+    if (best) return best.objective;
+    // Everything reachable is used or behind locked doors: point at the nearest locked door.
+    let door = null;
+    for (const objective of this.parsed.objectives) {
+      if (objective.kind !== "door" || this.openDoors.has(objective.id)) continue;
+      const distance = Math.hypot(objective.x - this.position.x / CELL, objective.y - this.position.z / CELL);
+      if (!door || distance < door.distance) door = { objective, distance };
+    }
+    return door?.objective ?? null;
+  }
+
+  #updateWaypoint() {
+    const target = this.state === "playing" ? this.#waypointTarget() : null;
+    this.waypoint.hidden = !target;
+    if (!target) return;
+    const world = new THREE.Vector3(toWorld(target.x), target.kind === "core" ? 1.6 : 1.4, toWorld(target.y));
+    const distance = Math.round(Math.hypot(world.x - this.position.x, world.z - this.position.z));
+    const projected = world.clone().project(this.camera);
+    const behind = projected.z > 1;
+    let x = projected.x;
+    let y = projected.y;
+    if (behind) {
+      x = -x;
+      y = -y;
+    }
+    // Keep clear of the HUD panels: less room at the bottom where the ability bar sits.
+    const yLimit = y < 0 ? 0.68 : 0.8;
+    const offscreen = behind || Math.abs(x) > 0.9 || Math.abs(y) > yLimit;
+    if (offscreen) {
+      // Clamp to the screen edge in the target's direction.
+      const scale = 1 / Math.max(Math.abs(x) / 0.9, Math.abs(y) / yLimit, 1e-6);
+      x *= scale;
+      y *= scale;
+    }
+    const colour = target.kind === "defuse" ? "#ff6b6b" : target.kind === "door" ? "#ff9d3d" : this.map.theme.accent;
+    this.waypoint.style.left = `${(x + 1) * 50}%`;
+    this.waypoint.style.top = `${(1 - y) * 50}%`;
+    this.waypoint.style.setProperty("--wp", colour);
+    this.waypoint.classList.toggle("offscreen", offscreen);
+    this.waypoint.firstChild.style.transform = offscreen ? `rotate(${Math.atan2(x, y)}rad)` : "";
+    this.waypoint.lastChild.textContent = `${OBJECTIVE_LABELS[target.kind]} ${distance}m`;
   }
 
   #drawMinimap() {
@@ -867,6 +1142,8 @@ export class FpsGame {
         context.fill();
       }
     }
+    context.fillStyle = "#6fdc8c";
+    for (const orb of this.orbs) context.fillRect((orb.mesh.position.x / CELL) * scale - 1.5, (orb.mesh.position.z / CELL) * scale - 1.5, 3, 3);
     context.save();
     context.translate(px * scale, pz * scale);
     context.rotate(-this.yaw);
@@ -894,6 +1171,8 @@ export class FpsGame {
       this.#updatePlayer(dt, pad);
       this.#updateDrones(dt);
       this.#updateProjectiles(dt);
+      this.#updateOrbs(dt);
+      this.particles.update(dt);
       if (this.session.timeRemainingSeconds() === 0) {
         this.state = "ended";
         this.handlers.timeUp();
@@ -920,6 +1199,7 @@ export class FpsGame {
     if (document.pointerLockElement) document.exitPointerLock();
     for (const drone of this.drones) this.#removeDrone(drone);
     for (const tracer of this.tracers) tracer.line.geometry.dispose();
+    this.particles?.dispose();
     for (const item of this.disposables) item.dispose?.();
     this.walls?.dispose();
     this.renderer.dispose();

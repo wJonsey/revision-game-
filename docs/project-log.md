@@ -22,3 +22,12 @@
 - Accessibility settings, captions for synthesised sounds, keyboard and controller controls.
 - Testing: 141 unit tests; automated browser system tests of every mode; 8 defects found and fixed — see `docs/test-report.md`.
 - Next: test on a school PC; teacher review of question accuracy; usability test with classmates.
+
+## 2026-09-28 — 3D overhaul ("make the game a lot better")
+- Visuals: procedurally drawn textures (wall panels with circuit traces, floor tiles, ceiling, hazard-striped doors, terminal screens) — still no image files, so nothing extra to download on school networks. Glowing skirting, light columns on active objectives, halos, and a pulsing boss core.
+- Weapon: multi-part model with muzzle flash, recoil, walk sway, reload dip and weapon-switch animation.
+- Combat feedback: hit/kill markers, spark and explosion particles, damage-direction indicator, low-shield warning, screen shake (off with Reduced motion), noise-based synthesised sounds.
+- Drones: glowing eye that turns red when a drone is hunting you, and they face you while attacking.
+- Navigation: waypoint marker to the nearest reachable objective (walking distance, so it never points through walls); falls back to the nearest locked door.
+- Gameplay: Shift to sprint; destroyed drones can drop shield orbs; reward feed (shield, ammo, answer streaks) shown on return to play. Combat still never gives XP — only answering questions does.
+- Match report: best answer streak and bugs squashed. 2 new unit tests (143 total).

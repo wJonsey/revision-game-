@@ -35,9 +35,11 @@ export class MatchSession {
     this.shield = MAX_SHIELD;
     this.alarms = 0;
     this.crashes = 0;
+    this.kills = 0;
     this.askedIds = new Set();
     this.doorAttempts = new Map();
     this.correctStreak = 0;
+    this.bestStreak = 0;
     this.ultimateCharge = 0;
     this.pendingAids = new Set();
     this.rounds = [];
@@ -184,6 +186,7 @@ export class MatchSession {
     if (result.correct) {
       state.correct += 1;
       this.correctStreak += 1;
+      this.bestStreak = Math.max(this.bestStreak, this.correctStreak);
       this.ultimateCharge = Math.min(this.playerClass.ultimate.charge, this.ultimateCharge + 1);
       effects = this.#correctEffects(objective, { wasPreviouslyWrong });
     } else {
@@ -224,6 +227,12 @@ export class MatchSession {
     return false;
   }
 
+  /** A drone was destroyed. Combat is tracked for the report but never earns XP: learning does. */
+  recordKill() {
+    this.kills += 1;
+    return this.kills;
+  }
+
   heal(amount) {
     this.shield = Math.min(MAX_SHIELD, this.shield + amount);
   }
@@ -253,6 +262,8 @@ export class MatchSession {
       accuracy: answered ? correct / answered : null,
       xp,
       crashes: this.crashes,
+      kills: this.kills,
+      bestStreak: this.bestStreak,
       durationMs: this.clock() - this.startedAt,
       at: this.clock(),
     };
