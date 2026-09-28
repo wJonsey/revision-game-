@@ -31,3 +31,8 @@
 - Navigation: waypoint marker to the nearest reachable objective (walking distance, so it never points through walls); falls back to the nearest locked door.
 - Gameplay: Shift to sprint; destroyed drones can drop shield orbs; reward feed (shield, ammo, answer streaks) shown on return to play. Combat still never gives XP — only answering questions does.
 - Match report: best answer streak and bugs squashed. 2 new unit tests (143 total).
+
+## 2026-09-28 — Textbook revision question bank
+- Imported 534 written revision questions with model answers covering CA1–CA8: `core1-textbook.json` (250, CA1–CA4) and `core2-textbook.json` (284, CA5–CA8).
+- Each is a self-marked written answer: mark points come from the model answer, the command word and difficulty from the question wording, and the spec section from its place in the content area.
+- References to textbook tables, figures and "the chapter" were rewritten so every question stands on its own. All questions pass pack validation.

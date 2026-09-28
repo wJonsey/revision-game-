@@ -6,13 +6,15 @@ import { join } from "node:path";
 import core1 from "../../content/questions/core1.json";
 import core2 from "../../content/questions/core2.json";
 import esp from "../../content/questions/esp.json";
+import core1Textbook from "../../content/questions/core1-textbook.json";
+import core2Textbook from "../../content/questions/core2-textbook.json";
 import incidents from "../../content/incidents/incidents.json";
 import { validatePack, validateQuestion } from "../../src/content/questionSchema.js";
 import { normaliseOutput } from "../../src/revision/answerChecker.js";
 import { areasForMap } from "../../src/content/specIndex.js";
 import { getSection } from "../../src/content/specIndex.js";
 
-const packs = [core1, core2, esp];
+const packs = [core1, core2, esp, core1Textbook, core2Textbook];
 const allQuestions = [...packs.flatMap((pack) => pack.questions), ...incidents.flatMap((i) => i.steps.map((s) => s.question))];
 
 describe("built-in question packs", () => {
@@ -27,7 +29,7 @@ describe("built-in question packs", () => {
   });
 
   it("covers every content area of every map", () => {
-    for (const [pack, mapId] of [[core1, "core1"], [core2, "core2"], [esp, "esp"]]) {
+    for (const [pack, mapId] of [[core1, "core1"], [core2, "core2"], [esp, "esp"], [core1Textbook, "core1"], [core2Textbook, "core2"]]) {
       const areasCovered = new Set(pack.questions.map((q) => getSection(q.specRef).areaId));
       for (const area of areasForMap(mapId)) expect(areasCovered, `${mapId} ${area.id}`).toContain(area.id);
     }

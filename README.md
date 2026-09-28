@@ -36,6 +36,8 @@ npm run build    # static site in dist/ – can be hosted on GitHub Pages
 | `content/questions/core1.json` | 108 – CA1–CA4 (Paper 1) |
 | `content/questions/core2.json` | 78 – CA5–CA8 (Paper 2) |
 | `content/questions/esp.json` | 44 – ESP pre-task and Tasks 1–4b |
+| `content/questions/core1-textbook.json` | 250 – CA1–CA4 written revision questions with model answers |
+| `content/questions/core2-textbook.json` | 284 – CA5–CA8 written revision questions with model answers |
 | `content/incidents/incidents.json` | 3 weekly incidents (23 steps) |
 
 Types: multiple choice, true/false, predict the output (Python 3.10), fill the blank, ordering, matching and written answers self-marked against mark points with spec command words.

@@ -1,6 +1,8 @@
 import core1 from "../../content/questions/core1.json";
 import core2 from "../../content/questions/core2.json";
 import esp from "../../content/questions/esp.json";
+import core1Textbook from "../../content/questions/core1-textbook.json";
+import core2Textbook from "../../content/questions/core2-textbook.json";
 import incidents from "../../content/incidents/incidents.json";
 import { QuestionBank } from "../content/questionBank.js";
 import { SaveStore } from "../persistence/saveStore.js";
@@ -9,7 +11,7 @@ import { applySettings, systemPrefersReducedMotion } from "../settings/settings.
 import { SoundBoard } from "../audio/sound.js";
 import { detectCapabilities } from "../core/capabilities.js";
 
-export const BUILT_IN_PACKS = [core1, core2, esp];
+export const BUILT_IN_PACKS = [core1, core2, esp, core1Textbook, core2Textbook];
 
 function buildBank(userPacks) {
   const bank = new QuestionBank();
