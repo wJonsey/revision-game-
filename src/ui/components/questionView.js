@@ -30,6 +30,10 @@ export function codeBlock(code) {
     h("code", {}, lines.map((line, index) => h("span", { class: "code-line" }, h("span", { class: "line-no", "aria-hidden": "true" }, String(index + 1)), line || " ", "\n"))));
 }
 
+export function shuffleMultipleChoiceOptions(question, rng = Math.random) {
+  return shuffle(question.options.map((text, originalIndex) => ({ text, originalIndex })), rng);
+}
+
 /**
  * Builds the input for any question type.
  * @returns {{ element: HTMLElement, getResponse: () => any, isAnswered: () => boolean, focus: () => void, onChange: (fn: () => void) => void }}
@@ -42,13 +46,15 @@ export function createAnswerInput(question, { aids = new Set(), rng = Math.rando
   switch (question.type) {
     case "multiple_choice": {
       let choice = initial?.choice ?? null;
-      const wrong = question.options.map((_, i) => i).filter((i) => i !== question.answer);
-      const eliminated = aids.has("eliminate") ? new Set(shuffle(wrong, rng).slice(0, Math.max(0, wrong.length - 1))) : new Set();
-      const buttons = question.options.map((option, index) =>
+      const displayedOptions = shuffleMultipleChoiceOptions(question, rng);
+      const wrong = displayedOptions.map((option, index) => ({ index, originalIndex: option.originalIndex }))
+        .filter(({ originalIndex }) => originalIndex !== question.answer);
+      const eliminated = aids.has("eliminate") ? new Set(shuffle(wrong, rng).slice(0, Math.max(0, wrong.length - 1)).map(({ index }) => index)) : new Set();
+      const buttons = displayedOptions.map(({ text }, index) =>
         h("button", {
           class: "option", type: "button", role: "radio", "aria-checked": String(choice === index), disabled: eliminated.has(index),
           on: { click: () => select(index) },
-        }, h("span", { class: "option-key" }, String.fromCharCode(65 + index)), h("span", { class: "option-text" }, option), eliminated.has(index) ? h("span", { class: "option-note" }, " (eliminated)") : null));
+        }, h("span", { class: "option-key" }, String.fromCharCode(65 + index)), h("span", { class: "option-text" }, text), eliminated.has(index) ? h("span", { class: "option-note" }, " (eliminated)") : null));
       function select(index) {
         if (eliminated.has(index)) return;
         choice = index;
@@ -60,7 +66,7 @@ export function createAnswerInput(question, { aids = new Set(), rng = Math.rando
           const number = Number(event.key);
           if (number >= 1 && number <= question.options.length) select(number - 1);
         } } }, buttons, h("p", { class: "hint-text" }, "Tip: press 1–" + question.options.length + " to choose."));
-      return { ...base, element, getResponse: () => ({ choice }), isAnswered: () => choice !== null, focus: () => buttons.find((b) => !b.disabled)?.focus() };
+      return { ...base, element, getResponse: () => ({ choice: choice === null ? null : displayedOptions[choice].originalIndex }), isAnswered: () => choice !== null, focus: () => buttons.find((b) => !b.disabled)?.focus() };
     }
 
     case "true_false": {
