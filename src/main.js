@@ -13,6 +13,7 @@ import { statisticsScreen } from "./ui/screens/statistics.js";
 import { arsenalScreen } from "./ui/screens/arsenal.js";
 import { profileScreen } from "./ui/screens/profile.js";
 import { settingsScreen } from "./ui/screens/settings.js";
+import { mistakesScreen } from "./ui/screens/mistakes.js";
 
 const app = createApp();
 
@@ -30,6 +31,7 @@ const screens = {
   arsenal: arsenalScreen(app),
   profile: profileScreen(app),
   settings: settingsScreen(app),
+  mistakes: mistakesScreen(app),
 };
 
 const root = document.querySelector("#app");

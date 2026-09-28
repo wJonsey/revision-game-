@@ -3,10 +3,12 @@ import { rankFor, levelFor } from "../../progression/ranks.js";
 import { displayedStreak } from "../../progression/streaks.js";
 import { dayKey, isoWeekKey } from "../../core/dates.js";
 import { bar } from "../dom.js";
+import { stillWrongCount } from "./mistakes.js";
 
 const MENU = [
   { id: "play", label: "Play", detail: "Tactical revision matches" },
   { id: "revision", label: "Revision", detail: "Revision memory and console" },
+  { id: "mistakes", label: "Questions Wrong", detail: "Quiz yourself on your mistakes" },
   { id: "practice", label: "Practice Range", detail: "Choose a topic, no combat" },
   { id: "exam", label: "Exam Simulation", detail: "Timed paper and analysis" },
   { id: "daily", label: "Daily Deployment", detail: "10 questions a day" },
@@ -33,7 +35,8 @@ export function menuScreen(app) {
     for (const problem of app.bank.problems) warnings.push(`Question pack "${problem.packId}" was not loaded: ${problem.errors[0]}`);
     if (!app.capabilities.webgl) warnings.push("3D graphics (WebGL) are unavailable on this device. Use Terminal Ops mode in Play.");
 
-    const badges = { daily: dailyDone ? "Done today" : "Available", weekly: weeklyDone ? "Done this week" : "Available" };
+    const wrong = stillWrongCount(app);
+    const badges = { mistakes: wrong ? `${wrong} to fix` : "Nothing to fix", daily: dailyDone ? "Done today" : "Available", weekly: weeklyDone ? "Done this week" : "Available" };
 
     root.append(h("section", { class: "menu-screen" },
       h("h1", { class: "title" }, "CODE//BREACH"),

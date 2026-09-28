@@ -35,6 +35,7 @@ export function matchSummaryScreen(app) {
             h("button", { class: "btn btn-small", on: { click: () => navigate("practice", { map: getSection(ref)?.map, areaId: getSection(ref)?.areaId, sectionId: ref }) } }, "Practise"))))) : null,
         h("div", { class: "actions" },
           h("button", { class: "btn btn-primary", on: { click: () => navigate("play") } }, "Play again"),
+          summary.correctAnswers < summary.questionsAnswered ? h("button", { class: "btn", on: { click: () => navigate("mistakes") } }, "Quiz my wrong answers") : null,
           h("button", { class: "btn", on: { click: () => navigate("menu") } }, "Main menu"))));
     body.querySelector(".btn-primary").focus();
   };

@@ -11,7 +11,7 @@ terminals and objectives; an adaptive engine brings weak topics back more often.
 ```bash
 npm install
 npm run dev      # open the forwarded port 5173
-npm test         # 143 unit tests (content tests run every Python output question through python3)
+npm test         # 151 unit tests (content tests run every Python output question through python3)
 npm run lint
 npm run build    # static site in dist/ – can be hosted on GitHub Pages
 ```
@@ -20,6 +20,7 @@ npm run build    # static site in dist/ – can be hosted on GitHub Pages
 | Menu | What it does |
 |---|---|
 | Play | 3 operations (Core 1, Core 2, ESP) × Quick / Standard / Custom matches. **Deploy (3D)** first-person, or **Terminal Ops** with no graphics (same rules) for PCs without WebGL |
+| Questions Wrong | Every question you get wrong (any mode) is saved; quiz yourself on them until each is answered correctly |
 | Revision | Revision Memory (Leitner boxes, due, weak, strong, recently learned, mastered) + developer console (`scan topic data`, `weak`, `due`…) |
 | Practice Range | Filter by operation, content area, section, difficulty, type; adaptive or random |
 | Exam Simulation | Timed paper, no feedback until the end, self-marked written answers, analysis by content area (never predicts grades) |
